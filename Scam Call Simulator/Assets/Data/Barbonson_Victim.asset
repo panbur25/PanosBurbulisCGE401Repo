@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Barbonson_Victim
+  m_EditorClassIdentifier: 
+  victimName: Barbonson Richards
+  steps:
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
+  - victimLine: barb victim test
+    choices:
+    - text: good
+      trustDelta: 15
+      isGood: 1
+      label: 
+    - text: bad
+      trustDelta: -15
+      isGood: 0
+      label: 
+    - text: neutral
+      trustDelta: 0
+      isGood: 0
+      label: 
