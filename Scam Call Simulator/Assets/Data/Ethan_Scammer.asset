@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Ethan_Scammer
+  m_EditorClassIdentifier: 
+  victimName: Ethan Winters
+  steps:
+  - victimLine: Hey! Oh wow, it's been a while. What've you been up to lately?
+    choices:
+    - text: Ethan! Great timing. I just came into some serious money and thought
+        of you.
+      trustDelta: -12
+      isGood: 1
+      label: 
+    - text: Not much. Hey, have you ever looked into cryptocurrency investing?
+      trustDelta: 8
+      isGood: 1
+      label: 
+    - text: Living the dream, man! Actually, I've got something exciting to tell
+        you.
+      trustDelta: 6
+      isGood: 1
+      label: 
+  - victimLine: Ha, no way! How'd you manage that? Did you get a new job or something?
+    choices:
+    - text: No job, it's this crypto platform a buddy put me onto. Changed my life.
+      trustDelta: -14
+      isGood: 0
+      label: 
+    - text: It's called CryptoVault. You put money in, the algorithm does the rest.
+      trustDelta: 10
+      isGood: 1
+      label: 
+    - text: Kind of hard to explain over the phone, but it involves crypto trading.
+      trustDelta: 4
+      isGood: 1
+      label: 
+  - victimLine: Crypto? I dunno man, I've heard a lot of bad stories about that stuff.
+    choices:
+    - text: I said the same thing! That's exactly why I only trust this one platform.
+      trustDelta: -16
+      isGood: 0
+      label: 
+    - text: Those bad stories are just people who didn't use the right system.
+      trustDelta: 6
+      isGood: 1
+      label: 
+    - text: I get it. Honestly, just look at my withdrawal history. It's real.
+      trustDelta: -4
+      isGood: 0
+      label: 
+  - victimLine: I mean... how much are we actually talking here? Like real numbers.
+    choices:
+    - text: Last month alone I cleared $40k. I can show you the screenshots.
+      trustDelta: -14
+      isGood: 0
+      label: 
+    - text: It varies. I don't want to overpromise, but it's been life-changing.
+      trustDelta: 4
+      isGood: 1
+      label: 
+    - text: Enough that I quit worrying about bills. You could too, for just $500.
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: Wait, $500? So I have to pay to join? That sounds like one of those
+      scam things.
+    choices:
+    - text: It's not a fee, it's your starting investment, you own that money still.
+      trustDelta: -16
+      isGood: 0
+      label: 
+    - text: Think of it like a membership. Every legit platform has a starting buy-in.
+      trustDelta: 6
+      isGood: 1
+      label: 
+    - text: I thought the same! But I got it all back in the first week, easy.
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: If it's so good, why do you need me to join? Why not just keep it
+      to yourself?
+    choices:
+    - text: I get a referral bonus, I won't lie, but you'd profit way more than I
+        do.
+      trustDelta: -12
+      isGood: 0
+      label: 
+    - text: Because you're my friend, Ethan. I'd feel guilty keeping this from you.
+      trustDelta: 4
+      isGood: 1
+      label: 
+    - text: Honestly the more people join, the better the algorithm performs for
+        all of us.
+      trustDelta: -4
+      isGood: 0
+      label: 
+  - victimLine: A referral bonus? So you make money off me signing up. That feels
+      kinda off.
+    choices:
+    - text: It's like a finder's fee, totally standard in investing. Check any broker.
+      trustDelta: -14
+      isGood: 0
+      label: 
+    - text: I understand the hesitation. Want me to send you some info to review
+        first?
+      trustDelta: 10
+      isGood: 1
+      label: 
+    - text: You're overthinking it, man. My whole family is on this. Even my mom.
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: I don't know... can I at least look up this CryptoVault platform
+      first?
+    choices:
+    - text: Of course! Just know the public site is separate from the private member
+        portal.
+      trustDelta: -16
+      isGood: 0
+      label: 
+    - text: The thing is, it's invite-only. You won't find much publicly. Trust the
+        results.
+      trustDelta: 6
+      isGood: 1
+      label: 
+    - text: Totally, but the window closes tonight, so don't take too long.
+      trustDelta: -10
+      isGood: 0
+      label: 
+  - victimLine: Tonight?! Why's there a deadline, why can't I just join next week?
+    choices:
+    - text: New member slots open monthly, I just don't want you to wait another
+        30 days.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: You know what, forget the deadline. Take your time, I just wanted to
+        help.
+      trustDelta: 14
+      isGood: 1
+      label: Vague pressure close
+    - text: It's a limited pool thing, too many investors dilutes everyone's returns.
+      trustDelta: -8
+      isGood: 0
+      label: 

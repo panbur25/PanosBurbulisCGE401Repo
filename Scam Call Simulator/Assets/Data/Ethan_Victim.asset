@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Ethan_Victim
+  m_EditorClassIdentifier: 
+  victimName: Ethan Winters
+  steps:
+  - victimLine: Hey, it's Ethan! I just made $40k last month on CryptoVault; had
+      to call you first. You in?
+    choices:
+    - text: That sounds way too good to be true. How exactly does it work?
+      trustDelta: 16
+      isGood: 1
+      label: 
+    - text: $40k?! No way! how do I sign up right now?
+      trustDelta: -16
+      isGood: 0
+      label: 
+    - text: Wow... I've actually been looking for ways to earn extra lately.
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: It's a private algorithm, guaranteed 30% monthly. I can get you in
+      for just $500.
+    choices:
+    - text: No real investment 'guarantees' returns. That's a major red flag.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Only $500? That's nothing. Send me the link!
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: 30% a month is high... but you're my friend, so maybe it's legit?
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: I know it sounds crazy, but I can show you my withdrawal history,
+      real screenshots.
+    choices:
+    - text: Screenshots can be faked easily. I want to see verified third-party proof.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: Oh wow, seeing the withdrawals makes it feel real. I'm in!
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: Those do look convincing... maybe I'm overthinking this.
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: My whole family is already on it, my cousin pulled out $12k last
+      week, no problem.
+    choices:
+    - text: That's a classic tactic, using family stories to pressure people.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: 'If your whole family is doing it, it must be safe. Count me in. '
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: 'I guess if your family trusts it... that does make me feel better. '
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: We only need your wallet address and a small activation fee to get
+      your account live.
+    choices:
+    - text: Legitimate platforms never charge an 'activation fee.' This is a scam.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Okay, how much is the fee? I want to get started today.
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: An activation fee seems weird, but maybe that's just how it works?
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: This platform is fully offshore, keeps it away from government taxes
+      and interference.
+    choices:
+    - text: This platform is fully offshore, keeps it away from government taxes
+        and interference.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: Avoiding taxes? Even better! I definitely want in on that.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: I mean, offshore banking is a real thing, so maybe it's fine?
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: "You only have until midnight \u2014 slots are filling up and I can't
+      hold your spot."
+    choices:
+    - text: Artificial deadlines are a pressure tactic. I need time to research this
+        properly.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Midnight?! Okay I'm sending the money right now, don't let it close!
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: Alright, alright... I guess I don't want to miss out.
+      trustDelta: -10
+      isGood: 0
+      label: 
+  - victimLine: Just send the funds directly to this wallet address, it's the only
+      way the system accepts payment.
+    choices:
+    - text: Sending money to a random wallet with no paper trail? Absolutely not.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Sure, I'll copy the address and send it right now.
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: It feels sketchy, but I've come this far... maybe just this once.
+      trustDelta: -12
+      isGood: 0
+      label: 
+  - victimLine: Once you're in, you can recruit two friends and earn a cut of their
+      investment too.
+    choices:
+    - text: Recruiting others for a cut of their investment, that's a pyramid scheme.
+      trustDelta: 22
+      isGood: 1
+      label: 
+    - text: I already know who I'd recruit! This just keeps getting better.
+      trustDelta: -22
+      isGood: 0
+      label: 
+    - text: That's a nice bonus I guess... I'll think about whether to tell anyone.
+      trustDelta: -8
+      isGood: 0
+      label: 
