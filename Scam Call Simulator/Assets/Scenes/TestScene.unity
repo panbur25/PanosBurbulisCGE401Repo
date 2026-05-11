@@ -1443,6 +1443,8 @@ MonoBehaviour:
     victimLine: 
     assistantAdvice: 
     choices: []
+    successFeedback: 
+    failureFeedback: 
   dialoguePanel: {fileID: 588856452}
   dialogueText: {fileID: 1054176262}
   promptUI: {fileID: 1500949284}
@@ -3260,6 +3262,8 @@ MonoBehaviour:
     victimLine: 
     assistantAdvice: 
     choices: []
+    successFeedback: 
+    failureFeedback: 
   dialoguePanel: {fileID: 399854103}
   dialogueText: {fileID: 305558403}
   promptUI: {fileID: 1318906528}
@@ -5025,7 +5029,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4f1c771b63398fa43b674ec12d17e88e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
