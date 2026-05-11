@@ -107,5 +107,11 @@ public class PlayerController : MonoBehaviour
 
     /// <summary>Returns true while the player is providing movement input.</summary>
     public bool IsMoving() => moveInput != Vector2.zero;
+
+    public void FreezePlayer()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null) rb.velocity = Vector2.zero;
+    }
 }
 

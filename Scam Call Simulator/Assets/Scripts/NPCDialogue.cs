@@ -5,59 +5,97 @@ using UnityEngine.UI;
 
 public class NPCDialogue : MonoBehaviour
 {
-    [Header("Interaction")]
-    public float interactRange = 3f;
+    [Header("Settings")]
+    public float interactRange = 4f;
     public Transform player;
+    public float typeSpeed = 0.02f;
 
-    [Header("UI")]
-    public GameObject promptUI;      // "Press E" prompt
-    public GameObject dialogueBubble; // the speech bubble panel
+    [Header("Data Source")]
+    public DialogueStep currentStep; // The ScriptableObject asset
+
+    [Header("UI References")]
+    public GameObject dialoguePanel;
     public Text dialogueText;
+    public GameObject promptUI;
 
-    [Header("Dialogue")]
-    [TextArea] public string hint; // type your hint directly in the Inspector
+    private bool isDialogueActive = false;
+    private bool isTyping = false;
+    private Coroutine typingCoroutine;
 
-    [Header("NPC Identity")]
-    [SerializeField] private string npcName;
-
-    private bool bubbleOpen = false;
+    void Start()
+    {
+        if (dialoguePanel != null) dialoguePanel.SetActive(false);
+    }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        if (player == null) return;
+
+        float distance = Vector2.Distance(transform.position, player.position);
         bool inRange = distance <= interactRange;
 
-        // Show prompt only when in range and bubble isn't open
-        promptUI.SetActive(inRange && !bubbleOpen);
+        if (promptUI != null) promptUI.SetActive(inRange && !isDialogueActive);
 
-        // Open on E
-        if (inRange && !bubbleOpen && Input.GetKeyDown(KeyCode.E))
-            OpenBubble();
+        // THE LOCK: If another script tries to force text in while we aren't typing, 
+        // we wipe it. This kills the "Double Type" from the other script.
+        if (!isTyping && isDialogueActive && dialogueText.text != "")
+        {
+            // Only do this if you find the other script is still winning
+            // dialogueText.text = ""; 
+        }
 
-        // Close on X
-        if (bubbleOpen && Input.GetKeyDown(KeyCode.X))
-            CloseBubble();
-
-        // Close when walking away
-        if (bubbleOpen && !inRange)
-            CloseBubble();
+        if (inRange && Input.GetKeyDown(KeyCode.E))
+        {
+            if (!isDialogueActive) OpenDialogue();
+            else DisplayNext();
+        }
     }
 
-    void OpenBubble()
+    public void OpenDialogue()
     {
-        dialogueText.text = hint;
-        dialogueBubble.SetActive(true);
-        promptUI.SetActive(false);
-        bubbleOpen = true;
-
-        int index = GameManager.Instance.GetNPCIndexByName(npcName); // NEW
-        if (index >= 0)
-            GameManager.Instance.OnPlayerMetNPC(index);
+        isDialogueActive = true;
+        if (dialoguePanel != null) dialoguePanel.SetActive(true);
+        DisplayNext();
     }
 
-    public void CloseBubble()
+    public void DisplayNext()
     {
-        dialogueBubble.SetActive(false);
-        bubbleOpen = false;
+        // 1. Grab the text from the ScriptableObject based on the scenario
+        string targetText = "";
+
+        if (GameManager.Instance != null)
+        {
+            targetText = (GameManager.Instance.CurrentScenario == NPCScenario.Scammer)
+                         ? currentStep.assistantAdvice : currentStep.victimLine;
+        }
+
+        // 2. Start our typewriter
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        typingCoroutine = StartCoroutine(TypeText(targetText));
+    }
+
+    IEnumerator TypeText(string text)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+
+        // Give the other script a moment to finish its "Instant" write
+        yield return new WaitForEndOfFrame();
+        dialogueText.text = "";
+
+        foreach (char letter in text.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typeSpeed);
+        }
+        isTyping = false;
+    }
+
+    public void CloseDialogue()
+    {
+        isDialogueActive = false;
+        isTyping = false;
+        if (dialoguePanel != null) dialoguePanel.SetActive(false);
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
     }
 }

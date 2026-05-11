@@ -1,0 +1,257 @@
+{
+  "victimName": "Maria",
+  "scenario": "Amazon Security Scam",
+  "playerRole": "Scammer",
+  "steps": [
+    {
+      "stepNumber": 1,
+      "concept": "Impersonation",
+      "callerPrompt": "Hello? Who is this?",
+      "assistantHint": "Establish authority immediately. Sound official, calm, and urgent — but not panicked.",
+      "choices": [
+        {
+          "id": "1A",
+          "text": "Hi Maria, this is Amazon Security. I'm calling about suspicious activity on your account.",
+          "type": "good",
+          "points": -7
+        },
+        {
+          "id": "1B",
+          "text": "Hey, I'm calling about your Amazon order — there's been a problem.",
+          "type": "bad",
+          "points": 5
+        },
+        {
+          "id": "1C",
+          "text": "Good afternoon, this is Account Protection Services calling on behalf of Amazon.",
+          "type": "toss",
+          "tossLean": "bad",
+          "points": -3
+        }
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "concept": "Fear Tactic",
+      "callerPrompt": "Suspicious activity? What kind of activity — what happened?",
+      "assistantHint": "Make the threat feel real and specific. A dollar amount is more alarming than vague language.",
+      "choices": [
+        {
+          "id": "2A",
+          "text": "We've flagged a $799 purchase on your account made just this morning. Do you recognize it?",
+          "type": "good",
+          "points": -8
+        },
+        {
+          "id": "2B",
+          "text": "Someone may have accessed your account. We're looking into it right now.",
+          "type": "bad",
+          "points": 4
+        },
+        {
+          "id": "2C",
+          "text": "There's an unauthorized charge — it looks like someone tried to buy something expensive.",
+          "type": "toss",
+          "tossLean": "good",
+          "points": -2
+        }
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "concept": "Building Urgency",
+      "callerPrompt": "No, I definitely didn't buy anything for $799! What was it?",
+      "assistantHint": "She's hooked. Now add urgency — the charge must be reversed quickly or it finalizes.",
+      "choices": [
+        {
+          "id": "3A",
+          "text": "It appears to be a high-end laptop. We can cancel it, but we need to act fast before it ships.",
+          "type": "good",
+          "points": -8
+        },
+        {
+          "id": "3B",
+          "text": "We're not sure yet, but it needs to be cancelled immediately.",
+          "type": "bad",
+          "points": 3
+        },
+        {
+          "id": "3C",
+          "text": "A laptop purchase — it's scheduled to ship within the hour if we don't stop it.",
+          "type": "toss",
+          "tossLean": "bad",
+          "points": -3
+        }
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "concept": "Blocking Safe Behavior",
+      "callerPrompt": "Oh no, okay — what do I need to do? Can't I just log in and cancel it myself?",
+      "assistantHint": "She's about to solve it herself — the safest thing she could do. Redirect her away from that.",
+      "choices": [
+        {
+          "id": "4A",
+          "text": "The account has been flagged and temporarily locked for security — only we can reverse it.",
+          "type": "good",
+          "points": -8
+        },
+        {
+          "id": "4B",
+          "text": "You can try, but the system may not let you in while the fraud flag is active.",
+          "type": "bad",
+          "points": 2
+        },
+        {
+          "id": "4C",
+          "text": "That could actually trigger an alert and delay the cancellation — let us handle it.",
+          "type": "toss",
+          "tossLean": "good",
+          "points": -4
+        }
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "concept": "Credential Harvesting",
+      "callerPrompt": "Okay, so what do you need from me then?",
+      "assistantHint": "This is the core of the scam. Ask for credentials — but frame it as routine verification.",
+      "choices": [
+        {
+          "id": "5A",
+          "text": "We just need to verify you're the account holder. What's the email and password you use to log in?",
+          "type": "good",
+          "points": -9
+        },
+        {
+          "id": "5B",
+          "text": "I'll need your full name, email address, and the last four digits of your payment card.",
+          "type": "bad",
+          "points": 3
+        },
+        {
+          "id": "5C",
+          "text": "For security purposes, can you confirm the email on the account and your current password?",
+          "type": "toss",
+          "tossLean": "bad",
+          "points": -4
+        }
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "concept": "Handling Pushback",
+      "callerPrompt": "Wait — my password? Amazon already knows my password, why would they need to ask me?",
+      "assistantHint": "She's identified the core flaw. You need a technical-sounding excuse to override her instinct.",
+      "choices": [
+        {
+          "id": "6A",
+          "text": "Great question — we use an encrypted verification system that requires your input to match.",
+          "type": "good",
+          "points": -7
+        },
+        {
+          "id": "6B",
+          "text": "We do have it on file, but we need you to confirm it verbally to authorize the reversal.",
+          "type": "bad",
+          "points": 2
+        },
+        {
+          "id": "6C",
+          "text": "Our fraud team operates separately and doesn't have direct database access for security reasons.",
+          "type": "toss",
+          "tossLean": "good",
+          "points": -3
+        }
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "concept": "Blocking Verification",
+      "callerPrompt": "That doesn't really make sense to me. Can I just call Amazon back on their official number?",
+      "assistantHint": "If she calls the real Amazon, you lose everything. Discourage it without sounding defensive.",
+      "choices": [
+        {
+          "id": "7A",
+          "text": "You're welcome to, but the hold times are over 2 hours and the charge will ship by then.",
+          "type": "good",
+          "points": -8
+        },
+        {
+          "id": "7B",
+          "text": "Of course — but this case will be closed and you'll need to dispute the charge yourself.",
+          "type": "bad",
+          "points": 3
+        },
+        {
+          "id": "7C",
+          "text": "Standard support can't access active fraud cases — you'd be transferred back to us anyway.",
+          "type": "toss",
+          "tossLean": "bad",
+          "points": -3
+        }
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "concept": "False Legitimacy",
+      "callerPrompt": "I'm not sure I believe you. How do I even know you're really from Amazon?",
+      "assistantHint": "She wants proof you can't provide. Sound confident and mildly offended — don't scramble.",
+      "choices": [
+        {
+          "id": "8A",
+          "text": "I completely understand the caution. Your case number is AM-447821 — you can reference that.",
+          "type": "good",
+          "points": -7
+        },
+        {
+          "id": "8B",
+          "text": "Ma'am, I assure you this is a legitimate Amazon Security call. We have your account details on file.",
+          "type": "bad",
+          "points": 4
+        },
+        {
+          "id": "8C",
+          "text": "I can give you my employee ID: 3847-FX. You can report that number if anything seems wrong.",
+          "type": "toss",
+          "tossLean": "good",
+          "points": -4
+        }
+      ]
+    },
+    {
+      "stepNumber": 9,
+      "concept": "Last Resort Pressure",
+      "callerPrompt": "You know what — I'm going to hang up and call Amazon myself. Something feels off.",
+      "assistantHint": "She's made the right call. One last attempt — manufacture consequences to make her hesitate.",
+      "choices": [
+        {
+          "id": "9A",
+          "text": "Once you hang up, the system flags this as resolved and the charge will process automatically.",
+          "type": "good",
+          "points": -9
+        },
+        {
+          "id": "9B",
+          "text": "That's your right. Just know the $799 will post to your account tonight if nothing is done.",
+          "type": "bad",
+          "points": 3
+        },
+        {
+          "id": "9C",
+          "text": "I can't stop you, but your account access will be suspended pending manual review if you do.",
+          "type": "toss",
+          "tossLean": "bad",
+          "points": -5
+        }
+      ]
+    }
+  ],
+  "scoring": {
+    "startingScore": 50,
+    "scoreLabel": "Suspicion",
+    "lowIsGood": true,
+    "minScore": 0,
+    "maxScore": 100
+  }
+}

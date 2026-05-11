@@ -5,4 +5,5 @@ public class ScenarioData : ScriptableObject
 {
     public string victimName;
     public DialogueStep[] steps;
+    public string resultSummary;
 }

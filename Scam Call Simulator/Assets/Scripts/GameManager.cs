@@ -3,27 +3,17 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public enum NPCScenario
-{
-    Scammer,
-    Victim
-}
-
-public enum CallStatus
-{
-    Locked,
-    Available,
-    Scammed,
-    HungUp
-}
+public enum NPCScenario { Scammer, Victim }
+public enum CallStatus { Locked, Available, Scammed, HungUp }
 
 [System.Serializable]
 public class NPCEntry
 {
     public string npcName;
+    public string contactDescription;
+    public Sprite profilePic;
     public ScenarioData scammerScenario;
     public ScenarioData victimScenario;
-
     [HideInInspector] public CallStatus callStatus = CallStatus.Available;
 }
 
@@ -31,25 +21,31 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("NPC Roster")]
+    [Header("NPC Roster (all 20 NPCs)")]
     [SerializeField] private List<NPCEntry> npcRoster;
 
-    private int currentNPCIndex = -1; // -1 = no active NPC (on contact screen)
+    [Header("Levels")]
+    [SerializeField] private LevelData[] levels;
+    private int currentLevelIndex = 0;
 
+    [Header("Scenario")]
+    [SerializeField] private NPCScenario activeScenario = NPCScenario.Victim;
+    public NPCScenario CurrentScenario => activeScenario;
+
+    private int currentNPCIndex = -1;
     private NPCEntry CurrentNPC => npcRoster[currentNPCIndex];
-
-    private const NPCScenario ACTIVE_SCENARIO = NPCScenario.Victim;
-    //private const NPCScenario ACTIVE_SCENARIO = NPCScenario.Scammer;
-
-    public NPCScenario CurrentScenario => ACTIVE_SCENARIO;
-
     private ScenarioData ActiveScenario =>
         CurrentScenario == NPCScenario.Victim
             ? CurrentNPC.victimScenario
             : CurrentNPC.scammerScenario;
 
-    // Read-only access for PhoneUI to populate buttons
     public List<NPCEntry> NPCRoster => npcRoster;
+    public LevelData CurrentLevelData => levels[currentLevelIndex];
+    public int CurrentLevelIndex => currentLevelIndex;
+
+    [Header("Scene Objects (Scenario-Dependent)")]
+    public GameObject scammerObjects;
+    public GameObject victimObjects;
 
     [Header("References")]
     public TrustBar trustBar;
@@ -58,9 +54,17 @@ public class GameManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject gamePanel;
     public GameObject resultsPanel;
-    public GameObject phonePanel;   // The contact list screen
     public Text resultsTitleText;
     public Text resultsBodyText;
+
+    [Header("Level Complete UI")]
+    public GameObject levelCompletePanel;
+    public Text levelCompleteTitleText;
+    public Text levelCompleteBodyText;
+
+    [Header("Game Panel NPC Info")]
+    public Image gameProfileImage;
+    public Text gameInfoText;
 
     [Header("Pip UI")]
     public Image[] goodPips;
@@ -68,40 +72,47 @@ public class GameManager : MonoBehaviour
 
     [Header("Player")]
     public PlayerController playerController;
+    public Transform playerSpawnPoint;
 
     [Header("Phone")]
-    public PhoneInteractable phoneInteractable;
-    public PhoneUI phoneUI;
+    //public PhoneInteractable phoneInteractable;
+    public PhoneUI scammerPhoneUI;
+    public PhoneUI victimPhoneUI;
+    public GameObject scammerPhonePanel;
+    public GameObject victimPhonePanel;
+
+    private GameObject ActivePhonePanel =>
+        activeScenario == NPCScenario.Scammer ? scammerPhonePanel : victimPhonePanel;
+
+    private PhoneUI ActivePhoneUI =>
+        activeScenario == NPCScenario.Scammer ? scammerPhoneUI : victimPhoneUI;
 
     private int currentStep = 0;
     private int goodCount = 0;
     private int badCount = 0;
-    private HashSet<int> metNPCs = new HashSet<int>();
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        InitGame();
-    }
+    void Start() => InitGame();
 
     public void InitGame()
     {
-        // Reset all NPC statuses
+        ApplyScenarioScene();
+
+        if (playerController == null)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
+
         foreach (var npc in npcRoster)
             npc.callStatus = CallStatus.Available;
 
-        metNPCs.Clear();
-
+        currentLevelIndex = 0;
         currentNPCIndex = -1;
         currentStep = 0;
         goodCount = 0;
@@ -110,56 +121,59 @@ public class GameManager : MonoBehaviour
         trustBar.SetTrust(50f);
         gamePanel.SetActive(false);
         resultsPanel.SetActive(false);
-        phonePanel.SetActive(false);
+        ActivePhonePanel.SetActive(false);
+        if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
         UpdatePips();
     }
 
-    public void OnPlayerMetNPC(int npcIndex)
+    void ApplyScenarioScene()
     {
-        if (npcIndex < 0 || npcIndex >= npcRoster.Count) return;
-        metNPCs.Add(npcIndex);
+        bool isScammer = activeScenario == NPCScenario.Scammer;
+        if (scammerObjects != null) scammerObjects.SetActive(isScammer);
+        if (victimObjects != null) victimObjects.SetActive(!isScammer);
     }
 
     public CallStatus GetCallStatus(int npcIndex)
     {
         if (npcIndex < 0 || npcIndex >= npcRoster.Count) return CallStatus.Locked;
-        if (!metNPCs.Contains(npcIndex)) return CallStatus.Locked;
+        if (!IsNPCInCurrentLevel(npcIndex)) return CallStatus.Locked;
         return npcRoster[npcIndex].callStatus;
     }
 
-    // Called by PhoneInteractable when the player picks up the phone
-    public void OpenPhone()
+    public bool IsNPCInCurrentLevel(int npcIndex)
     {
-        phonePanel.SetActive(true);
-        playerController.enabled = false;
-        phoneUI.RefreshContacts();
+        if (levels == null || currentLevelIndex >= levels.Length) return false;
+        foreach (int idx in levels[currentLevelIndex].npcRosterIndices)
+            if (idx == npcIndex) return true;
+        return false;
     }
 
-    // Called by ContactButton when player taps a contact
+    public void OpenPhone()
+    {
+        ActivePhonePanel.SetActive(true);
+        playerController.FreezePlayer();
+        playerController.enabled = false;
+        ActivePhoneUI.RefreshContacts();
+    }
+
     public void StartGameWithNPC(int index)
     {
-        if (index < 0 || index >= npcRoster.Count)
-        {
-            Debug.LogWarning("[GameManager] Invalid NPC index: " + index);
-            return;
-        }
-
-        if (npcRoster[index].callStatus != CallStatus.Available)
-        {
-            Debug.Log("[GameManager] NPC already called: " + npcRoster[index].npcName);
-            return;
-        }
+        if (index < 0 || index >= npcRoster.Count) return;
+        if (npcRoster[index].callStatus != CallStatus.Available) return;
 
         currentNPCIndex = index;
         currentStep = 0;
         goodCount = 0;
         badCount = 0;
 
-        // CurrentScenario = ACTIVE_SCENARIO;
+        //if (gameProfileImage != null) gameProfileImage.sprite = npcRoster[index].profilePic;
+        if (gameInfoText != null) gameInfoText.text = npcRoster[index].npcName;
+
         trustBar.SetTrust(50f);
+        trustBar.ResetDelta();
         UpdatePips();
 
-        phonePanel.SetActive(false);
+        ActivePhonePanel.SetActive(false);
         gamePanel.SetActive(true);
         resultsPanel.SetActive(false);
 
@@ -168,11 +182,7 @@ public class GameManager : MonoBehaviour
 
     void LoadStep(int index)
     {
-        if (index >= ActiveScenario.steps.Length)
-        {
-            EndGame(true);
-            return;
-        }
+        if (index >= ActiveScenario.steps.Length) { EndGame(true); return; }
         dialogueManager.ShowStep(ActiveScenario.steps[index]);
     }
 
@@ -180,10 +190,8 @@ public class GameManager : MonoBehaviour
     {
         dialogueManager.DisableChoices();
         trustBar.ModifyTrust(choice.trustDelta);
-
         if (choice.isGood) goodCount++;
         else badCount++;
-
         UpdatePips();
         CheckWinLose();
     }
@@ -192,27 +200,18 @@ public class GameManager : MonoBehaviour
     {
         if (goodCount >= 5) { EndGame(true); return; }
         if (badCount >= 5) { EndGame(false); return; }
-
-        if (goodCount >= 5 || badCount >= 5)
-        {
-            if (trustBar.TrustValue >= 100f) { EndGame(true); return; }
-            if (trustBar.TrustValue <= 0f) { EndGame(false); return; }
-        }
-
+        if (trustBar.TrustValue >= 100f) { EndGame(true); return; }
+        if (trustBar.TrustValue <= 0f) { EndGame(false); return; }
         currentStep++;
         Invoke("NextStep", 0.8f);
     }
 
-    void NextStep()
-    {
-        LoadStep(currentStep);
-    }
+    void NextStep() => LoadStep(currentStep);
 
     void UpdatePips()
     {
         for (int i = 0; i < goodPips.Length; i++)
             goodPips[i].color = i < goodCount ? Color.green : Color.grey;
-
         for (int i = 0; i < badPips.Length; i++)
             badPips[i].color = i < badCount ? Color.red : Color.grey;
     }
@@ -220,88 +219,117 @@ public class GameManager : MonoBehaviour
     public void EndGame(bool win)
     {
         string npcName = CurrentNPC.npcName;
-
-        // Mark the NPC's call status
         CurrentNPC.callStatus = win ? CallStatus.Scammed : CallStatus.HungUp;
 
-        if (win)
+        resultsTitleText.text = win ? "SCAM SUCCESSFUL!" : "CALL DROPPED!";
+        resultsBodyText.text = win
+            ? $"{npcName} transferred the funds.\nTRUST: {Mathf.RoundToInt(trustBar.TrustValue)}%  |  GOOD: {goodCount}  |  BAD: {badCount}"
+            : $"{npcName} got suspicious and hung up.\nTRUST: {Mathf.RoundToInt(trustBar.TrustValue)}%  |  GOOD: {goodCount}  |  BAD: {badCount}";
+
+        if (ActiveScenario != null)
         {
-            resultsTitleText.text = "SCAM SUCCESSFUL!";
-            resultsBodyText.text = $"{npcName} transferred the funds.\n\n" +
-                "You built their trust slowly and struck at the right moment.\n" +
-                "This is exactly how real IRS scams work.\n" +
-                "TRUST FINAL: " + Mathf.RoundToInt(trustBar.TrustValue) + "%  |  " +
-                "GOOD CHOICES: " + goodCount + "  |  BAD CHOICES: " + badCount;
+            resultsBodyText.text = ActiveScenario.resultSummary;
         }
         else
         {
-            resultsTitleText.text = "CALL DROPPED!";
-            resultsBodyText.text = $"{npcName} got suspicious and hung up.\n\n" +
-                "You pushed too hard, too fast.\n" +
-                "Real victims hang up when something feels off.\n" +
-                "TRUST FINAL: " + Mathf.RoundToInt(trustBar.TrustValue) + "%  |  " +
-                "GOOD CHOICES: " + goodCount + "  |  BAD CHOICES: " + badCount;
+            // Fallback just in case you forgot to fill one out
+            resultsBodyText.text = "Communication ended.";
         }
 
+        StartCoroutine(ShowResultsAfterDelay(2f));
+    }
+
+    IEnumerator ShowResultsAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         gamePanel.SetActive(false);
-        phoneInteractable.OnGameFinished();
+        yield return new WaitForSeconds(0.3f);
         resultsPanel.SetActive(true);
     }
 
-    // Called by the "Back to Contacts" button on the results panel
     public void CloseResultsToPhone()
     {
         resultsPanel.SetActive(false);
+        ActivePhonePanel.SetActive(false);
 
-        // Check if all NPCs are done
-        bool allDone = true;
-        foreach (var npc in npcRoster)
+        if (IsCurrentLevelComplete())
         {
-            if (npc.callStatus == CallStatus.Available)
-            {
-                allDone = false;
-                break;
-            }
-        }
-
-        if (allDone)
-        {
-            Debug.Log("[GameManager] All NPCs called. Game complete.");
-            // TODO: hook up your game-complete screen here
-            playerController.enabled = true;
+            ShowLevelComplete();
         }
         else
         {
-            phonePanel.SetActive(true);
-            phoneUI.RefreshContacts();
+            playerController.enabled = true;
         }
     }
 
-    // Called by a "Hang Up / Back" button while on the phone screen
-    public void ClosePhone()
+    bool IsCurrentLevelComplete()
     {
-        phonePanel.SetActive(false);
-        playerController.enabled = true;
-        phoneInteractable.ClosePanel();
+        foreach (int idx in levels[currentLevelIndex].npcRosterIndices)
+        {
+            var status = npcRoster[idx].callStatus;
+            if (status == CallStatus.Available) return false;
+        }
+        return true;
     }
 
-    string GetFailureReason()
+    void ShowLevelComplete()
     {
-        if (trustBar.TrustValue <= 0f)
-            return $"you pushed too hard and {CurrentNPC.npcName} stopped believing you entirely.";
-        if (badCount >= 5)
-            return "too many aggressive or implausible choices broke their trust.";
+        bool isFinalLevel = currentLevelIndex >= levels.Length - 1;
 
-        return "the approach raised too many red flags.";
+        if (levelCompletePanel != null)
+        {
+            levelCompleteTitleText.text = isFinalLevel
+                ? "YOU WIN! ALL LEVELS COMPLETE!"
+                : $"LEVEL {currentLevelIndex} COMPLETE!";
+            levelCompleteBodyText.text = isFinalLevel
+                ? "You've scammed everyone. Thanks for playing."
+                : $"Moving on to Level {currentLevelIndex + 1}...";
+            levelCompletePanel.SetActive(true);
+        }
+
+        playerController.enabled = true;
+    }
+
+    public void AdvanceToNextLevel()
+    {
+
+        PhoneInteractable[] allPhones = FindObjectsOfType<PhoneInteractable>();
+        foreach (var p in allPhones)
+        {
+            p.ClosePanel();
+        }
+
+        if (currentLevelIndex >= levels.Length - 1) return;
+
+        currentLevelIndex++;
+        
+        if (levelCompletePanel != null) levelCompletePanel.SetActive(false);
+
+        if (playerSpawnPoint != null)
+        {
+            playerController.transform.position = playerSpawnPoint.position;
+            playerController.transform.rotation = playerSpawnPoint.rotation;
+        }
+
+        playerController.enabled = true;
+        //playerController.UnfreezePlayer();
+    }
+
+    public void ClosePhone()
+    {
+        ActivePhonePanel.SetActive(false);
+        playerController.enabled = true;
+    }
+
+    public void OnPlayerMetNPC(int npcIndex)
+    {
+        // Unlock system disabled for now
     }
 
     public int GetNPCIndexByName(string name)
     {
         for (int i = 0; i < npcRoster.Count; i++)
-        {
-            if (npcRoster[i].npcName == name)
-                return i;
-        }
+            if (npcRoster[i].npcName == name) return i;
         Debug.LogWarning($"[GameManager] No NPC found with name: {name}");
         return -1;
     }

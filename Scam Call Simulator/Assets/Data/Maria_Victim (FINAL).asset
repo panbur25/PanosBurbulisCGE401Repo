@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Maria_Victim (FINAL)
+  m_EditorClassIdentifier: 
+  victimName: Maria Oliveira
+  steps:
+  - victimLine: Hello, this is Amazon Security. I'm calling about suspicious activity
+      on your account.
+    assistantAdvice: Honey, we never signed up for any Amazon Security alerts by
+      phone. Ask them to prove who they are.
+    choices:
+    - text: Can you give me a case number or employee ID so I can verify this call
+        is legitimate?
+      trustDelta: 9
+      isGood: 1
+    - text: "Oh no \u2014 what kind of suspicious activity? Tell me everything."
+      trustDelta: -9
+      isGood: 0
+    - text: Okay... I'm listening. What's going on with my account?
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: We've flagged a $799 purchase made this morning on your account.
+      Do you recognize it?
+    assistantAdvice: "Don't panic \u2014 just go check the app yourself. If there
+      was a real charge, it'd be right there."
+    choices:
+    - text: "Let me check my Amazon app myself right now \u2014 I can pull up my
+        order history."
+      trustDelta: 10
+      isGood: 1
+    - text: "What?! $799?! No, I didn't make that \u2014 what do I do?!"
+      trustDelta: -10
+      isGood: 0
+    - text: I don't think I bought anything... but I'm not totally sure. What was
+        it for?
+      trustDelta: 4
+      isGood: 1
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "It's a laptop purchase \u2014 it ships within the hour if we don't
+      act fast to cancel it."
+    assistantAdvice: "They're rushing you on purpose. Real fraud departments don't
+      give you a one-hour window \u2014 slow down."
+    choices:
+    - text: If this is real, Amazon can reverse it after the fact. I'm not making
+        decisions under pressure.
+      trustDelta: 9
+      isGood: 1
+    - text: "An hour?! Okay, okay \u2014 what do you need from me to stop it?"
+      trustDelta: -9
+      isGood: 0
+    - text: That seems really fast. Can I at least call you back on a number I look
+        up myself?
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "The account has been flagged and locked \u2014 only our fraud team
+      can reverse it, not the app."
+    assistantAdvice: "That's a lie, sweetie. Amazon doesn't lock you out and then
+      call you \u2014 it's the other way around."
+    choices:
+    - text: Amazon's own help page says to log in and manage orders directly. I'm
+        going to do that.
+      trustDelta: 10
+      isGood: 1
+    - text: Oh, it's locked? Okay, so what can your team do that I can't?
+      trustDelta: -10
+      isGood: 0
+    - text: I've never heard of an account being locked like that. Can you explain
+        how that works?
+      trustDelta: 3
+      isGood: 1
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: We just need to verify you're the account holder. What's the email
+      and password you use to log into Amazon?
+    assistantAdvice: "DO NOT give them your password. Amazon already knows it \u2014
+      no real company ever asks for this. Hang up."
+    choices:
+    - text: Amazon already has my password on file. No legitimate company asks for
+        it over the phone.
+      trustDelta: 11
+      isGood: 1
+    - text: Sure, my email is... and my password is...
+      trustDelta: -11
+      isGood: 0
+    - text: That doesn't feel right. Why do you need my actual password to verify
+        me?
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "It's just our encrypted verification system \u2014 we don't actually
+      store it, it's purely to confirm your identity."
+    assistantAdvice: "Encrypted verification system \u2014 he made that up. Verification
+      codes, sure. Your password? Never."
+    choices:
+    - text: That's not how encryption works. Verification never requires your plain-text
+        password.
+      trustDelta: 10
+      isGood: 1
+    - text: "Oh, okay \u2014 if it's encrypted I guess that's fine. My password is..."
+      trustDelta: -10
+      isGood: 0
+    - text: I'm still not comfortable with it. Can you verify me a different way?
+      trustDelta: 4
+      isGood: 1
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: You're welcome to call Amazon back, but hold times are over two hours
+      and the charge will ship by then.
+    assistantAdvice: He doesn't want you calling the real Amazon. That alone should
+      tell you everything you need to know.
+    choices:
+    - text: The fact that you're discouraging me from calling Amazon directly is
+        a massive red flag.
+      trustDelta: 10
+      isGood: 1
+    - text: "Two hours is too long to wait \u2014 I'll just deal with it through
+        you then."
+      trustDelta: -10
+      isGood: 0
+    - text: I'll risk it. I'd rather wait on hold with real Amazon than give info
+        to a stranger.
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: I understand your hesitation. My employee ID is 3847-FX and your
+      case number is AM-447821.
+    assistantAdvice: "Those numbers mean nothing \u2014 anyone can make up an ID.
+      Ask him which Amazon call center he's in."
+    choices:
+    - text: A made-up ID proves nothing. I'm hanging up and calling 1-888-280-4331,
+        Amazon's real number.
+      trustDelta: 10
+      isGood: 1
+    - text: "Oh, a case number \u2014 okay, that does make it feel more official.
+        I'll cooperate."
+      trustDelta: -10
+      isGood: 0
+    - text: Which Amazon call center are you calling from? What city?
+      trustDelta: 4
+      isGood: 1
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: If you hang up now, the system will flag this as resolved and the
+      $799 charge will process tonight.
+    assistantAdvice: That's a bluff, honey. Hanging up doesn't process charges. Call
+      the real number and report this one.
+    choices:
+    - text: That's not how any payment system works. I'm hanging up and reporting
+        this number to the FTC.
+      trustDelta: 11
+      isGood: 1
+    - text: "Oh no \u2014 okay fine, what do I need to give you to stop it?"
+      trustDelta: -11
+      isGood: 0
+    - text: ...I'm going to hang up anyway and deal with whatever happens. This feels
+        wrong.
+      trustDelta: -4
+      isGood: 0
+    successFeedback: You successfully detected this was a scam.
+    failureFeedback: You failed to identify the scam.
+  resultSummary: 

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class PhoneUI : MonoBehaviour
 {
     [Header("Contact List")]
-    [SerializeField] private Transform contactListParent; // The scroll view content object
-    [SerializeField] private GameObject contactButtonPrefab; // ContactButton prefab
+    [SerializeField] private Transform contactListParent;
+    [SerializeField] private GameObject contactButtonPrefab;
 
     [Header("Header")]
     [SerializeField] private Text headerText;
@@ -19,38 +19,35 @@ public class PhoneUI : MonoBehaviour
         RefreshContacts();
     }
 
-    // Populates or refreshes the contact list from the GameManager roster
     public void RefreshContacts()
     {
-        // Clear old buttons
         foreach (var btn in spawnedButtons)
-        {
-            if (btn != null)
-                Destroy(btn.gameObject);
-        }
+            if (btn != null) Destroy(btn.gameObject);
         spawnedButtons.Clear();
 
         List<NPCEntry> roster = GameManager.Instance.NPCRoster;
+        LevelData levelData = GameManager.Instance.CurrentLevelData;
 
-        // Count remaining using GetCallStatus so metNPCs is respected
+        // Count remaining calls in this level
         int remaining = 0;
-        foreach (var npc in roster)
-            if (npc.callStatus != CallStatus.Scammed && npc.callStatus != CallStatus.HungUp)
+        foreach (int idx in levelData.npcRosterIndices)
+            if (roster[idx].callStatus == CallStatus.Available)
                 remaining++;
 
         if (headerText != null)
-            headerText.text = $"CONTACTS  ({remaining} remaining)";
+            headerText.text = $"LEVEL {GameManager.Instance.CurrentLevelIndex}  \n  {remaining} call(s) remaining";
 
-        // Spawn a button for each NPC
-        for (int i = 0; i < roster.Count; i++)
+        // Only spawn buttons for NPCs in the current level
+        foreach (int idx in levelData.npcRosterIndices)
         {
             GameObject go = Instantiate(contactButtonPrefab, contactListParent);
             ContactButton btn = go.GetComponent<ContactButton>();
-
             if (btn != null)
             {
-                // GetCallStatus instead of roster[i].callStatus
-                btn.Setup(i, roster[i].npcName, GameManager.Instance.GetCallStatus(i));
+                btn.Setup(idx, roster[idx].npcName,
+                    GameManager.Instance.GetCallStatus(idx),
+                    roster[idx].profilePic,
+                    roster[idx].contactDescription);
                 spawnedButtons.Add(btn);
             }
         }

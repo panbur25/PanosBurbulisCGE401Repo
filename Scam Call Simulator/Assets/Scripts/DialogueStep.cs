@@ -1,8 +1,15 @@
 using System;
+using UnityEngine;    // Added this for [Header]
+using UnityEngine.UI; // Added this for Text
 
 [Serializable]
 public class DialogueStep
 {
-    public string victimLine;           // what Harold says
-    public DialogueChoice[] choices;    // 2-3 choices for this step
+    public string victimLine;
+    public string assistantAdvice;
+    public DialogueChoice[] choices;
+
+    [Header("Result Screen Feedback")]
+    public string successFeedback;
+    public string failureFeedback;
 }

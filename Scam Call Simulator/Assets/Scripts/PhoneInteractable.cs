@@ -6,31 +6,34 @@ public class PhoneInteractable : MonoBehaviour
 {
     [Header("Interaction Settings")]
     public float interactRange = 2f;
-    public Transform player;
+    public Transform player; // drag Player GameObject here in Inspector
 
     [Header("UI")]
-    public GameObject promptUI;   // drag your "Press E" UI element here
+    public GameObject promptUI;
 
     private bool panelOpen = false;
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            if (player == null) return;
+        }
+
+        Vector2 phonePos = new Vector2(transform.position.x, transform.position.y);
+        Vector2 playerPos = new Vector2(player.position.x, player.position.y);
+        float distance = Vector2.Distance(phonePos, playerPos);
         bool inRange = distance <= interactRange;
 
-        // Show/hide prompt
         promptUI.SetActive(inRange && !panelOpen);
 
-        // Listen for E press only when in range
         if (inRange && !panelOpen && Input.GetKeyDown(KeyCode.E))
-        {
             OpenPanel();
-        }
     }
 
     void OpenPanel()
     {
-        // GameManager.Instance.ToggleScenario(); // flips between Scammer and Victim each time
         GameManager.Instance.OpenPhone();
         promptUI.SetActive(false);
         panelOpen = true;
@@ -38,7 +41,7 @@ public class PhoneInteractable : MonoBehaviour
 
     public void OnGameFinished()
     {
-        panelOpen = false; // reset so player can interact again if needed
+        panelOpen = false;
     }
 
     public void ClosePanel()

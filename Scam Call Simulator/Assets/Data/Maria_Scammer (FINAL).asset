@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Maria_Scammer (FINAL)
+  m_EditorClassIdentifier: 
+  victimName: Maria Oliveira
+  steps:
+  - victimLine: '"Hello? Who is this?"'
+    assistantAdvice: "Establish authority immediately. Sound official, calm, and
+      urgent \u2014 but not panicked."
+    choices:
+    - text: Hi Maria, this is Amazon Security. I'm calling about suspicious activity
+        on your account.
+      trustDelta: -7
+      isGood: 0
+    - text: "Hey, I'm calling about your Amazon order \u2014 there's been a problem."
+      trustDelta: 5
+      isGood: 1
+    - text: Good afternoon, this is Account Protection Services calling on behalf
+        of Amazon.
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "\"Suspicious activity? What kind of activity \u2014 what happened?\" "
+    assistantAdvice: 'Make the threat feel real and specific. A dollar amount is
+      more alarming than vague language. '
+    choices:
+    - text: We've flagged a $799 purchase on your account made just this morning.
+        Do you recognize it?
+      trustDelta: -8
+      isGood: 0
+    - text: 'Someone may have accessed your account. We''re looking into it right
+        now. '
+      trustDelta: 4
+      isGood: 1
+    - text: "There's an unauthorized charge \u2014 it looks like someone tried to
+        buy something expensive. "
+      trustDelta: -2
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: '"No, I definitely didn''t buy anything for $799! What was it?" '
+    assistantAdvice: "She's hooked. Now add urgency \u2014 the charge must be reversed
+      quickly or it finalizes. "
+    choices:
+    - text: 'It appears to be a high-end laptop. We can cancel it, but we need to
+        act fast before it ships. '
+      trustDelta: -8
+      isGood: 0
+    - text: 'We''re not sure yet, but it needs to be cancelled immediately. '
+      trustDelta: 3
+      isGood: 1
+    - text: "A laptop purchase \u2014 it's scheduled to ship within the hour if we
+        don't stop it. "
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "\"Oh no, okay \u2014 what do I need to do? Can't I just log in and
+      cancel it myself?\" "
+    assistantAdvice: "She's about to solve it herself \u2014 the safest thing she
+      could do. Redirect her away from that. "
+    choices:
+    - text: "The account has been flagged and temporarily locked for security \u2014
+        only we can reverse it. "
+      trustDelta: -8
+      isGood: 0
+    - text: 'You can try, but the system may not let you in while the fraud flag
+        is active. '
+      trustDelta: 2
+      isGood: 1
+    - text: "That could actually trigger an alert and delay the cancellation \u2014
+        let us handle it. "
+      trustDelta: -4
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: '"Okay, so what do you need from me then?" '
+    assistantAdvice: "This is the core of the scam. Ask for credentials \u2014 but
+      frame it as routine verification. "
+    choices:
+    - text: 'We just need to verify you''re the account holder. What''s the email
+        and password you use to log in? '
+      trustDelta: -9
+      isGood: 0
+    - text: 'I''ll need your full name, email address, and the last four digits of
+        your payment card. '
+      trustDelta: 3
+      isGood: 1
+    - text: 'For security purposes, can you confirm the email on the account and
+        your current password? '
+      trustDelta: -4
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "\"Wait \u2014 my password? Amazon already knows my password, why
+      would they need to ask me?\" "
+    assistantAdvice: 'She''s identified the core flaw. You need a technical-sounding
+      excuse to override her instinct. '
+    choices:
+    - text: "Great question \u2014 we use an encrypted verification system that requires
+        your input to match. "
+      trustDelta: -7
+      isGood: 0
+    - text: 'We do have it on file, but we need you to confirm it verbally to authorize
+        the reversal. '
+      trustDelta: 2
+      isGood: 1
+    - text: 'Our fraud team operates separately and doesn''t have direct database
+        access for security reasons. '
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: '"That doesn''t really make sense to me. Can I just call Amazon back
+      on their official number?" '
+    assistantAdvice: 'If she calls the real Amazon, you lose everything. Discourage
+      it without sounding defensive. '
+    choices:
+    - text: 'You''re welcome to, but the hold times are over 2 hours and the charge
+        will ship by then. '
+      trustDelta: -8
+      isGood: 0
+    - text: "Of course \u2014 but this case will be closed and you'll need to dispute
+        the charge yourself. "
+      trustDelta: 3
+      isGood: 1
+    - text: "Standard support can't access active fraud cases \u2014 you'd be transferred
+        back to us anyway. "
+      trustDelta: -3
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: '"I''m not sure I believe you. How do I even know you''re really
+      from Amazon?" '
+    assistantAdvice: "She wants proof you can't provide. Sound confident and mildly
+      offended \u2014 don't scramble. "
+    choices:
+    - text: "I completely understand the caution. Your case number is AM-447821 \u2014
+        you can reference that. "
+      trustDelta: -7
+      isGood: 0
+    - text: 'Ma''am, I assure you this is a legitimate Amazon Security call. We have
+        your account details on file. '
+      trustDelta: 4
+      isGood: 0
+    - text: 'I can give you my employee ID: 3847-FX. You can report that number if
+        anything seems wrong. '
+      trustDelta: -4
+      isGood: 0
+    successFeedback: 
+    failureFeedback: 
+  - victimLine: "\"You know what \u2014 I'm going to hang up and call Amazon myself.
+      Something feels off.\" "
+    assistantAdvice: "She's made the right call. One last attempt \u2014 manufacture
+      consequences to make her hesitate. "
+    choices:
+    - text: 'Once you hang up, the system flags this as resolved and the charge will
+        process automatically. '
+      trustDelta: -9
+      isGood: 0
+    - text: 'That''s your right. Just know the $799 will post to your account tonight
+        if nothing is done. '
+      trustDelta: 3
+      isGood: 1
+    - text: 'I can''t stop you, but your account access will be suspended pending
+        manual review if you do. '
+      trustDelta: -5
+      isGood: 0
+    successFeedback: You successfully scammed Maria.
+    failureFeedback: You failed to scam Maria.
+  resultSummary: 

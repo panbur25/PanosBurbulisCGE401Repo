@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Naomi_Victim
+  m_EditorClassIdentifier: 
+  victimName: Naomi Smith
+  steps:
+  - victimLine: Hi there! Bella is a purebred golden retriever, 8 weeks old, super
+      sweet. Only $300, rehoming fee only!
+    choices:
+    - text: She's adorable! Can I come see her in person before deciding?
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: Oh my gosh, $300 for a purebred? That's a steal, I'll take her!
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: Aw, she looks precious. Do you have more photos or a video of her?
+      trustDelta: 8
+      isGood: 1
+      label: 
+  - victimLine: Oh I'm so sorry, I'm not local. I'm in Florida visiting family. She's
+      at my home in Texas.
+    choices:
+    - text: If you can't do a local meetup, I'll have to pass. Too many online scams.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: That's okay! Can you ship her to me then? I don't mind paying for shipping.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: Is there anyone local who could show me the puppy on your behalf?
+      trustDelta: 10
+      isGood: 1
+      label: 
+  - victimLine: I can ship her right to your door, a pet courier handles everything.
+      Just send the $300 first.
+    choices:
+    - text: I never send money before physically seeing an animal. That's a scam
+        tactic.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Okay! What's your Venmo or PayPal? I can send it right now.
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: Can you at least do a live video call with Bella before I send anything?
+      trustDelta: 6
+      isGood: 1
+      label: 
+  - victimLine: Of course! Here's a video, she's so playful. I just need payment
+      to book the courier.
+    choices:
+    - text: That video could be pulled from anywhere online. I'd need a live call.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: Okay, that's enough for me, she looks healthy! Sending the money now.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: She looks great, but can you hold something up in the video to prove
+        it's live?
+      trustDelta: 8
+      isGood: 1
+      label: 
+  - victimLine: I can do a quick call! But the courier slot is filling up. I need
+      to know by tonight.
+    choices:
+    - text: Any real seller would give me time to verify. The deadline tells me this
+        is a scam.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Tonight?! Okay, let me just send it now so I don't lose her.
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: I need at least a day. I can't make a $300 decision in a few hours.
+      trustDelta: 6
+      isGood: 1
+      label: 
+  - victimLine: Okay, I can hold her one more day. I just need a $50 deposit to secure
+      your spot.
+    choices:
+    - text: A deposit before any verified meetup is still money lost if this is fake.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: $50 is nothing to lock her in, totally worth it. Sending it now.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: Can you accept the deposit through a buyer-protected method like PayPal
+        Goods?
+      trustDelta: 6
+      isGood: 1
+      label: 
+  - victimLine: Sorry, I only take Zelle or Venmo. PayPal takes too long and the
+      courier won't wait.
+    choices:
+    - text: Refusing buyer protection is a classic scam tell. I won't be sending
+        anything.
+      trustDelta: 20
+      isGood: 1
+      label: 
+    - text: Fine, I have Zelle. What number do I send it to?
+      trustDelta: -20
+      isGood: 0
+      label: 
+    - text: That's really inconvenient. Can I at least get your full name and address
+        first?
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: 'My name is Naomi Smith, but I don''t share my home address online:
+      safety reasons, you understand.'
+    choices:
+    - text: A seller who won't share verifiable info before a transaction is a red
+        flag.
+      trustDelta: 18
+      isGood: 1
+      label: 
+    - text: That's fair, I get it. I'll just trust you, sending the Zelle now.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: Could you at least show a vet record or AKC registration for Bella?
+      trustDelta: 8
+      isGood: 1
+      label: 
+  - victimLine: Her papers are at the house in Texas, but I'll mail them with the
+      puppy. Promise!
+    choices:
+    - text: Papers arrive with the puppy, after payment, from someone I can't verify.
+        No.
+      trustDelta: 22
+      isGood: 1
+      label: 
+    - text: That sounds reasonable. I'll send the full $300 and look forward to meeting
+        her!
+      trustDelta: -22
+      isGood: 0
+      label: 
+    - text: I'll report this listing while I think it. Something doesn't add up.
+      trustDelta: 10
+      isGood: 1
+      label: 

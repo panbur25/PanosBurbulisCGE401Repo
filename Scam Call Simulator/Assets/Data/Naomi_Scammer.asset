@@ -1,0 +1,166 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7311bb0212e39408fe5fc2eeafe3e5, type: 3}
+  m_Name: Naomi_Scammer
+  m_EditorClassIdentifier: 
+  victimName: Naomi Smith
+  steps:
+  - victimLine: Hi! I saw your listing for Bella, she's gorgeous! Is she still available?
+    choices:
+    - text: Yes! She's still available. I've had a lot of interest but wanted to
+        find the right home
+      trustDelta: -14
+      isGood: 0
+      label: 
+    - text: She is! I need her gone by the end of the week, so I'm pricing low.
+      trustDelta: 10
+      isGood: 1
+      label: 
+    - text: She is! Bella is such a sweetheart, I just want her to go to a loving
+        family.
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: Aw, that's so sweet. Would I be able to come meet her before committing?
+      I'm pretty local.
+    choices:
+    - text: I'm actually staying with family out of state right now. Bella's back
+        at my place in Texas.
+      trustDelta: -8
+      isGood: 0
+      label: 
+    - text: I'm not really comfortable with strangers coming to my home, sorry.
+      trustDelta: 8
+      isGood: 1
+      label: 
+    - text: I wish I could! My schedule's been crazy. Could we try a video call instead?
+      trustDelta: -4
+      isGood: 0
+      label: 
+  - victimLine: Oh, you're out of state? So how would this even work then, would
+      she be shipped?
+    choices:
+    - text: Yes, I use a licensed pet courier, they handle everything and it's very
+        safe.
+      trustDelta: -14
+      isGood: 0
+      label: 
+    - text: 'Yeah, you''d just Venmo me $300 and I''ll sort out the rest. '
+      trustDelta: 12
+      isGood: 1
+      label: 
+    - text: I've done it before, the courier is fully insured and delivers door to
+        door.
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: I've heard about puppy scams online... how do I know this is real?
+      Do you have vet records?
+    choices:
+    - text: Totally fair. I have her shot records and AKC paperwork. I'll send photos
+        right now.
+      trustDelta: -16
+      isGood: 0
+      label: 
+    - text: 'I understand the concern, but I can''t share personal documents with
+        strangers online. '
+      trustDelta: 6
+      isGood: 1
+      label: 
+    - text: 'I get it. How about I do a quick video call so you can see she''s real? '
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: Okay, a video call sounds good. Can we do it today? I want to see
+      her moving around.
+    choices:
+    - text: I actually just recorded a little video of her playing. Let me send it
+        over!
+      trustDelta: -12
+      isGood: 0
+      label: 
+    - text: 'Today''s tough, she''s at the vet actually. Maybe tomorrow? '
+      trustDelta: 8
+      isGood: 1
+      label: 
+    - text: My signal out here is terrible for calls. Would a fresh video work instead?
+      trustDelta: -4
+      isGood: 0
+      label: 
+  - victimLine: That video is adorable, but honestly I could find that on YouTube.
+      Can we please do live?
+    choices:
+    - text: You're right, I'm sorry, let me find a time that works for both of us
+        this week.
+      trustDelta: -14
+      isGood: 0
+      label: 
+    - text: 'I don''t really appreciate being called a liar. I''m just trying to
+        rehome my dog. '
+      trustDelta: 4
+      isGood: 1
+      label: 
+    - text: Fair enough! I just need a day or two, I'm dealing with a family thing
+        right now.
+      trustDelta: -8
+      isGood: 0
+      label: 
+  - victimLine: Okay... I can wait a couple days. But I'm not sending any money until
+      I see her live.
+    choices:
+    - text: Of course, I wouldn't want you to! But I do have two other people asking
+        about her.
+      trustDelta: -16
+      isGood: 0
+      label: 
+    - text: 'Then maybe she''s not the right fit for you. I have other interested
+        buyers. '
+      trustDelta: 10
+      isGood: 1
+      label: 
+    - text: 'That''s totally reasonable. Just know I can only hold her a couple more
+        days. '
+      trustDelta: -6
+      isGood: 0
+      label: 
+  - victimLine: Other buyers? Okay, could I at least put down a small deposit to
+      hold her, then?
+    choices:
+    - text: That would be perfect. Even $50 via Zelle would hold her for you.
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: 'Sure! Just PayPal me whatever you''re comfortable with. '
+      trustDelta: 6
+      isGood: 1
+      label: 
+    - text: I'd feel bad taking money before the call, but just let me know soon,
+        okay?
+      trustDelta: -10
+      isGood: 0
+      label: 
+  - victimLine: Zelle? I'd really prefer PayPal so I have some buyer protection,
+      just in case.
+    choices:
+    - text: 'PayPal takes days to clear and the courier slot won''t wait, unfortunately. '
+      trustDelta: -18
+      isGood: 0
+      label: 
+    - text: Sure, PayPal is fine, whatever makes you feel safe.
+      trustDelta: 14
+      isGood: 1
+      label: 
+    - text: I've had PayPal chargebacks before from flakers, it's just easier with
+        Zelle.
+      trustDelta: -8
+      isGood: 0
+      label: 
