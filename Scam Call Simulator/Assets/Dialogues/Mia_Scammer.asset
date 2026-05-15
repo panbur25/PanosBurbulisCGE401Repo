@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Mia_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Mia
+  isScammer: 1
+  steps:
+  - npcLine: "Target is Mia. She\u2019s busy with some urban studies work. I need
+      to get through her phone's spam filter."
+    assistantLine: 'Coworker: Use a neighbor-spoofed number so it looks like a local
+      resident is calling.'
+    choices:
+    - text: Setting my caller ID to match her local area code and exchange.
+      type: good
+      pointValue: 15
+    - text: Using a blocked 'Private Number' ID to create a sense of mystery.
+      type: bad
+      pointValue: -10
+    - text: Calling from an international number to show I'm from a global office.
+      type: tossup
+      pointValue: 0
+  - npcLine: The call went straight to voicemail. Her 'Silence Unknown Callers' setting
+      must be on.
+    assistantLine: 'Coworker: Leave a vague but urgent voicemail to trick her into
+      calling us back.'
+    choices:
+    - text: This is a delivery driver, I'm at your gate but the code isn't working.
+        Call me back now.
+      type: good
+      pointValue: 15
+    - text: Hello, this is the government. You are in trouble. Call me back.
+      type: bad
+      pointValue: -15
+    - text: Hi Mia, I have a question about your latest project. Talk soon.
+      type: tossup
+      pointValue: 5
+  - npcLine: She called back! The 'Silence' filter is bypassed now that she initiated
+      the contact.
+    assistantLine: 'Coworker: Great. Now act like a tech support agent helping with
+      her ''LaserJet printer''.'
+    choices:
+    - text: Thanks for calling back. We noticed a flashing error light on your HP
+        printer logs.
+      type: good
+      pointValue: 15
+    - text: I am a computer man. Give me your password so I can fix the screen.
+      type: bad
+      pointValue: -15
+    - text: Is this Mia? I need to verify your home address for a shipment.
+      type: tossup
+      pointValue: 0
+  - npcLine: She's asking why my number wasn't flagged as spam by her carrier.
+    assistantLine: 'Coworker: Lie. Tell her that the filter only flags ''unsecured''
+      lines, and yours is ''government-verified.'''
+    choices:
+    - text: Our corporate lines are whitelisted by all major carriers for security
+        purposes.
+      type: good
+      pointValue: 15
+    - text: The filter is broken today because of a solar flare in the atmosphere.
+      type: bad
+      pointValue: -12
+    - text: I don't know, I just work here. Do you want the fix or not?
+      type: tossup
+      pointValue: 0
+  - npcLine: "She seems skeptical. She\u2019s mentioning something about her 'urban
+      studies report' deadline and doesn't want to waste time."
+    assistantLine: 'Coworker: Use that time pressure! Tell her if the printer isn''t
+      fixed, it could short out her whole network.'
+    choices:
+    - text: I understand. If we don't clear this error now, your local network might
+        crash and delete your files.
+      type: good
+      pointValue: 15
+    - text: Urban studies is cool. Can you tell me about the report you are writing?
+      type: bad
+      pointValue: -10
+    - text: Just give me five minutes and I'll have you back to work, I promise.
+      type: tossup
+      pointValue: 5
+  - npcLine: "She\u2019s asking for my name and employee ID to verify through the
+      official website."
+    assistantLine: 'Coworker: Give her a fake ID and tell her that the website is
+      currently down for maintenance.'
+    choices:
+    - text: My ID is HP-9921. The verification portal is actually offline for an
+        update right now.
+      type: good
+      pointValue: 15
+    - text: I am employee number one. You can see my picture on the front page.
+      type: bad
+      pointValue: -15
+    - text: I'll wait on the line while you check the website. Take your time.
+      type: tossup
+      pointValue: -5
+  - npcLine: She's starting to hang up. She says she doesn't trust the call because
+      it doesn't have a 'Verified' checkmark.
+    assistantLine: 'Coworker: One last try. Tell her the ''Verified'' checkmark only
+      appears for personal calls, not support.'
+    choices:
+    - text: The checkmark is for residential lines. Business support lines use a
+        different protocol.
+      type: good
+      pointValue: 15
+    - text: The checkmark is a scam itself! Don't trust the phone companies.
+      type: bad
+      pointValue: -15
+    - text: If you hang up, your printer will explode. I am serious.
+      type: bad
+      pointValue: -20
+  - npcLine: She hung up. I need to find a new target who doesn't have these spam
+      filtering apps installed.
+    assistantLine: 'Coworker: Yeah, Mia is too well-defended with those technical
+      safeguards.'
+    choices:
+    - text: I'll try calling her from a different 'neighbor' number in ten minutes.
+      type: tossup
+      pointValue: 5
+    - text: Let's move on. People with active spam filters are too hard to crack.
+      type: good
+      pointValue: 10
+    - text: I'll send her a fake 'password reset' email instead.
+      type: tossup
+      pointValue: 0
+  - npcLine: Mission failed. The safeguards were too effective.
+    assistantLine: 'Coworker: We need to find targets who haven''t enabled their
+      carrier''s security features.'
+    choices:
+    - text: Scanning for numbers that don't have STIR/SHAKEN verification enabled.
+      type: good
+      pointValue: 15
+    - text: I'll just call random numbers until someone answers 'Hello'.
+      type: bad
+      pointValue: -10
+    - text: I'm going to take a break and play some Unity games.
+      type: tossup
+      pointValue: 0
+  successEnding: Scam Successful! You managed to bypass technical filters by using
+    neighbor spoofing and social engineering the victim into calling you back.
+  failureEnding: Scam Failed. Mia's use of spam filtering and 'Silence Unknown Callers'
+    significantly reduced your ability to reach her and build trust.

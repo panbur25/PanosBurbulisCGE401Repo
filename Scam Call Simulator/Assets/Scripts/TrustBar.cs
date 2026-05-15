@@ -1,54 +1,101 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TrustBar : MonoBehaviour
 {
     public Slider slider;
-    public Text trustLabel;
-    public Text deltaLabel;  // drag a new Text object here for the delta
-    public Image fillImage;  // drag the Fill image (inside Fill Area) here
+    public TextMeshProUGUI trustLabel; 
+    public TextMeshProUGUI deltaLabel; 
+    public Image fillImage;
+    public RectTransform fillRect; 
+    public float maxFillWidth = 400f;
 
-    private float trustValue = 50f;
-    public float TrustValue => trustValue;
+    private float targetTrust = 50f; // The value we WANT to be at
+    private float visualTrust = 50f; // The value currently SHOWN on the bar
+    public float TrustValue => targetTrust;
+
+    [Header("Settings")]
+    public float lerpSpeed = 5f; // How fast the bar moves
 
     private Coroutine deltaCoroutine;
 
-    public void SetTrust(float value)
+    private void Update()
     {
-        trustValue = Mathf.Clamp(value, 0f, 100f);
-        slider.value = trustValue / 100f;
-        trustLabel.text = "Trust: " + Mathf.RoundToInt(trustValue);
-
-        if (fillImage != null)
+        // Smoothly move the visual value toward the target value
+        if (!Mathf.Approximately(visualTrust, targetTrust))
         {
-            float t = trustValue / 100f;
-            Color fillColor;
-
-            if (t < 0.5f)
-                fillColor = Color.Lerp(Color.red, Color.white, Mathf.Pow(t * 2f, 3f));
-            else
-                fillColor = Color.Lerp(Color.white, Color.green, Mathf.Pow((t - 0.5f) * 2f, 0.33f));
-
-            fillImage.color = fillColor;
+            visualTrust = Mathf.MoveTowards(visualTrust, targetTrust, lerpSpeed * Time.deltaTime * 20f);
+            UpdateUIElements(visualTrust);
         }
     }
 
-    public void ModifyTrust(float delta)
+    public void SetTrust(float value)
     {
-        SetTrust(trustValue + delta);
-        ShowDelta(delta);
+        targetTrust = Mathf.Clamp(value, 0f, 100f);
+        // If you want it to snap instantly at the very start of a level:
+        // visualTrust = targetTrust; 
+    }
+
+    private void UpdateUIElements(float valueToDisplay)
+    {
+        slider.value = valueToDisplay / 100f;
+
+        // --- CENTER-OUT MATH ---
+        if (fillRect != null)
+        {
+            float distanceFromCenter = Mathf.Abs(valueToDisplay - 50f);
+            float newWidth = (distanceFromCenter / 50f) * (maxFillWidth / 2f);
+            fillRect.sizeDelta = new Vector2(newWidth, fillRect.sizeDelta.y);
+        }
+
+        // --- OPTION A: SCENARIO LOGIC ---
+        UpdateLabelAndColors(valueToDisplay);
+    }
+
+    private void UpdateLabelAndColors(float val)
+    {
+        bool isScammer = GameManager.Instance.CurrentScenario == NPCScenario.Scammer;
+        float t = val / 100f;
+
+        if (isScammer)
+        {
+            // SCAMMER MODE: High Trust is GOOD (Green)
+            trustLabel.text = "Trust: " + Mathf.RoundToInt(val);
+            fillImage.color = GetColor(t, Color.red, Color.white, Color.green);
+        }
+        else
+        {
+            // VICTIM MODE: High Suspicion is BAD (Red)
+            // We flip the colors so 100% Suspicion = Bright Red
+            trustLabel.text = "Suspicion: " + Mathf.RoundToInt(val);
+            fillImage.color = GetColor(t, Color.green, Color.white, Color.red);
+        }
+    }
+
+    private Color GetColor(float t, Color lowColor, Color midColor, Color highColor)
+    {
+        if (t < 0.5f)
+            return Color.Lerp(lowColor, midColor, Mathf.Pow(t * 2f, 3f));
+        else
+            return Color.Lerp(midColor, highColor, Mathf.Pow((t - 0.5f) * 2f, 0.33f));
     }
 
     private void ShowDelta(float delta)
     {
         if (deltaLabel == null) return;
 
-        // Cancel any existing fade so they don't stack
         if (deltaCoroutine != null)
             StopCoroutine(deltaCoroutine);
 
         deltaCoroutine = StartCoroutine(FadeDelta(delta));
+    }
+
+    public void ModifyTrust(float delta)
+    {
+        SetTrust(targetTrust + delta);
+        ShowDelta(delta); // This ensures the +15 or -10 appears on screen!
     }
 
     public void ResetDelta()
@@ -61,7 +108,8 @@ public class TrustBar : MonoBehaviour
         if (deltaLabel != null)
         {
             deltaLabel.text = "";
-            deltaLabel.color = new Color(deltaLabel.color.r, deltaLabel.color.g, deltaLabel.color.b, 1f);
+            // Resetting alpha to 1f
+            deltaLabel.alpha = 1f;
         }
     }
 
@@ -69,21 +117,20 @@ public class TrustBar : MonoBehaviour
     {
         deltaLabel.text = (delta >= 0 ? "+" : "") + Mathf.RoundToInt(delta).ToString();
         deltaLabel.color = delta >= 0 ? Color.green : Color.red;
+        deltaLabel.alpha = 1f;
 
-        // Hold for 2 seconds then fade out over 1 second
         yield return new WaitForSeconds(2f);
 
         float elapsed = 0f;
-        Color startColor = deltaLabel.color;
-
         while (elapsed < 1f)
         {
             elapsed += Time.deltaTime;
-            deltaLabel.color = new Color(startColor.r, startColor.g, startColor.b, 1f - elapsed);
+            // TMP has a direct .alpha property which is cleaner than making a new Color
+            deltaLabel.alpha = 1f - elapsed;
             yield return null;
         }
 
         deltaLabel.text = "";
-        deltaLabel.color = new Color(startColor.r, startColor.g, startColor.b, 1f);
+        deltaLabel.alpha = 1f;
     }
 }

@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Jordan_Victim
+  m_EditorClassIdentifier: 
+  entryID: Jordan
+  isScammer: 0
+  steps:
+  - npcLine: Hi Ethan, this is Jordan from your bank's fraud department. Did you
+      spend $412 at a grocery store today?
+    assistantLine: Check the caller ID... it says the name of our bank. But wait,
+      we didn't spend that much today.
+    choices:
+    - text: No, I didn't! Was my card stolen?
+      type: bad
+      pointValue: -10
+    - text: The caller ID says 'Bank,' but I'm still suspicious. How do I know you're
+        real?
+      type: good
+      pointValue: 12
+    - text: Which grocery store was it exactly?
+      type: tossup
+      pointValue: 0
+  - npcLine: It was a store in a different city. I can block the transaction, but
+      I need your card number.
+    assistantLine: 'Wife: If they''re really the bank, they should already see your
+      card on their screen.'
+    choices:
+    - text: Okay, it's 4412-...
+      type: bad
+      pointValue: -15
+    - text: You're the fraud department. You should already have my card info.
+      type: good
+      pointValue: 15
+    - text: Can you tell me the last four digits of the card you're looking at?
+      type: tossup
+      pointValue: 0
+  - npcLine: I have it, I just need you to confirm it for 'security verification'
+      purposes.
+    assistantLine: 'Wife: ''Confirmation'' is just a trick to get you to volunteer
+      the info yourself.'
+    choices:
+    - text: I guess that makes sense. The number is...
+      type: bad
+      pointValue: -14
+    - text: I'm going to hang up and call the number on the back of my card instead.
+      type: good
+      pointValue: 15
+    - text: Can I just give you my zip code instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you hang up, I won't be able to stop the charge and you'll be responsible
+      for it.
+    assistantLine: 'Wife: That''s a lie. Banks have fraud protection precisely for
+      these situations.'
+    choices:
+    - text: Don't hang up! I'll give you the number. Just stop the charge!
+      type: bad
+      pointValue: -15
+    - text: My bank's fraud policy covers me even if I hang up now.
+      type: good
+      pointValue: 13
+    - text: Wait, let me look for my wallet.
+      type: tossup
+      pointValue: 0
+  - npcLine: I'm sending a 'verification code' to your phone now. Read it back to
+      me so I can lock the account.
+    assistantLine: 'Wife: Ethan! That code is probably for a password reset he''s
+      doing right now!'
+    choices:
+    - text: The code is 552-901.
+      type: bad
+      pointValue: -15
+    - text: The text says 'Do not share this code with anyone.' I'm not giving it
+        to you.
+      type: good
+      pointValue: 15
+    - text: Why do you need a text code if you're already on the phone with me?
+      type: tossup
+      pointValue: 0
+  - npcLine: It's to verify that you are the one holding the phone. Without it, I
+      can't help you.
+    assistantLine: 'Wife: He''s trying to break into your online banking. Hang up,
+      Ethan!'
+    choices:
+    - text: Fine, the code is...
+      type: bad
+      pointValue: -15
+    - text: I'm ending this call and driving to my local branch in person.
+      type: good
+      pointValue: 15
+    - text: Can you tell me my account balance to prove who you are?
+      type: tossup
+      pointValue: 0
+  - npcLine: Your account is already being drained! Give me the code NOW!
+    assistantLine: 'Wife: He''s getting desperate because you''re catching on. Don''t
+      budge.'
+    choices:
+    - text: Oh no! Okay, here is the code! Save my money!
+      type: bad
+      pointValue: -15
+    - text: The more you yell, the more I know you're a scammer. Goodbye.
+      type: good
+      pointValue: 15
+    - text: What's the name of the store again?
+      type: tossup
+      pointValue: 0
+  - npcLine: I'm trying to protect you, and you're making it impossible! Last chance!
+    assistantLine: 'Wife: Classic ''gaslighting.'' He''s trying to make YOU feel
+      guilty for his failure.'
+    choices:
+    - text: I'm sorry... here is the info you need.
+      type: bad
+      pointValue: -15
+    - text: A real bank employee would never speak to a customer this way.
+      type: good
+      pointValue: 15
+    - text: Can you just lock the card without the code?
+      type: tossup
+      pointValue: 0
+  - npcLine: Fine, lose your money then! I'm hanging up!
+    assistantLine: 'Wife: He''s giving up. Good job, Ethan. Now let''s call the REAL
+      bank.'
+    choices:
+    - text: Wait! Come back! I'll give it to you!
+      type: bad
+      pointValue: -15
+    - text: Hanging up now. See you in the fraud reports.
+      type: good
+      pointValue: 15
+    - text: Was it really $412?
+      type: tossup
+      pointValue: 0
+  successEnding: 'Success! You remembered that the safest course of action is to
+    hang up and call the official number on your card[cite: 1].'
+  failureEnding: 'Failure. You trusted the spoofed Caller ID and gave away a security
+    code that allowed the scammer into your account[cite: 1].'

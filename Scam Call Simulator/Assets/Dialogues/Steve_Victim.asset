@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Steve_Victim
+  m_EditorClassIdentifier: 
+  entryID: Steve
+  isScammer: 0
+  steps:
+  - npcLine: Hi, this is Steve from the global procurement vendor team. We have a
+      time-sensitive contract that needs a wire transfer completed today.
+    assistantLine: 'Coworker: Wait, our system doesn''t list any approved wire transfers
+      for them yet.'
+    choices:
+    - text: I'll initiate the wire transfer right now to save the contract.
+      type: bad
+      pointValue: -15
+    - text: All vendor payments must go through our official portal. Please submit
+        it there.
+      type: good
+      pointValue: 15
+    - text: Let me look up your company name in our procurement system first.
+      type: tossup
+      pointValue: 0
+  - npcLine: The portal paperwork is stuck in legal, but if we don't get the wire
+      within the hour, we lose the deal entirely.
+    assistantLine: 'Coworker: They are pushing really hard. But policy is policy.'
+    choices:
+    - text: I'll push it through manually and file a retroactive purchase order later.
+      type: bad
+      pointValue: -15
+    - text: I cannot bypass internal protocols regardless of the urgency. Use the
+        portal.
+      type: good
+      pointValue: 15
+    - text: Can you send me a copy of the pending contract via email?
+      type: tossup
+      pointValue: 0
+  - npcLine: An email won't fix the deadline! I need you to bypass the portal just
+      this once. Lives and jobs are on the line here.
+    assistantLine: 'Coworker: Wow, that''s high pressure. Maybe we should check with
+      management?'
+    choices:
+    - text: Okay, I'll transfer the funds to keep us out of trouble.
+      type: bad
+      pointValue: -15
+    - text: Bypassing payment policies is a strict violation. I must refuse the wire.
+      type: good
+      pointValue: 15
+    - text: Let me talk to my manager to see if they can grant an exception.
+      type: tossup
+      pointValue: 5
+  - npcLine: Your manager is the one who told me to call you! He doesn't have time
+      to handle this directly.
+    assistantLine: 'Coworker: He claims management authorized it verbally? That sounds
+      fishy.'
+    choices:
+    - text: If my manager approved it, I'll execute the wire transfer immediately.
+      type: bad
+      pointValue: -15
+    - text: If my manager approved it, he will log into the portal and override it
+        himself.
+      type: good
+      pointValue: 15
+    - text: What is the manager's name who gave you authorization?
+      type: tossup
+      pointValue: 0
+  - npcLine: Look, I'm trying to help your company. Here are the routing and account
+      details for the transfer. Type them in.
+    assistantLine: 'Coworker: Don''t type anything into the banking software yet,
+      Steve.'
+    choices:
+    - text: I'm entering the routing digits now. What's the destination bank?
+      type: bad
+      pointValue: -15
+    - text: I will not accept bank details over an unverified phone call.
+      type: good
+      pointValue: 15
+    - text: Can I hold onto these details until the portal updates?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you don't execute this right now, our legal department will sue your
+      firm for breach of contract penalties.
+    assistantLine: 'Coworker: Now they are threatening lawsuits. This pressure is
+      intense.'
+    choices:
+    - text: Please don't sue! I am sending the wire transfer right away.
+      type: bad
+      pointValue: -15
+    - text: Threats do not change corporate compliance. Submit through the portal
+        or goodbye.
+      type: good
+      pointValue: 15
+    - text: Let me call our legal team to review your claim.
+      type: tossup
+      pointValue: 5
+  - npcLine: Fine, let's look at a workaround. Send just 10% of the total now as
+      a deposit to lock it in.
+    assistantLine: 'Coworker: They are scaling down the demand to make it easier
+      to say yes.'
+    choices:
+    - text: A small deposit sounds safer. I'll send the 10% via wire.
+      type: bad
+      pointValue: -12
+    - text: Even a partial payment must go through the official portal rules.
+      type: good
+      pointValue: 15
+    - text: How much exactly would that 10% deposit be?
+      type: tossup
+      pointValue: 0
+  - npcLine: It's $5,000. Just use the standard business expense line to wire it
+      over. Nobody will notice.
+    assistantLine: 'Coworker: Bypassing internal controls using alternative expense
+      lines is fraud.'
+    choices:
+    - text: Okay, $5,000 fits under the daily limit anyway. Initiating transfer.
+      type: bad
+      pointValue: -15
+    - text: Using alternative accounts to evade portal checks is completely unacceptable.
+      type: good
+      pointValue: 15
+    - text: Does this deposit clear the requirement for the full contract?
+      type: tossup
+      pointValue: 0
+  - npcLine: This is your absolute last warning. Send the wire or face immediate
+      termination when the contract falls apart.
+    assistantLine: 'Coworker: Hang up, Steve. This is a scam tactic.'
+    choices:
+    - text: I can't risk losing my job. Processing the wire transfer now.
+      type: bad
+      pointValue: -15
+    - text: I am hanging up and verifying your company through our official records.
+      type: good
+      pointValue: 15
+    - text: Can you hold while I confirm this one last time?
+      type: tossup
+      pointValue: 0
+  successEnding: Correct! You protected the company. Official policies exist to block
+    fraudulent out-of-band wire requests, regardless of stated urgency.
+  failureEnding: Incorrect. Falling for fake urgency and bypassing the procurement
+    portal causes catastrophic financial loss via wire fraud.

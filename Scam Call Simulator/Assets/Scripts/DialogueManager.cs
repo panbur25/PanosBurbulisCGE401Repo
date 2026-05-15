@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // 1. Add this!
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text victimDialogueText;
+    [Header("TMP UI References")]
+    public TextMeshProUGUI victimDialogueText; // 2. Change Text to TextMeshProUGUI
+    public TextMeshProUGUI assistantAdviceText;
+
     public float typeSpeed = 0.05f;
     private Coroutine typingCoroutine;
 
-    public Text assistantAdviceText;    
-    public Image assistantPortrait;  
+    public Image assistantPortrait;
     public Transform choicesContainer;
     public GameObject choiceButtonPrefab;
 
@@ -18,86 +21,67 @@ public class DialogueManager : MonoBehaviour
     public Sprite scammerAssistantSprite;
     public Sprite victimAssistantSprite;
 
-    public void ShowStep(DialogueStep step)
+    public void ShowStep(DialogueStepData step)
     {
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
-        // Start the "Master Sequence" that handles both lines
         typingCoroutine = StartCoroutine(DialogueSequence(step));
 
-        // Handle Portrait
         if (assistantPortrait != null)
         {
             assistantPortrait.sprite = (GameManager.Instance.CurrentScenario == NPCScenario.Scammer)
                 ? scammerAssistantSprite
                 : victimAssistantSprite;
         }
-        /*
-        // Choices (Keep your existing choice-clearing logic here)
-        foreach (Transform child in choicesContainer)
-            Destroy(child.gameObject);
-
-        foreach (DialogueChoice choice in step.choices)
-        {
-            GameObject btnObj = Instantiate(choiceButtonPrefab, choicesContainer);
-            btnObj.GetComponentInChildren<Text>().text = choice.text;
-            DialogueChoice captured = choice;
-            btnObj.GetComponent<Button>().onClick.AddListener(() =>
-            {
-                GameManager.Instance.OnChoiceMade(captured);
-            });
-        }*/
     }
 
-    IEnumerator DialogueSequence(DialogueStep step)
+    IEnumerator DialogueSequence(DialogueStepData step) // Changed to DialogueStepData
     {
-        foreach (Transform child in choicesContainer) Destroy(child.gameObject);
-        // 1. Clear everything first so the screen is clean
+        // 1. Clear everything
         victimDialogueText.text = "";
         if (assistantAdviceText != null) assistantAdviceText.text = "";
 
-        // Clear choices container but keep the logic for buttons
         foreach (Transform child in choicesContainer) Destroy(child.gameObject);
 
-        // 2. Type the Victim Line
-        yield return StartCoroutine(TypeText(victimDialogueText, step.victimLine));
+        // 2. Type NPC Line (Scammer or Victim)
+        yield return StartCoroutine(TypeText(victimDialogueText, step.npcLine));
 
-        // 3. Small Delay before Assistant
         yield return new WaitForSeconds(0.5f);
 
+        // 3. Type Assistant Advice (Wife or Coworker)
         if (assistantAdviceText != null)
         {
-            yield return StartCoroutine(TypeText(assistantAdviceText, step.assistantAdvice));
+            // Use Ethan's wife for Victim mode, Coworker for Scammer mode
+            string prefix = (GameManager.Instance.CurrentScenario == NPCScenario.Victim) ? "Wife: " : "Coworker: ";
+            yield return StartCoroutine(TypeText(assistantAdviceText, prefix + step.assistantLine));
         }
 
-        // 4. Tiny delay before choices pop in
         yield return new WaitForSeconds(0.3f);
 
-        // 5. Spawn and Type all choices SIMULTANEOUSLY
+        // 4. Simultaneous Choice Typing
         for (int i = 0; i < step.choices.Length; i++)
         {
-            DialogueChoice choice = step.choices[i];
+            Choice choice = step.choices[i]; // Using our 'Choice' class
             GameObject btnObj = Instantiate(choiceButtonPrefab, choicesContainer);
-            Text btnText = btnObj.GetComponentInChildren<Text>();
+
+            TextMeshProUGUI btnText = btnObj.GetComponentInChildren<TextMeshProUGUI>();
             Button btn = btnObj.GetComponent<Button>();
 
-            // Disable button initially so they can't click until it's done typing
             btn.interactable = false;
 
-            // Setup the button logic
-            DialogueChoice captured = choice;
+            Choice captured = choice;
+            // This will pass the pointValue and type to your GameManager
             btn.onClick.AddListener(() => GameManager.Instance.OnChoiceMade(captured));
 
-            // Start typing this specific button text WITHOUT 'yield' 
-            // This makes them all start at the same time!
             StartCoroutine(TypeChoice(btnText, choice.text, btn));
         }
 
         typingCoroutine = null;
     }
 
-    IEnumerator TypeChoice(Text targetUI, string fullText, Button btn)
+    // 4. Update signatures to use TextMeshProUGUI
+    IEnumerator TypeChoice(TextMeshProUGUI targetUI, string fullText, Button btn)
     {
         targetUI.text = "";
         foreach (char letter in fullText.ToCharArray())
@@ -105,12 +89,10 @@ public class DialogueManager : MonoBehaviour
             targetUI.text += letter;
             yield return new WaitForSeconds(typeSpeed);
         }
-
-        // Make the button clickable only after it's fully typed
         btn.interactable = true;
     }
 
-    IEnumerator TypeText(Text targetUI, string fullText)
+    IEnumerator TypeText(TextMeshProUGUI targetUI, string fullText)
     {
         targetUI.text = "";
         foreach (char letter in fullText.ToCharArray())

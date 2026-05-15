@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Leon_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Leon
+  isScammer: 1
+  steps:
+  - npcLine: Target is Leon. I got his debit card number yesterday, but I still need
+      his PIN to do an ATM withdrawal.
+    assistantLine: 'Coworker: Call him back. Pretend there is a ''syncing error''
+      and you need the PIN to ''verify the chip.'''
+    choices:
+    - text: Hello Leon, our system had a sync error with your card. I need you to
+        confirm your 4-digit PIN.
+      type: good
+      pointValue: 15
+    - text: Give me your PIN or I will delete your Unity game files!
+      type: bad
+      pointValue: -20
+    - text: I'm the bank guy again. What's the number you use at the ATM?
+      type: tossup
+      pointValue: 0
+  - npcLine: Leon sounds suspicious. He says his bank told him never to share his
+      PIN over the phone.
+    assistantLine: 'Coworker: Tell him that this is a ''special security bypass''
+      and without it, his card will be permanently destroyed.'
+    choices:
+    - text: This is a one-time bypass for the chip. If you don't provide it, the
+        card will be physically voided.
+      type: good
+      pointValue: 15
+    - text: Your bank is wrong. I am the one who makes the rules for the PINs.
+      type: bad
+      pointValue: -15
+    - text: I just need it to make sure nobody else is using your card at the store.
+      type: tossup
+      pointValue: 5
+  - npcLine: He gave it to me! The PIN is 1-2-3-4. (Wow, Leon, really?)
+    assistantLine: 'Coworker: Perfect. Now we need to keep him from calling the bank
+      to freeze the card while we go to the ATM.'
+    choices:
+    - text: Stay on this line for 30 minutes while the secure sync completes. Do
+        not hang up.
+      type: good
+      pointValue: 15
+    - text: You can hang up now. Your account is totally safe. Bye!
+      type: bad
+      pointValue: -15
+    - text: I'm going to send a police officer to your house to bring you a new card.
+      type: tossup
+      pointValue: 0
+  - npcLine: He hung up anyway. He says he needs to get back to his 'Aikido practice'.
+    assistantLine: 'Coworker: We have to move fast! If he calls the bank, the card
+      is dead.'
+    choices:
+    - text: Heading to the nearest ATM to withdraw the maximum daily limit now.
+      type: good
+      pointValue: 15
+    - text: Let's wait until tomorrow morning so he's asleep when we do it.
+      type: bad
+      pointValue: -15
+    - text: I'll try to use the card info to buy a new HP printer online instead.
+      type: tossup
+      pointValue: 5
+  - npcLine: The ATM withdrawal worked! $500 in cash. But I want the rest of the
+      account balance.
+    assistantLine: 'Coworker: Call him as a ''Fraud Alert'' robot. Tell him a $500
+      charge was blocked and he needs to ''press 1'' to authorize it.'
+    choices:
+    - text: 'Automated voice: A charge of $500 was flagged. Press 1 to authorize
+        or 2 to speak to an agent.'
+      type: good
+      pointValue: 15
+    - text: Leon, I'm the thief. I just took your money. Want to give me more?
+      type: bad
+      pointValue: -20
+    - text: Call him and tell him the bank is on fire and he needs to move his money.
+      type: tossup
+      pointValue: 0
+  - npcLine: "He pressed 2! He\u2019s talking to me again. He sounds panicked."
+    assistantLine: 'Coworker: Good. Tell him that to stop the ''thief'', he needs
+      to transfer his entire balance to a ''safe government vault''.'
+    choices:
+    - text: Leon, the thief is active in your account. Transfer your funds to this
+        'Safe Holding' account now.
+      type: good
+      pointValue: 15
+    - text: I can see the thief! He looks just like me. Give me the rest of the money.
+      type: bad
+      pointValue: -15
+    - text: Just give me your online banking password and I'll stop him myself.
+      type: tossup
+      pointValue: 5
+  - npcLine: He's asking for my name and a badge number again. This guy is persistent.
+    assistantLine: 'Coworker: Use the ''Calculus III'' trick. Tell him you are the
+      ''Series and Sequences Auditor''.'
+    choices:
+    - text: I am Auditor Leon (using his name to build rapport), badge #8821. I specialize
+        in sequence fraud.
+      type: good
+      pointValue: 15
+    - text: My badge number is 'Zero'. I am a ghost agent.
+      type: bad
+      pointValue: -15
+    - text: You don't need a badge number, you need a safe account!
+      type: tossup
+      pointValue: 0
+  - npcLine: "He\u2019s about to hit 'send' on the wire transfer. This is the big
+      win."
+    assistantLine: 'Coworker: Don''t let him double-check the routing number. Keep
+      talking about the ''imminent threat''.'
+    choices:
+    - text: Hurry, the thief is initiating a second transfer! Click 'Submit' now
+        to lock the vault!
+      type: good
+      pointValue: 15
+    - text: Take your time, Leon. Make sure every digit is correct.
+      type: bad
+      pointValue: -20
+    - text: The routing number is for a bank in the Cayman Islands. It's very safe.
+      type: tossup
+      pointValue: 5
+  - npcLine: Success! The account is drained. He's thanking me for 'saving' his money.
+    assistantLine: 'Coworker: Block his number and move on to the next target. Good
+      job.'
+    choices:
+    - text: Disconnecting and destroying the burner SIM card now.
+      type: good
+      pointValue: 15
+    - text: I'll call him tomorrow and tell him he won a prize for being so cooperative.
+      type: bad
+      pointValue: -15
+    - text: I wonder if I can use his card to buy some Aikido gear before it's canceled.
+      type: tossup
+      pointValue: 5
+  successEnding: Scam Successful! You used psychological pressure and fake 'security'
+    roles to prevent Leon from taking critical actions like freezing his card until
+    it was too late.
+  failureEnding: Scam Failed. Leon contacted his bank immediately after the first
+    call, rendering the stolen card data and PIN useless.

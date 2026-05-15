@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro; // 1. Add this!
 
 public enum NPCScenario { Scammer, Victim }
 public enum CallStatus { Locked, Available, Scammed, HungUp }
@@ -12,8 +13,9 @@ public class NPCEntry
     public string npcName;
     public string contactDescription;
     public Sprite profilePic;
-    public ScenarioData scammerScenario;
-    public ScenarioData victimScenario;
+    // Update these to use DialogueSO (the ScriptableObject we created)
+    public DialogueSO scammerScenario;
+    public DialogueSO victimScenario;
     [HideInInspector] public CallStatus callStatus = CallStatus.Available;
 }
 
@@ -34,10 +36,6 @@ public class GameManager : MonoBehaviour
 
     private int currentNPCIndex = -1;
     private NPCEntry CurrentNPC => npcRoster[currentNPCIndex];
-    private ScenarioData ActiveScenario =>
-        CurrentScenario == NPCScenario.Victim
-            ? CurrentNPC.victimScenario
-            : CurrentNPC.scammerScenario;
 
     public List<NPCEntry> NPCRoster => npcRoster;
     public LevelData CurrentLevelData => levels[currentLevelIndex];
@@ -54,17 +52,17 @@ public class GameManager : MonoBehaviour
     [Header("UI Panels")]
     public GameObject gamePanel;
     public GameObject resultsPanel;
-    public Text resultsTitleText;
-    public Text resultsBodyText;
+    public TextMeshProUGUI resultsTitleText; // 2. Update these!
+    public TextMeshProUGUI resultsBodyText;
 
     [Header("Level Complete UI")]
     public GameObject levelCompletePanel;
-    public Text levelCompleteTitleText;
-    public Text levelCompleteBodyText;
+    public TextMeshProUGUI levelCompleteTitleText;
+    public TextMeshProUGUI levelCompleteBodyText;
 
     [Header("Game Panel NPC Info")]
     public Image gameProfileImage;
-    public Text gameInfoText;
+    public TextMeshProUGUI gameInfoText;
 
     [Header("Pip UI")]
     public Image[] goodPips;
@@ -133,6 +131,11 @@ public class GameManager : MonoBehaviour
         if (victimObjects != null) victimObjects.SetActive(!isScammer);
     }
 
+    private DialogueSO ActiveScenario =>
+    CurrentScenario == NPCScenario.Victim
+        ? CurrentNPC.victimScenario
+        : CurrentNPC.scammerScenario;
+
     public CallStatus GetCallStatus(int npcIndex)
     {
         if (npcIndex < 0 || npcIndex >= npcRoster.Count) return CallStatus.Locked;
@@ -186,16 +189,31 @@ public class GameManager : MonoBehaviour
         dialogueManager.ShowStep(ActiveScenario.steps[index]);
     }
 
-    public void OnChoiceMade(DialogueChoice choice)
+    public void OnChoiceMade(Choice choice)
     {
         dialogueManager.DisableChoices();
-        trustBar.ModifyTrust(choice.trustDelta);
-        if (choice.isGood) goodCount++;
-        else badCount++;
+
+        // Handle the Toss-up logic
+        int finalDelta = choice.pointValue;
+        if (choice.type == "tossup")
+        {
+            finalDelta = (currentStep % 2 == 0) ? Random.Range(1, 6) : Random.Range(-5, 0);
+        }
+
+        trustBar.ModifyTrust(finalDelta);
+
+        // Track "Good" vs "Bad" for your pips
+        if (choice.type == "good") goodCount++;
+        else if (choice.type == "bad") badCount++;
+
         UpdatePips();
-        CheckWinLose();
+
+        // Wait a bit before moving to next step so player sees the trust bar move
+        currentStep++;
+        Invoke("NextStep", 1.2f);
     }
 
+    /*
     void CheckWinLose()
     {
         if (goodCount >= 5) { EndGame(true); return; }
@@ -204,16 +222,80 @@ public class GameManager : MonoBehaviour
         if (trustBar.TrustValue <= 0f) { EndGame(false); return; }
         currentStep++;
         Invoke("NextStep", 0.8f);
-    }
+    } */
 
-    void NextStep() => LoadStep(currentStep);
+    void NextStep()
+    {
+        bool isVictimScenario = CurrentScenario == NPCScenario.Victim;
+
+        if (isVictimScenario)
+        {
+            // ==========================================
+            // VICTIM SCENARIO RULESET
+            // ==========================================
+            // Win: You successfully hang up / derail the scammer
+            if (goodCount >= 5 || trustBar.TrustValue >= 100f)
+            {
+                EndGame(true);
+                return;
+            }
+
+            // Lose: Scammer tricks you / you fall for it
+            if (badCount >= 5 || trustBar.TrustValue <= 0f)
+            {
+                EndGame(false);
+                return;
+            }
+        }
+        else
+        {
+            // ==========================================
+            // SCAMMER SCENARIO RULESET
+            // ==========================================
+            // Win: You successfully trick the victim
+            if (goodCount >= 5 || trustBar.TrustValue >= 100f)
+            {
+                EndGame(true);
+                return;
+            }
+
+            // Lose: Victim hangs up / you blow it
+            if (badCount >= 5 || trustBar.TrustValue <= 0f)
+            {
+                EndGame(false);
+                return;
+            }
+        }
+
+        // ==========================================
+        // Continue to next step if no win/loss yet
+        // ==========================================
+        if (currentStep >= ActiveScenario.steps.Length)
+        {
+            // Ran out of dialogue steps - decide winner by trust bar position
+            bool playerWon = isVictimScenario
+                ? trustBar.TrustValue >= 50f   // Victim: high suspicion = you won
+                : trustBar.TrustValue >= 50f;  // Scammer: high trust = you won
+            EndGame(playerWon);
+        }
+        else
+        {
+            LoadStep(currentStep);
+        }
+    }
 
     void UpdatePips()
     {
+        bool isScammer = activeScenario == NPCScenario.Scammer;
+
+        Color goodColor = isScammer ? Color.green : Color.green; // Usually players like green for "success"
+        Color badColor = isScammer ? Color.red : Color.red;
+
         for (int i = 0; i < goodPips.Length; i++)
-            goodPips[i].color = i < goodCount ? Color.green : Color.grey;
+            goodPips[i].color = i < goodCount ? goodColor : Color.grey;
+
         for (int i = 0; i < badPips.Length; i++)
-            badPips[i].color = i < badCount ? Color.red : Color.grey;
+            badPips[i].color = i < badCount ? badColor : Color.grey;
     }
 
     public void EndGame(bool win)
@@ -221,18 +303,25 @@ public class GameManager : MonoBehaviour
         string npcName = CurrentNPC.npcName;
         CurrentNPC.callStatus = win ? CallStatus.Scammed : CallStatus.HungUp;
 
-        resultsTitleText.text = win ? "SCAM SUCCESSFUL!" : "CALL DROPPED!";
-        resultsBodyText.text = win
-            ? $"{npcName} transferred the funds.\nTRUST: {Mathf.RoundToInt(trustBar.TrustValue)}%  |  GOOD: {goodCount}  |  BAD: {badCount}"
-            : $"{npcName} got suspicious and hung up.\nTRUST: {Mathf.RoundToInt(trustBar.TrustValue)}%  |  GOOD: {goodCount}  |  BAD: {badCount}";
+        bool isVictimScenario = CurrentScenario == NPCScenario.Victim;
 
-        if (ActiveScenario != null)
+        if (isVictimScenario)
         {
-            resultsBodyText.text = ActiveScenario.resultSummary;
+            // VICTIM SCENARIO TEXT
+            resultsTitleText.text = win ? "YOU SPOTTED THE SCAM!" : "YOU GOT SCAMMED!";
         }
         else
         {
-            // Fallback just in case you forgot to fill one out
+            // SCAMMER SCENARIO TEXT
+            resultsTitleText.text = win ? "SCAM SUCCESSFUL!" : "CALL DROPPED!";
+        }
+
+        if (ActiveScenario != null)
+        {
+            resultsBodyText.text = win ? ActiveScenario.successEnding : ActiveScenario.failureEnding;
+        }
+        else
+        {
             resultsBodyText.text = "Communication ended.";
         }
 

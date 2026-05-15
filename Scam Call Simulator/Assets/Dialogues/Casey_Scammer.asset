@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Casey_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Casey
+  isScammer: 1
+  steps:
+  - npcLine: Hello? Who's calling?
+    assistantLine: 'Coworker: Pretend to be a lawyer. Tell them their grandson is
+      in jail and needs money now.'
+    choices:
+    - text: Hi Casey, I'm a legal representative. Your grandson has been arrested.
+      type: good
+      pointValue: 12
+    - text: I have bad news about your grandson. He's in big trouble.
+      type: tossup
+      pointValue: 0
+    - text: Your grandson is in jail. Give me $4,000 right now.
+      type: bad
+      pointValue: -15
+  - npcLine: Arrested?! Oh no! Is he okay? Does his mom know?
+    assistantLine: 'Coworker: Tell them he''s too embarrassed and wants it kept secret
+      from the parents.'
+    choices:
+    - text: He's fine, but he's begging me not to call his parents. He's ashamed.
+      type: good
+      pointValue: 15
+    - text: They don't know yet. He told me to call you instead.
+      type: tossup
+      pointValue: 0
+    - text: Don't call them! They will be furious and it'll make it worse.
+      type: bad
+      pointValue: -12
+  - npcLine: I have to help him. What do I need to do?
+    assistantLine: 'Coworker: Perfect. Ask for bail money in gift cards. Say it''s
+      ''faster.'''
+    choices:
+    - text: The court needs $4,000 for bail. Gift cards are the only way to process
+        it today.
+      type: good
+      pointValue: 15
+    - text: Buy some gift cards and read me the codes so I can pay the judge.
+      type: tossup
+      pointValue: 0
+    - text: I need cash, but since I can't see you, buy me some gift cards.
+      type: bad
+      pointValue: -14
+  - npcLine: Gift cards for bail? That sounds really strange...
+    assistantLine: 'Coworker: They''re doubting. Use urgency! Mention a transfer
+      to a worse cell.'
+    choices:
+    - text: If we don't pay in the next hour, they'll transfer him to the county
+        jail.
+      type: good
+      pointValue: 14
+    - text: It's a new digital pilot program the courts are using. Trust me.
+      type: tossup
+      pointValue: 0
+    - text: Just do it if you want to see your grandson again.
+      type: bad
+      pointValue: -11
+  - npcLine: Okay, I'm worried... but shouldn't I talk to a real police officer?
+    assistantLine: 'Coworker: Say the precinct is busy and you''re the only bridge
+      to the court.'
+    choices:
+    - text: The precinct is in lockdown. I'm the only bridge between him and the
+        court.
+      type: good
+      pointValue: 15
+    - text: The police won't talk to you. They only talk to lawyers.
+      type: tossup
+      pointValue: 0
+    - text: Why don't you trust me? I'm trying to help your family!
+      type: bad
+      pointValue: -13
+  - npcLine: I guess... which cards should I get? And from where?
+    assistantLine: 'Coworker: Send them to a store. Tell them to keep the line open.'
+    choices:
+    - text: Go to Target or CVS. Keep me on the phone while you shop so I can guide
+        you.
+      type: good
+      pointValue: 15
+    - text: Just get any cards. I'll wait here for the codes.
+      type: tossup
+      pointValue: 0
+    - text: Go buy $4,000 worth of Amazon cards and don't tell the cashier why.
+      type: bad
+      pointValue: -15
+  - npcLine: Wait, the cashier is asking me why I'm buying so many cards...
+    assistantLine: 'Coworker: Tell them to lie and say they are gifts for a party.'
+    choices:
+    - text: Tell them they are gifts for your employees. Don't mention the jail or
+        me.
+      type: good
+      pointValue: 15
+    - text: Just tell them to mind their own business and keep buying.
+      type: tossup
+      pointValue: 0
+    - text: Lie to them. Say anything to get those cards.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay, I have the cards. I'm scratching the back off now...
+    assistantLine: 'Coworker: Almost there. Get the numbers and have them read slowly.'
+    choices:
+    - text: Read the 16-digit code slowly. I'm inputting them into the court portal.
+      type: good
+      pointValue: 15
+    - text: Hurry up! Give me the numbers before the judge leaves.
+      type: tossup
+      pointValue: 0
+    - text: Finally. Read them out now.
+      type: bad
+      pointValue: -12
+  - npcLine: 'Here it is: 8821-4402... did he get released?'
+    assistantLine: 'Coworker: You win. Hang up and dispose of the connection.'
+    choices:
+    - text: Yes, I'm processing it now. He'll be home in an hour. Goodbye!
+      type: good
+      pointValue: 15
+    - text: I'll let you know when he's out. Stay by the phone.
+      type: tossup
+      pointValue: 0
+    - text: Thanks for the money. Your grandson isn't even in jail.
+      type: bad
+      pointValue: -10
+  successEnding: 'Scam Successful! You used isolation and urgency to trick them into
+    using gift cards[cite: 1].'
+  failureEnding: 'Scam Failed. Casey realized that bail is never paid in gift cards
+    and contacted their family[cite: 1].'

@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro; // Added for TextMeshPro support
 
 public class ContactButton : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private Text nameText;
-    [SerializeField] private Text statusText;
-    [SerializeField] private Text descriptText;
+    [SerializeField] private TextMeshProUGUI nameText;   // Changed to TMP
+    [SerializeField] private TextMeshProUGUI statusText; // Changed to TMP
+    [SerializeField] private TextMeshProUGUI descriptText; // Changed to TMP
     [SerializeField] private Button button;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private Image profilePicImage;
 
     [Header("Status Colors")]
-    [SerializeField] private Color lockedColor = new Color(0.5f, 0.5f, 0.5f, 0.3f);   // slight gray, mostly transparent
-    [SerializeField] private Color availableColor = new Color(1f, 1f, 1f, 1f);         // fully visible/normal
-    [SerializeField] private Color scammedColor = new Color(0.2f, 0.8f, 0.2f, 0.6f);  // green tint, visible
-    [SerializeField] private Color hungUpColor = new Color(0.8f, 0.2f, 0.2f, 0.6f);   // red tint, visible
+    [SerializeField] private Color lockedColor = new Color(0.5f, 0.5f, 0.5f, 0.3f);
+    [SerializeField] private Color availableColor = new Color(1f, 1f, 1f, 1f);
+    [SerializeField] private Color scammedColor = new Color(0.2f, 0.8f, 0.2f, 0.6f);
+    [SerializeField] private Color hungUpColor = new Color(0.8f, 0.2f, 0.2f, 0.6f);
 
     private int npcIndex;
 
@@ -23,18 +24,25 @@ public class ContactButton : MonoBehaviour
     {
         npcIndex = index;
 
-        /*
-        if (profilePicImage != null)
+        // Set the profile picture
+        if (profilePicImage != null && profilePic != null)
         {
-            profilePicImage.sprite = (profilePic != null) ? profilePic : defaultProfilePic;
-        } */
+            profilePicImage.sprite = profilePic;
+        }
 
-        if (descriptText != null) descriptText.text = description;
         ApplyStatus(status, npcName, description);
+
+        // Auto-assign the button click in code so you don't have to do it manually in the prefab
+        if (button != null)
+        {
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(OnClick);
+        }
     }
 
     private void ApplyStatus(CallStatus status, string npcName = "Unknown", string description = "")
     {
+        // Visual logic based on status
         switch (status)
         {
             case CallStatus.Locked:
@@ -70,17 +78,6 @@ public class ContactButton : MonoBehaviour
                 if (profilePicImage != null) profilePicImage.color = Color.white;
                 break;
         }
-    }
-
-    // Call this from PhoneUI whenever the phone panel is opened,
-    // so buttons react to world progress without a full rebuild.
-    public void RefreshStatus()
-    {
-        CallStatus current = GameManager.Instance.GetCallStatus(npcIndex);
-        NPCEntry npc = GameManager.Instance.NPCRoster[npcIndex];
-        if (profilePicImage != null)
-            profilePicImage.sprite = npc.profilePic;
-        ApplyStatus(current, npc.npcName, npc.contactDescription);
     }
 
     public void OnClick()

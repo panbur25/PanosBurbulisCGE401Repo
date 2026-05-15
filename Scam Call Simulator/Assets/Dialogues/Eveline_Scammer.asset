@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Eveline_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Eveline
+  isScammer: 1
+  steps:
+  - npcLine: "Target is Eveline. I\u2019m going to use the 'IRS Warrant' script.
+      It works best on students who are worried about their future."
+    assistantLine: 'Coworker: Make sure to sound official. Use terms like ''Federal
+      Tax Lien'' and ''Magistrate Warrant.'''
+    choices:
+    - text: This is Senior Agent Eveline (using her name) from the IRS. You have
+        an outstanding federal tax lien.
+      type: good
+      pointValue: 15
+    - text: You owe me money for taxes. If you don't pay, I will put you in jail.
+      type: bad
+      pointValue: -15
+    - text: I am calling to help you with your 2024 tax return errors.
+      type: tossup
+      pointValue: 0
+  - npcLine: "She\u2019s asking why she didn't get any mail about this. I need a
+      good excuse."
+    assistantLine: 'Coworker: Tell her the mail was sent to her ''permanent address''
+      on file and it was returned as undeliverable.'
+    choices:
+    - text: The notices were sent to your registered address but were returned. This
+        is now a criminal matter.
+      type: good
+      pointValue: 15
+    - text: We don't send mail anymore, it's all done by phone to save trees.
+      type: bad
+      pointValue: -15
+    - text: The mail carrier lost the letters, but we have the digital copies here.
+      type: tossup
+      pointValue: 0
+  - npcLine: She says she wants to hang up and call the number on the IRS website.
+      I have to stop her!
+    assistantLine: 'Coworker: Use the ''Direct Line'' threat. Tell her if she hangs
+      up, she''s ''refusing to cooperate'' and the warrant goes live.'
+    choices:
+    - text: If you disconnect, it will be logged as a refusal to cooperate. The warrant
+        will be issued instantly.
+      type: good
+      pointValue: 15
+    - text: The website number is just for general questions, they can't see your
+        criminal file.
+      type: tossup
+      pointValue: 5
+    - text: Please don't hang up, I'll get in trouble with my boss if you do.
+      type: bad
+      pointValue: -15
+  - npcLine: "She\u2019s still on the line, but she sounds uncertain. I need to push
+      the urgency to 'within the hour.'"
+    assistantLine: 'Coworker: Mention the ''local police department'' is already
+      on standby to pick her up.'
+    choices:
+    - text: Your local precinct is on standby. You have 45 minutes to settle this
+        before they are dispatched.
+      type: good
+      pointValue: 15
+    - text: I am going to call the police right now and they will be there in one
+        minute.
+      type: bad
+      pointValue: -12
+    - text: You should tell your roommates that you'll be gone for a few days.
+      type: tossup
+      pointValue: 0
+  - npcLine: "She\u2019s asking how she can pay to stop the warrant. Now we pivot
+      to the 'Gift Card' payment method."
+    assistantLine: 'Coworker: No, that''s too obvious for an IRS scam. Use a ''Federal
+      Wire Transfer'' or ''Bitcoin'' for ''instant clearing.'''
+    choices:
+    - text: You must use the Federal E-File wire system. Go to a nearby kiosk and
+        I'll give you the code.
+      type: good
+      pointValue: 15
+    - text: Go buy five Target gift cards and read me the numbers to pay your tax
+        bill.
+      type: bad
+      pointValue: -15
+    - text: Just put the cash in an envelope and leave it under your front porch
+        rug.
+      type: bad
+      pointValue: -20
+  - npcLine: "She\u2019s at the kiosk. She\u2019s starting to enter the routing info.
+      I\u2019m almost there."
+    assistantLine: 'Coworker: Keep her talking about the ''Calculus III'' or ''Aikido''
+      to keep her brain occupied with other things.'
+    choices:
+    - text: So, I see you're studying advanced mathematics. A person with your brain
+        shouldn't have a criminal record.
+      type: good
+      pointValue: 15
+    - text: Do you like sports? I like sports too. Let's talk about football while
+        you type.
+      type: bad
+      pointValue: -10
+    - text: What are you going to do after you finish your urban studies report?
+      type: tossup
+      pointValue: 5
+  - npcLine: She's pausing. She says the kiosk has a warning sign about IRS scams.
+      I need to explain the sign away.
+    assistantLine: 'Coworker: Tell her that the sign is for ''unauthorized'' agents,
+      but you are a ''Senior Tier 1'' agent with a special bypass.'
+    choices:
+    - text: That sign is for consumer fraud. This is a Tier 1 Federal settlement.
+        The warning doesn't apply.
+      type: good
+      pointValue: 15
+    - text: The kiosk owner is a criminal and put that sign there to stop us from
+        getting taxes.
+      type: bad
+      pointValue: -15
+    - text: Just ignore the sign, it's old information from 2022.
+      type: tossup
+      pointValue: 0
+  - npcLine: "She\u2019s asking for my supervisor's phone number one more time. She\u2019s
+      really fighting back."
+    assistantLine: 'Coworker: Give her your partner''s number and tell her he''s
+      the ''Deputy Director.'''
+    choices:
+    - text: Fine. Call my supervisor, Deputy Director Sam, at this number right now.
+      type: good
+      pointValue: 15
+    - text: I don't have a supervisor, I am the boss of the whole IRS.
+      type: bad
+      pointValue: -15
+    - text: If you call a supervisor, the price of the warrant will go up by $2,000.
+      type: tossup
+      pointValue: 5
+  - npcLine: She's talking to the 'supervisor' now. He's closing the deal. The wire
+      is pending.
+    assistantLine: 'Coworker: Brilliant. As soon as the money clears, we disappear.'
+    choices:
+    - text: The transfer is complete. Tell her the warrant is officially 'rescinded'
+        and hang up.
+      type: good
+      pointValue: 15
+    - text: Tell her she still owes another $2,000 for the processing fees.
+      type: bad
+      pointValue: -10
+    - text: I'm going to tell her it was a prank so she doesn't call the real police.
+      type: bad
+      pointValue: -25
+  successEnding: Scam Successful! You used artificial urgency and a fake 'supervisor'
+    to prevent Eveline from verifying the claim through official IRS channels.
+  failureEnding: Scam Failed. Eveline hung up and contacted the real IRS via the
+    number on IRS.gov, exposing your threats as fraudulent.

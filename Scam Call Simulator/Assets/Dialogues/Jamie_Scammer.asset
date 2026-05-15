@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Jamie_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Jamie
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: I''m on their bank''s ''Forgot Password'' page. I just
+      sent them a code. Tell them to read it.'
+    choices:
+    - text: Hi, I'm Jamie from Bank Security. I've sent a 6-digit verification code
+        to your phone. Read it back.
+      type: good
+      pointValue: 15
+    - text: I need the numbers that just showed up on your screen to verify your
+        identity.
+      type: tossup
+      pointValue: 0
+    - text: Give me the code so I can finish hacking your bank account.
+      type: bad
+      pointValue: -15
+  - npcLine: The text says 'Do not share this code.' Are you sure?
+    assistantLine: 'Coworker: Say that''s only for ''automated'' calls, but this
+      is a ''human'' security check.'
+    choices:
+    - text: That's an automated warning for robots. I'm a real person from security.
+      type: good
+      pointValue: 15
+    - text: The bank told me to ask you for it. It's a new policy they just started.
+      type: tossup
+      pointValue: 0
+    - text: If you don't read it, you're responsible for the fraud.
+      type: bad
+      pointValue: -13
+  - npcLine: Okay... it's 123-456. What happens now?
+    assistantLine: 'Coworker: We''re in! Now I''m changing their password. Tell them
+      to wait while it ''syncs.'''
+    choices:
+    - text: Perfect. Stay on the line while our systems sync your new security profile.
+      type: good
+      pointValue: 15
+    - text: One second, I'm applying a lock to your account using that code.
+      type: tossup
+      pointValue: 0
+    - text: I'm busy changing your password right now. Just be quiet.
+      type: bad
+      pointValue: -15
+  - npcLine: I just got an email saying my password was changed. Was that you?
+    assistantLine: 'Coworker: Yes! Tell them it''s a ''Temporary Secure Password''
+      we created for them.'
+    choices:
+    - text: Yes, I've updated it to a 'Federal Temporary Password' for your protection.
+      type: good
+      pointValue: 15
+    - text: That was an automatic alert from our system. Just ignore it.
+      type: tossup
+      pointValue: 0
+    - text: I don't know what you're talking about. Forget about the email.
+      type: bad
+      pointValue: -14
+  - npcLine: Can you tell me what the new password is?
+    assistantLine: 'Coworker: No! Tell them it''s ''hidden'' for 24 hours and they
+      can''t log in yet.'
+    choices:
+    - text: It's encrypted for 24 hours. Don't try to log in, or you'll break the
+        lock.
+      type: good
+      pointValue: 15
+    - text: I'll tell you tomorrow after the security sweep is finished.
+      type: tossup
+      pointValue: 0
+    - text: I'm not telling you anything. It's my account now.
+      type: bad
+      pointValue: -15
+  - npcLine: This feels very strange. I'm going to call my bank's local branch.
+    assistantLine: 'Coworker: Stop them! Say the branch is ''compromised'' and under
+      investigation.'
+    choices:
+    - text: That branch is actually the source of the breach! Don't talk to them!
+      type: good
+      pointValue: 15
+    - text: The local branch doesn't have access to this high-level security file.
+      type: tossup
+      pointValue: 0
+    - text: If you call them, the hackers will get your phone number too.
+      type: bad
+      pointValue: -13
+  - npcLine: If the branch is compromised, who can I trust?
+    assistantLine: 'Coworker: Me! Tell them only the ''Central Fraud Unit'' can be
+      trusted.'
+    choices:
+    - text: "Only the Central Fraud Unit\u2014my department\u2014is safe to talk
+        to."
+      type: good
+      pointValue: 15
+    - text: You can trust me because I'm the one who called you first.
+      type: tossup
+      pointValue: 0
+    - text: Don't trust anyone, not even your own wife.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay... I trust you. What's the last step?
+    assistantLine: 'Coworker: Get their debit card PIN so we can withdraw cash at
+      an ATM.'
+    choices:
+    - text: To re-encrypt your card's chip, I need you to enter your PIN on your
+        keypad.
+      type: good
+      pointValue: 15
+    - text: Read me your PIN so I can verify the physical card one last time.
+      type: tossup
+      pointValue: 0
+    - text: Give me your PIN or I'll take the money anyway.
+      type: bad
+      pointValue: -15
+  - npcLine: My PIN is 1-2-3-4. Is that it?
+    assistantLine: 'Coworker: We''ve got everything. Hang up and get to the ATM.'
+    choices:
+    - text: You are fully secured. We will contact you in 48 hours. Goodbye!
+      type: good
+      pointValue: 15
+    - text: I'm hanging up now. Your money is as safe as it can be.
+      type: tossup
+      pointValue: 0
+    - text: Thanks for everything, Jamie. You've been very helpful.
+      type: bad
+      pointValue: -15
+  successEnding: 'Scam Successful! You used the victim''s own 2FA codes and ''Forgot
+    Password'' tools to steal access[cite: 1].'
+  failureEnding: 'Scam Failed. Jamie followed the warning in the text message and
+    refused to read the code[cite: 1].'

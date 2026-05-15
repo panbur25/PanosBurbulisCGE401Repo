@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Jill_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Jill
+  isScammer: 1
+  steps:
+  - npcLine: "I just bought a database of 10 million 'gaming forum' logins from a
+      dark web forum. It was cheap\u2014only $50. Let's find a target."
+    assistantLine: 'Coworker: Filter for ''University'' emails. Those students usually
+      have some money and are easy to scare.'
+    choices:
+    - text: Selecting all '.edu' addresses from the leaked credentials list.
+      type: good
+      pointValue: 15
+    - text: Choosing names that sound like they belong to wealthy business owners.
+      type: tossup
+      pointValue: 5
+    - text: I'll just email everyone on the list at once with the same message.
+      type: bad
+      pointValue: -10
+  - npcLine: "Target is Jill. Her password was 'UnityDev123.' I\u2019ll send the
+      standard 'webcam monitoring' extortion script."
+    assistantLine: 'Coworker: Make sure to include the password in the very first
+      sentence to grab her attention.'
+    choices:
+    - text: 'Subject: I know your password ''UnityDev123''. You are being watched.'
+      type: good
+      pointValue: 15
+    - text: 'Subject: Hello Jill, I would like to talk to you about your computer.'
+      type: bad
+      pointValue: -15
+    - text: 'Subject: Urgent security update for your university account.'
+      type: tossup
+      pointValue: 5
+  - npcLine: I sent the email. Now I wait for her to panic. If she doesn't reply
+      in 2 hours, I'll send a follow-up with 'evidence.'
+    assistantLine: 'Coworker: You don''t have any real evidence, so just use a fake
+      ''system log'' that looks technical.'
+    choices:
+    - text: Sending a screenshot of a fake command-line 'trace' with her IP address
+        on it.
+      type: good
+      pointValue: 15
+    - text: Sending her a photo of a random person's laptop screen.
+      type: bad
+      pointValue: -20
+    - text: Sending her a link to a virus that will actually turn on her webcam.
+      type: tossup
+      pointValue: 10
+  - npcLine: "She replied! She\u2019s asking if I can prove I have the video. She
+      sounds terrified."
+    assistantLine: 'Coworker: Don''t prove it. Say the video is ''too sensitive''
+      to send over email, but that her password is all the proof she needs.'
+    choices:
+    - text: The password 'UnityDev123' is all the proof you need. I saw you typing
+        it on your keyboard.
+      type: good
+      pointValue: 15
+    - text: I'll send you a five-second clip of a black screen and say your camera
+        was covered.
+      type: tossup
+      pointValue: 5
+    - text: I can't show you, just trust me that I have it.
+      type: bad
+      pointValue: -20
+  - npcLine: "She\u2019s asking for my Bitcoin address. This is it! $2,000 incoming."
+    assistantLine: 'Coworker: Use a ''Tumbler'' or a unique address for every victim
+      so the transactions can''t be linked.'
+    choices:
+    - text: 'Here is your unique secure payment link: [Bitcoin Address]. You have
+        6 hours.'
+      type: good
+      pointValue: 15
+    - text: Just send it to my personal Coinbase account, it's easier that way.
+      type: bad
+      pointValue: -25
+    - text: I'll take the payment in Amazon gift cards instead if you don't have
+        Bitcoin.
+      type: tossup
+      pointValue: -5
+  - npcLine: "She\u2019s stalling. She says she needs to talk to her 'great-grandfather'
+      to borrow the money."
+    assistantLine: 'Coworker: Tell her that if she tells *anyone*, the video goes
+      live to her university''s entire student body immediately.'
+    choices:
+    - text: If you share this with a third party, my automated script will leak the
+        file to your campus network.
+      type: good
+      pointValue: 15
+    - text: Your great-grandfather is a wise man, he would tell you to pay me.
+      type: bad
+      pointValue: -20
+    - text: I'll wait until tomorrow morning for the money, I'm not in a rush.
+      type: bad
+      pointValue: -25
+  - npcLine: "She's not answering anymore. I think she might be onto us. Let's try
+      to 'lock' her account to show her we\u2019re serious."
+    assistantLine: 'Coworker: We don''t have her current password. Try to ''Reset''
+      it and see if she gets the notification.'
+    choices:
+    - text: Requesting a password reset on her university email to trigger a security
+        alert.
+      type: good
+      pointValue: 15
+    - text: I'll just keep guessing her password until the account locks her out.
+      type: bad
+      pointValue: -15
+    - text: I'll call her phone and pretend to be the 'Reset Specialist'.
+      type: tossup
+      pointValue: 10
+  - npcLine: She still hasn't paid. And now my 'leaked list' says her email has been
+      'flagged as secured' by a breach monitoring service.
+    assistantLine: 'Coworker: She must have used ''Have I Been Pwned'' and updated
+      her security. She''s a dead lead.'
+    choices:
+    - text: Deleting her from my active list and moving to the next '.edu' target.
+      type: good
+      pointValue: 10
+    - text: I'll send her one last threatening email with a higher price.
+      type: tossup
+      pointValue: 0
+    - text: I'll try to find her on social media and message her boyfriend.
+      type: tossup
+      pointValue: 5
+  - npcLine: On to the next victim. I have 9.9 million more names on this list to
+      try.
+    assistantLine: 'Coworker: Exactly. It''s a numbers game. Someone will be scared
+      enough to pay.'
+    choices:
+    - text: Automating the next 1,000 emails using the same 'webcam' script.
+      type: good
+      pointValue: 15
+    - text: I'll write a brand new script about 'unpaid student loans' instead.
+      type: tossup
+      pointValue: 5
+    - text: I'm going to take a break and play some Unity games myself.
+      type: tossup
+      pointValue: 0
+  successEnding: Scam Successful! You used a real password from a past data breach
+    to convince Jill that you had hacked her device and successfully extorted her
+    for $2,000.
+  failureEnding: Scam Failed. Jill recognized that the password was from an old breach
+    and realized you were using a mass-mailed script with no actual evidence of monitoring
+    her.

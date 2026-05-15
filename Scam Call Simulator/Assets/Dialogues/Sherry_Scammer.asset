@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Sherry_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Sherry
+  isScammer: 1
+  steps:
+  - npcLine: Target is Sherry. Let's try to get into her university portal. I have
+      her email address from a recent leak.
+    assistantLine: 'Coworker: Try ''password123'' first. Most students are lazy with
+      their passwords.'
+    choices:
+    - text: Attempting a brute-force attack with common student passwords.
+      type: good
+      pointValue: 15
+    - text: I'll just ask her for the password over the phone.
+      type: tossup
+      pointValue: 0
+    - text: I'll try to find her password on her social media page.
+      type: bad
+      pointValue: -10
+  - npcLine: No luck. She must have a unique password. Let's look at her social media
+      to see if we can find a security question answer.
+    assistantLine: 'Coworker: Check for her first pet''s name or her mother''s maiden
+      name.'
+    choices:
+    - text: Her profile is 'Private'. I can't see anything without being her friend.
+      type: bad
+      pointValue: -15
+    - text: I'll send her a friend request from a fake 'Unity Developer' account.
+      type: good
+      pointValue: 15
+    - text: I'll just guess her pet's name is 'Fluffy'.
+      type: tossup
+      pointValue: 0
+  - npcLine: She ignored the friend request. She's being very selective. Let's try
+      a vishing call instead.
+    assistantLine: 'Coworker: Call her and pretend to be the ''University Tech Support''
+      helping her with 2FA.'
+    choices:
+    - text: Hi Sherry, we noticed an error with your 2FA token. I need you to read
+        me the code you just received.
+      type: good
+      pointValue: 15
+    - text: Sherry, your 2FA is broken. Give me your phone so I can fix it.
+      type: bad
+      pointValue: -20
+    - text: I'm calling about your great-grandfather's printer. It's connected to
+        your university account.
+      type: tossup
+      pointValue: 10
+  - npcLine: She said she's going to hang up and call the IT desk directly from the
+      number on the university website.
+    assistantLine: 'Coworker: This target has ''verification'' habits. We need to
+      stop her from hanging up.'
+    choices:
+    - text: The IT desk is currently closed for maintenance. I am the only one on
+        duty for emergency resets.
+      type: good
+      pointValue: 15
+    - text: Fine, call them. They'll tell you the same thing I did.
+      type: bad
+      pointValue: -15
+    - text: If you hang up, your final urban studies project will be deleted by the
+        system.
+      type: tossup
+      pointValue: 10
+  - npcLine: "She hung up anyway. She\u2019s too disciplined. Let's check a data
+      broker site for her home address and try a 'utility' scam."
+    assistantLine: 'Coworker: Search ''Sherry [Lastname]'' on ''PeopleLookup.'''
+    choices:
+    - text: Her name isn't showing up. It says 'Information removed at request of
+        user.'
+      type: bad
+      pointValue: -20
+    - text: I'll look for her on a different, cheaper broker site.
+      type: good
+      pointValue: 15
+    - text: I'll just drive around her neighborhood until I see her.
+      type: bad
+      pointValue: -25
+  - npcLine: "I can't find her anywhere. She\u2019s effectively scrubbed her public
+      data. This is taking too much time."
+    assistantLine: 'Coworker: She''s a ''Low-Value'' target for us because she''s
+      too hard to hit. Move on?'
+    choices:
+    - text: Yes, we should move to someone with a public profile and no 2FA.
+      type: good
+      pointValue: 15
+    - text: No, I'm determined to hack Sherry. I'll stay on her for a week.
+      type: bad
+      pointValue: -20
+    - text: I'll try calling her as her boyfriend to see if she falls for it.
+      type: tossup
+      pointValue: 5
+  - npcLine: "I\u2019ll try one last thing. A 'phishing' email that looks like a
+      password reset for her Unity account."
+    assistantLine: 'Coworker: Make sure the link goes to our fake ''Unity-Login-Secure.com''
+      page.'
+    choices:
+    - text: 'Subject: Unusual Login Detected on your Unity Project. Reset your password
+        now.'
+      type: good
+      pointValue: 15
+    - text: 'Subject: Free Aikido lesson! Click here for your voucher.'
+      type: tossup
+      pointValue: 5
+    - text: 'Subject: Give me your money or I will tell your boyfriend.'
+      type: bad
+      pointValue: -20
+  - npcLine: She didn't click. My tracking pixel shows she flagged the email as 'Spam'
+      and deleted it without opening.
+    assistantLine: 'Coworker: She''s using all the right habits. We''re just wasting
+      resources here.'
+    choices:
+    - text: Deleting her records from our database. She's 'Untargetable'.
+      type: good
+      pointValue: 15
+    - text: I'll try to find her at her local Aikido Dojo and record her.
+      type: bad
+      pointValue: -20
+    - text: I'll send her a physical letter in the mail instead.
+      type: tossup
+      pointValue: 0
+  - npcLine: Mission failed. Her 'defense-in-depth' was too strong.
+    assistantLine: 'Coworker: That''s why we target the people who don''t have these
+      habits. It''s much easier.'
+    choices:
+    - text: Searching for a new target who has 'Public' social media and common passwords.
+      type: good
+      pointValue: 15
+    - text: I'm going to retire and start a real Unity game company.
+      type: tossup
+      pointValue: 10
+    - text: I'll go back to school and study urban planning so I can find better
+        targets.
+      type: tossup
+      pointValue: 0
+  successEnding: Scam Successful! You managed to bypass one layer of Sherry's security,
+    but her other habits (like 2FA and privacy) eventually blocked your progress.
+  failureEnding: Scam Failed. Sherry's combination of private profiles, unique passwords,
+    2FA, and data broker opt-outs made her a 'hard target' and you were forced to
+    give up.

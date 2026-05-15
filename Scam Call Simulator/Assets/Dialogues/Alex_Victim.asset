@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Alex_Victim
+  m_EditorClassIdentifier: 
+  entryID: Alex
+  isScammer: 0
+  steps:
+  - npcLine: Hello, I'm Alex from the Social Security Administration. Your SSN has
+      been suspended.
+    assistantLine: 'Wife: Suspended? Ethan, I don''t think Social Security numbers
+      can actually be ''suspended.'''
+    choices:
+    - text: Suspended?! What does that mean for my benefits?
+      type: bad
+      pointValue: -10
+    - text: Wait, I read that SSNs can't be suspended. Is this a real call?
+      type: good
+      pointValue: 15
+    - text: Which suspicious activity are you referring to?
+      type: tossup
+      pointValue: 0
+  - npcLine: It's linked to a case in Texas. We need to act now before a warrant
+      is issued.
+    assistantLine: 'Wife: They''re jumping straight to legal threats to scare you.'
+    choices:
+    - text: Texas? I've never been there! Please, I'm innocent!
+      type: bad
+      pointValue: -12
+    - text: If there's a crime, why isn't the police or the FBI calling me?
+      type: good
+      pointValue: 13
+    - text: How did my number get linked to that?
+      type: tossup
+      pointValue: 0
+  - npcLine: To protect your assets, you need to move your money into a 'Safe SSA
+      Vault' today.
+    assistantLine: 'Wife: A ''Safe Vault''? The government doesn''t help you move
+      private bank money.'
+    choices:
+    - text: Okay, how do I transfer my savings to this vault?
+      type: bad
+      pointValue: -15
+    - text: I'll keep my money in my own bank, thanks. This sounds fake.
+      type: good
+      pointValue: 15
+    - text: Will I get my money back once the case is closed?
+      type: tossup
+      pointValue: 0
+  - npcLine: First, I need to verify your full SSN to pull up the file.
+    assistantLine: 'Wife: Never give your full SSN to an incoming caller. They should
+      have it.'
+    choices:
+    - text: My number is 000-00-...
+      type: bad
+      pointValue: -15
+    - text: You called me. You should have my file in front of you.
+      type: good
+      pointValue: 15
+    - text: Can I just give you the last four digits?
+      type: tossup
+      pointValue: 0
+  - npcLine: The system is locked. Only the full number can open the file.
+    assistantLine: 'Wife: That''s just an excuse to get your identity info. Don''t
+      do it.'
+    choices:
+    - text: I understand. The number is...
+      type: bad
+      pointValue: -14
+    - text: I'm hanging up and calling the official SSA number now.
+      type: good
+      pointValue: 15
+    - text: Why can't you verify me using my address instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you hang up, an arrest warrant will be issued within the hour.
+    assistantLine: 'Wife: Warrants aren''t issued over the phone for refusing to
+      give a number.'
+    choices:
+    - text: No! Please don't arrest me! I'll do whatever you want.
+      type: bad
+      pointValue: -15
+    - text: Go ahead and send the police. I'll wait for them with my lawyer.
+      type: good
+      pointValue: 15
+    - text: Wait, let me talk to my bank first.
+      type: tossup
+      pointValue: 0
+  - npcLine: The local police are on their way, but I can stop them if you cooperate.
+    assistantLine: 'Wife: He''s escalating. It''s a total bluff.'
+    choices:
+    - text: Okay, fine! Please just stop them. My number is...
+      type: bad
+      pointValue: -15
+    - text: If the police were coming, you wouldn't be 'negotiating' with me.
+      type: good
+      pointValue: 15
+    - text: How do I know you're really from the SSA?
+      type: tossup
+      pointValue: 0
+  - npcLine: Look at your caller ID. It says 'Social Security Administration.' See?
+    assistantLine: 'Wife: Caller ID is easily faked. It''s called ''spoofing.'''
+    choices:
+    - text: Oh, I see it now. I'm sorry for doubting you. The number is...
+      type: bad
+      pointValue: -15
+    - text: Caller ID spoofing is a common trick. I'm still hanging up.
+      type: good
+      pointValue: 15
+    - text: Can you call me from a different extension?
+      type: tossup
+      pointValue: 0
+  - npcLine: This is your last chance before the suspension is permanent. Give me
+      the SSN.
+    assistantLine: 'Wife: Permanent suspension? That''s not real. End the call.'
+    choices:
+    - text: I can't lose my benefits... the number is...
+      type: bad
+      pointValue: -15
+    - text: Social Security numbers can't be suspended. You're a liar. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Can you mail me the forms instead?
+      type: tossup
+      pointValue: 0
+  successEnding: 'Success! You knew SSNs can''t be suspended and the SSA doesn''t
+    threaten arrest via phone[cite: 1].'
+  failureEnding: 'Failure. You fell for the ''suspended SSN'' myth. The SSA only
+    uses mail for serious issues[cite: 1].'

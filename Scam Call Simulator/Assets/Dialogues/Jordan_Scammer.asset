@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Jordan_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Jordan
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: Use the Caller ID spoofer to make it look like the bank. Tell
+      them there's a fake charge for $412.
+    choices:
+    - text: Hi Jordan, I'm with the Fraud Department. Did you authorize a $412 charge
+        today?
+      type: good
+      pointValue: 12
+    - text: Your bank account has been hacked. We need to fix it now.
+      type: tossup
+      pointValue: 0
+    - text: I'm from the bank. Give me your card number to stop a theft.
+      type: bad
+      pointValue: -15
+  - npcLine: $412? No, I definitely didn't buy anything today!
+    assistantLine: 'Coworker: They''re worried. Tell them you''ll block it, but you
+      need their card number to ''verify'' their account.'
+    choices:
+    - text: No problem. I'll block it, I just need you to read me your full card
+        number to confirm.
+      type: good
+      pointValue: 15
+    - text: I can stop it. What's the number on the front of your card?
+      type: tossup
+      pointValue: 0
+    - text: I already see your card, just tell me the numbers so I know it's you.
+      type: bad
+      pointValue: -12
+  - npcLine: Wait, shouldn't you have that info if you're the bank?
+    assistantLine: 'Coworker: Tell them it''s ''masked'' for their protection and
+      you need them to unmask it by reciting it.'
+    choices:
+    - text: For your security, our system masks the middle digits. I need you to
+        unmask them.
+      type: good
+      pointValue: 15
+    - text: It's for verification. I'm not allowed to look at it without your permission.
+      type: tossup
+      pointValue: 0
+    - text: Just give it to me or I can't help you.
+      type: bad
+      pointValue: -14
+  - npcLine: The caller ID says 'Bank,' so I guess it's okay... the number is 4412-...
+    assistantLine: 'Coworker: You got the card! Now tell them you''re sending a ''security
+      code'' to finalize the block.'
+    choices:
+    - text: Perfect. I'm sending a code to your phone now. Read it to me to lock
+        the account.
+      type: good
+      pointValue: 15
+    - text: I need one more thing. A code is coming to your phone. Tell me what it
+        is.
+      type: tossup
+      pointValue: 0
+    - text: Give me the code that just popped up on your screen.
+      type: bad
+      pointValue: -11
+  - npcLine: The text says 'Do not share this code with anyone.' Are you sure?
+    assistantLine: 'Coworker: Tell them that ''anyone'' means outside people, but
+      YOU are the bank, so it''s okay.'
+    choices:
+    - text: That's to stop scammers. Since I'm the one who sent it, it's safe to
+        tell me.
+      type: good
+      pointValue: 15
+    - text: I'm the bank, Jordan. I'm the one who generated that code for you.
+      type: tossup
+      pointValue: 0
+    - text: Just ignore that warning. It's just an automated message.
+      type: bad
+      pointValue: -13
+  - npcLine: Okay... the code is 552-901.
+    assistantLine: 'Coworker: You''re in! Use that code to reset their online banking
+      password right now.'
+    choices:
+    - text: Got it. I'm applying the block now. Stay on the line.
+      type: good
+      pointValue: 15
+    - text: One second while the system updates with that code.
+      type: tossup
+      pointValue: 0
+    - text: Finally. Now I have control of your account.
+      type: bad
+      pointValue: -15
+  - npcLine: Why did I just get an email saying my password was changed?
+    assistantLine: 'Coworker: They''re getting suspicious. Tell them it''s a ''temporary
+      security password'' you just set.'
+    choices:
+    - text: That was me. I reset it to a secure temporary one to keep the hackers
+        out.
+      type: good
+      pointValue: 15
+    - text: Don't worry about that. It's part of the fraud prevention process.
+      type: tossup
+      pointValue: 0
+    - text: I don't know what you're talking about. Forget the email.
+      type: bad
+      pointValue: -15
+  - npcLine: This feels wrong. I'm going to hang up and call the branch.
+    assistantLine: 'Coworker: Stop them! Say the branch is under investigation and
+      can''t be trusted.'
+    choices:
+    - text: Wait! That branch is actually part of the security breach. Only I can
+        help you.
+      type: good
+      pointValue: 15
+    - text: If you hang up now, I can't guarantee your money will be there in ten
+        minutes.
+      type: tossup
+      pointValue: 0
+    - text: No! Don't do that! Just stay here with me.
+      type: bad
+      pointValue: -12
+  - npcLine: I don't know what to believe... please just save my savings.
+    assistantLine: 'Coworker: You''ve got them. Now ask for their PIN to ''re-encrypt''
+      their debit card.'
+    choices:
+    - text: 'I will. Last step: I need your PIN to re-encrypt the chip on your card.'
+      type: good
+      pointValue: 15
+    - text: Tell me your PIN so I can finish the security update.
+      type: tossup
+      pointValue: 0
+    - text: Give me your PIN too. I need everything.
+      type: bad
+      pointValue: -10
+  successEnding: 'Scam Successful! You used Caller ID spoofing and a fake ''security
+    code'' to take over their bank account[cite: 1].'
+  failureEnding: 'Scam Failed. Jordan realized that a real bank never asks for security
+    codes or card numbers over the phone[cite: 1].'

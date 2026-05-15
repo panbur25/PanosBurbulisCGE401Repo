@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Robin_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Robin
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: Pretend to be Microsoft. Tell them their computer is
+      full of ''critical errors.'''
+    choices:
+    - text: This is Robin from Microsoft. We've detected severe errors on your PC.
+      type: good
+      pointValue: 12
+    - text: Your Windows is broken. I'm calling to fix it for you.
+      type: tossup
+      pointValue: 0
+    - text: I'm a computer doctor and your PC is very sick. Pay me to fix it.
+      type: bad
+      pointValue: -15
+  - npcLine: Errors? I didn't notice anything. How do I fix it?
+    assistantLine: 'Coworker: Tell them to go to our spoofed site and download the
+      remote access tool.'
+    choices:
+    - text: Go to our site and download the diagnostic tool so I can help you.
+      type: good
+      pointValue: 15
+    - text: Download this file I'm sending you. It will clear the errors automatically.
+      type: tossup
+      pointValue: 0
+    - text: Just tell me your password and I'll log in from here.
+      type: bad
+      pointValue: -12
+  - npcLine: Is it safe to download this? My grandson said to be careful.
+    assistantLine: 'Coworker: Reassure them. Say it''s ''certified'' by Microsoft
+      security.'
+    choices:
+    - text: It's a certified Microsoft tool. It's the only way to save your files.
+      type: good
+      pointValue: 14
+    - text: Don't listen to your grandson, he doesn't know about this new virus.
+      type: tossup
+      pointValue: 0
+    - text: If you don't download it, your computer will explode.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay, it's downloaded. Now what?
+    assistantLine: 'Coworker: Get that remote access code. We need to see their screen.'
+    choices:
+    - text: Open the app and read me the 9-digit ID. I'll take over from here.
+      type: good
+      pointValue: 15
+    - text: Read me the numbers on the screen so I can sync our systems.
+      type: tossup
+      pointValue: 0
+    - text: I need your credit card number before I can look at the screen.
+      type: bad
+      pointValue: -10
+  - npcLine: I see you're in my computer now. What are you doing?
+    assistantLine: 'Coworker: Open the Event Viewer and point at the red icons. Scaring
+      them is key.'
+    choices:
+    - text: See those red icons? Those are hackers currently stealing your bank info.
+      type: good
+      pointValue: 15
+    - text: I'm cleaning out the 'junk' files that are slowing you down.
+      type: tossup
+      pointValue: 0
+    - text: I'm just looking around at your files to see what's valuable.
+      type: bad
+      pointValue: -15
+  - npcLine: Oh my goodness! Can you stop the hackers?
+    assistantLine: 'Coworker: Yes, but only if they pay for the ''Premium Security
+      Shield.'''
+    choices:
+    - text: I can block them, but you need to buy a $299 security license right now.
+      type: good
+      pointValue: 15
+    - text: Pay me $50 and I'll make the red icons go away forever.
+      type: tossup
+      pointValue: 0
+    - text: Give me your bank login and I'll secure the money for you.
+      type: bad
+      pointValue: -14
+  - npcLine: $299? I have to ask my wife first.
+    assistantLine: 'Coworker: Don''t let them off the phone. Use urgency! Say the
+      hackers are winning.'
+    choices:
+    - text: There's no time! They are downloading your tax returns as we speak!
+      type: good
+      pointValue: 15
+    - text: If you hang up, your computer will be permanently encrypted.
+      type: tossup
+      pointValue: 0
+    - text: Fine, go talk to her. I'll just wait here in your computer.
+      type: bad
+      pointValue: -11
+  - npcLine: Okay, okay! How do I pay you?
+    assistantLine: 'Coworker: Tell them the ''credit card server'' is down. Ask for
+      gift cards.'
+    choices:
+    - text: Our credit server is down. Go to the store and get Apple gift cards.
+      type: good
+      pointValue: 15
+    - text: Read me your credit card number and the three digits on the back.
+      type: tossup
+      pointValue: 0
+    - text: Mail me some cash in a plain brown envelope to this address.
+      type: bad
+      pointValue: -15
+  - npcLine: I have the codes. 4920-331...
+    assistantLine: 'Coworker: You got it. Hang up and vanish.'
+    choices:
+    - text: Thank you. Your PC is now safe. Have a great day!
+      type: good
+      pointValue: 15
+    - text: I'll call you back if we find more viruses later. Goodbye.
+      type: tossup
+      pointValue: 0
+    - text: Thanks for the easy money, you old fool!
+      type: bad
+      pointValue: -15
+  successEnding: 'Scam Successful! You used brand authority and fear to steal money
+    via gift cards[cite: 1].'
+  failureEnding: 'Scam Failed. Robin realized that Microsoft doesn''t call people
+    and hung up[cite: 1].'

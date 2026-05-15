@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Rosemary_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Rosemary
+  isScammer: 1
+  steps:
+  - npcLine: "Target is Rosemary. I\u2019ve done my homework. I found her Unity dev
+      log, her LinkedIn, and a public post about her great-grandfather."
+    assistantLine: 'Coworker: Perfect. Start by stating her name and location to
+      make her feel like this is an official, local call.'
+    choices:
+    - text: Hi Rosemary, I'm calling from the Elmhurst regional office regarding
+        your Unity development files.
+      type: good
+      pointValue: 15
+    - text: Is this Rosemary? I am a hacker and I know where you live.
+      type: bad
+      pointValue: -20
+    - text: Hello, I am a family friend. Do you remember me?
+      type: tossup
+      pointValue: 5
+  - npcLine: She sounds surprised. Now hit her with the specific technical detail
+      about her 'ScriptableObject dialogue' system.
+    assistantLine: 'Coworker: It makes you sound like you have direct access to her
+      workstation.'
+    choices:
+    - text: We noticed a major bug in your ScriptableObject dialogue script that
+        could corrupt your project.
+      type: good
+      pointValue: 15
+    - text: Your game is bad and I can fix it for you if you pay me $50.
+      type: bad
+      pointValue: -15
+    - text: I saw your code and I think it needs more variables for the trust bar.
+      type: tossup
+      pointValue: 5
+  - npcLine: "She\u2019s asking how I know that. Pivot to being a 'Developer Relations
+      Agent' from Unity HQ."
+    assistantLine: 'Coworker: Claim that your system automatically flags ''instability''
+      in C# scripts submitted to the cloud.'
+    choices:
+    - text: Your C# scripts were flagged for instability by our automated cloud diagnostics
+        tool.
+      type: good
+      pointValue: 15
+    - text: I am a psychic and I can see your computer screen through the internet.
+      type: bad
+      pointValue: -20
+    - text: I found it on your GitHub page, which I am an administrator of.
+      type: tossup
+      pointValue: 0
+  - npcLine: "She\u2019s still skeptical. Time to use the family hook. Mention her
+      'great-grandfather' by name."
+    assistantLine: "Coworker: Say you were talking to him recently and he mentioned
+      how hard she\u2019s been working."
+    choices:
+    - text: "Actually, I spoke with your great-grandfather recently. He\u2019s so
+        proud of your progress on this game."
+      type: good
+      pointValue: 15
+    - text: Your great-grandfather told me you were a bad coder and needed help.
+      type: bad
+      pointValue: -20
+    - text: I am a friend of your family and we all want you to finish this project.
+      type: tossup
+      pointValue: 5
+  - npcLine: "She\u2019s softening up! The family connection is working. Now, offer
+      the 'diagnostic patch' (which is actually a keylogger)."
+    assistantLine: 'Coworker: Tell her it''s a ''proprietary optimization library''
+      that only senior developers get to use.'
+    choices:
+    - text: I'm sending you a link to a proprietary optimization library. It'll fix
+        the dialogue bug instantly.
+      type: good
+      pointValue: 15
+    - text: Download this file called 'virus.exe' so I can take over your computer.
+      type: bad
+      pointValue: -25
+    - text: Just click the link in my email and follow the instructions to install
+        the fix.
+      type: tossup
+      pointValue: 5
+  - npcLine: "She\u2019s looking at the link. She says it\u2019s not a 'unity.com'
+      address. I need an excuse for the domain."
+    assistantLine: "Coworker: Tell her it\u2019s a 'secure staging server' used specifically
+      for independent study projects."
+    choices:
+    - text: It's our secure staging server. We use it for academic and independent
+        study developer files.
+      type: good
+      pointValue: 15
+    - text: The main website is too full, so we had to buy a cheaper domain for this
+        patch.
+      type: bad
+      pointValue: -15
+    - text: It's a secret website that only the best programmers are allowed to visit.
+      type: tossup
+      pointValue: 0
+  - npcLine: "She\u2019s hesitating. She says she wants to ask her 'boyfriend' if
+      it\u2019s safe first."
+    assistantLine: 'Coworker: Block the third-party validation! Tell her the patch
+      is time-sensitive and under an NDA.'
+    choices:
+    - text: This is a pre-release tool under an NDA. If you share it with others,
+        your account will be banned.
+      type: good
+      pointValue: 15
+    - text: Your boyfriend doesn't know anything about C# programming compared to
+        me.
+      type: bad
+      pointValue: -15
+    - text: He can help you, but the download link will expire in three minutes.
+      type: tossup
+      pointValue: 5
+  - npcLine: "She clicked! The download is starting. I\u2019ve got her."
+    assistantLine: "Coworker: Excellent. Once the install finishes, we\u2019ll have
+      her password for the university portal too."
+    choices:
+    - text: The installation is almost done. Just keep your browser open so it can
+        sync.
+      type: good
+      pointValue: 15
+    - text: Haha, I got you! You are so easy to trick, Rosemary!
+      type: bad
+      pointValue: -20
+    - text: Now, tell me your credit card number to pay for the 'license fee.'
+      type: tossup
+      pointValue: -5
+  - npcLine: Success. I have full remote access. I can see her 'Urban Studies' report
+      and everything.
+    assistantLine: 'Coworker: Great job using those public details to build a fake
+      identity. She never saw it coming.'
+    choices:
+    - text: Harvesting all stored browser passwords and logging out of the session
+        now.
+      type: good
+      pointValue: 15
+    - text: I'll delete her game files just to be mean before I leave.
+      type: bad
+      pointValue: -20
+    - text: I'm going to use her email to send more scams to her classmates.
+      type: tossup
+      pointValue: 10
+  successEnding: Scam Successful! You combined OSINT (publicly available information)
+    with technical jargon and family details to manipulate Rosemary into installing
+    malware.
+  failureEnding: Scam Failed. Rosemary realized that her personal details were all
+    publicly available online and refused to trust an unsolicited technical support
+    call.

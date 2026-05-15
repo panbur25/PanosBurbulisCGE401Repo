@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Claire_Victim
+  m_EditorClassIdentifier: 
+  entryID: Claire
+  isScammer: 0
+  steps:
+  - npcLine: I was researching zoning laws for my urban studies report and decided
+      to search my own name. I found my home address, cell number, and even my parents'
+      names on a site called 'DataFoundry.' Is this even legal?
+    assistantLine: 'Internal Voice: Seeing your private life for sale is jarring.
+      How do these data brokers actually operate?'
+    choices:
+    - text: They aggregate info from public records, social media, and commercial
+        sources.
+      type: good
+      pointValue: 15
+    - text: They only get info from government public records, which can never be
+        changed.
+      type: bad
+      pointValue: -10
+    - text: They are only allowed to sell to big marketing firms, not individuals.
+      type: tossup
+      pointValue: 0
+  - npcLine: The site has a 'Remove Me' link at the bottom. If I click it, will my
+      information be gone for good?
+    assistantLine: 'Internal Voice: It''s a common misconception that one request
+      fixes everything forever.'
+    choices:
+    - text: Most offer opt-outs, but you have to monitor them because removal isn't
+        always permanent.
+      type: good
+      pointValue: 15
+    - text: Yes, federal law requires them to delete it permanently within 30 days.
+      type: bad
+      pointValue: -15
+    - text: Only if you pay their 'premium protection' fee first.
+      type: tossup
+      pointValue: 5
+  - npcLine: "Wait, I found three more sites with the same info. It\u2019s like a
+      game of whack-a-mole."
+    assistantLine: 'Internal Voice: Data is a commodity that is traded and sold between
+      these companies constantly.'
+    choices:
+    - text: They likely buy and sell data from each other, creating a cycle of listings.
+      type: good
+      pointValue: 10
+    - text: Someone must be manually re-entering your info every time you delete
+        it.
+      type: bad
+      pointValue: -10
+    - text: "It\u2019s probably because you used the same password on all of them."
+      type: tossup
+      pointValue: 0
+  - npcLine: "There\u2019s a section for 'Employment History.' It lists my current
+      internship at the city planning office. I didn't think that was public."
+    assistantLine: 'Internal Voice: Many professional details are pulled from business
+      registries or professional social networks.'
+    choices:
+    - text: Publicly accessible commercial sources often feed into these broker databases.
+      type: good
+      pointValue: 15
+    - text: Your employer is legally required to post your name on these websites.
+      type: bad
+      pointValue: -15
+    - text: They must have hacked into your university's student records.
+      type: tossup
+      pointValue: 0
+  - npcLine: If I can see my info, that means a vishing scammer can just buy it too,
+      right?
+    assistantLine: 'Internal Voice: That is exactly how they build those convincing
+      personalized scripts.'
+    choices:
+    - text: Yes, scammers use these sites to find 'leads' and verify details about
+        their targets.
+      type: good
+      pointValue: 15
+    - text: No, brokers are required to vet every buyer to ensure they aren't scammers.
+      type: bad
+      pointValue: -15
+    - text: Only if the scammer is a registered business owner.
+      type: tossup
+      pointValue: 5
+  - npcLine: "I\u2019m going to start the opt-out process. Should I give them my
+      current email to 'verify' the removal?"
+    assistantLine: 'Internal Voice: Be careful not to give them *more* data while
+      trying to remove the old data.'
+    choices:
+    - text: Use a masked or 'throwaway' email address for the opt-out request.
+      type: good
+      pointValue: 15
+    - text: Yes, they need your primary email to link all your accounts for deletion.
+      type: bad
+      pointValue: -15
+    - text: Just call them and give them your social security number to prove who
+        you are.
+      type: bad
+      pointValue: -25
+  - npcLine: One site is asking for a photo of my ID to process the removal. This
+      feels wrong.
+    assistantLine: "Internal Voice: Some legitimate brokers do this for verification,
+      but it\u2019s a high-risk trade-off."
+    choices:
+    - text: Avoid sites that require sensitive documents; it's often better to leave
+        the data than risk an ID leak.
+      type: good
+      pointValue: 15
+    - text: You have to do it, otherwise the law says they can keep your data forever.
+      type: bad
+      pointValue: -15
+    - text: Cover up your photo and ID number before sending the scan.
+      type: tossup
+      pointValue: 10
+  - npcLine: "I feel like I\u2019ve barely scratched the surface. There are hundreds
+      of these companies."
+    assistantLine: 'Internal Voice: It''s an industry worth billions. Individual
+      effort is hard to scale.'
+    choices:
+    - text: Regularly checking the major ones is a good habit to reduce your footprint.
+      type: good
+      pointValue: 15
+    - text: Just delete your internet presence entirely; that's the only way to be
+        safe.
+      type: bad
+      pointValue: -15
+    - text: I'll just ignore it. If I'm not a public figure, it doesn't matter.
+      type: tossup
+      pointValue: 0
+  - npcLine: "Okay, I've cleared the top five sites. My urban studies report can
+      wait\u2014this felt more urgent."
+    assistantLine: 'Internal Voice: Protecting your data is a marathon, not a sprint.'
+    choices:
+    - text: I'll set a calendar reminder to check again in six months.
+      type: good
+      pointValue: 15
+    - text: I'm sure they'll never list me again now that I've opted out.
+      type: bad
+      pointValue: -10
+    - text: I'll hire a service to do this for me every month.
+      type: tossup
+      pointValue: 10
+  successEnding: Correct! You correctly identified that data brokers aggregate information
+    from public and commercial sources and that while opt-outs exist, they are not
+    always a permanent fix.
+  failureEnding: Incorrect. You mistakenly believed that data brokers are strictly
+    regulated or that removal is a one-time permanent event, leaving you exposed
+    when your data inevitably reappears.

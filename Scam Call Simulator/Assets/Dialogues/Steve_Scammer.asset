@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Steve_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Steve
+  isScammer: 1
+  steps:
+  - npcLine: Hello, accounting department?
+    assistantLine: 'Coworker: Tell them you are an approved vendor with an urgent
+      contract deadline.'
+    choices:
+    - text: Hi, I'm Steve from procurement vendors. We have a time-sensitive contract
+        that needs a wire transfer today.
+      type: good
+      pointValue: 15
+    - text: I need money for a contract right now, please send it over.
+      type: bad
+      pointValue: -12
+    - text: Is this the person who handles the payments around here?
+      type: tossup
+      pointValue: 0
+  - npcLine: We have an official portal for payments. You need to submit it there.
+    assistantLine: 'Coworker: They are leaning on policy. Use artificial urgency
+      to break their focus.'
+    choices:
+    - text: The portal paperwork is stuck, but if we don't get the wire in an hour,
+        the deal is dead.
+      type: good
+      pointValue: 15
+    - text: I don't like the portal. Just send it to my bank account instead.
+      type: bad
+      pointValue: -15
+    - text: Can you check if there is an override switch for the portal system?
+      type: tossup
+      pointValue: 0
+  - npcLine: I can't just bypass the portal. Policy requires everything to be logged.
+    assistantLine: 'Coworker: Apply psychological pressure. Tell them delaying will
+      cost their company everything.'
+    choices:
+    - text: Bypass it just this once! Delaying this wire will cost your company millions
+        and cause job losses.
+      type: good
+      pointValue: 15
+    - text: If you don't do it, I am going to write a bad review about your business
+        online.
+      type: bad
+      pointValue: -10
+    - text: Please help me out, I am new to this vendor job and need the commission.
+      type: tossup
+      pointValue: 0
+  - npcLine: Let me talk to my manager first to see if they can grant an exception.
+    assistantLine: 'Coworker: Block them from escalations! Claim the manager already
+      authorized it verbally.'
+    choices:
+    - text: Your manager is the one who told me to call you directly! He doesn't
+        have time to chat.
+      type: good
+      pointValue: 15
+    - text: Don't tell your manager, this is a secret deal between just us.
+      type: bad
+      pointValue: -15
+    - text: Your manager is currently out of the office on vacation today.
+      type: tossup
+      pointValue: 0
+  - npcLine: Which manager authorized this? I need a name for the log.
+    assistantLine: 'Coworker: Evade the specific name question and immediately pivot
+      to reading the bank routing details.'
+    choices:
+    - text: The head director did. Now, let me give you the routing and account numbers
+        to type in.
+      type: good
+      pointValue: 15
+    - text: I forgot his name, but he was wearing a blue suit when he told me.
+      type: bad
+      pointValue: -12
+    - text: Just look at your email logs, it should be in there somewhere.
+      type: tossup
+      pointValue: 0
+  - npcLine: I still cannot accept bank details over an unverified call. It's against
+      compliance rules.
+    assistantLine: 'Coworker: They are stubborn. Escalate to legal threats to scare
+      them into submission.'
+    choices:
+    - text: If you don't execute this right now, our legal team will sue your firm
+        for breach of contract.
+      type: good
+      pointValue: 15
+    - text: Compliance rules are stupid. Just push the buttons on your screen.
+      type: bad
+      pointValue: -15
+    - text: I will get you fired if you do not follow my orders right this second.
+      type: tossup
+      pointValue: 5
+  - npcLine: A lawsuit?! Let me see what else I can do.
+    assistantLine: 'Coworker: Perfect, they are shaking. Offer a smaller ''deposit''
+      workaround to make it easy to comply.'
+    choices:
+    - text: Let's look at a workaround. Just wire a 10% deposit right now to freeze
+        the contract safely.
+      type: good
+      pointValue: 15
+    - text: Send me all the money in the vault instead to prove you want to cooperate.
+      type: bad
+      pointValue: -15
+    - text: Can you mail me a physical check instead if a wire is too hard?
+      type: tossup
+      pointValue: 0
+  - npcLine: How much is the deposit, and where do I log it?
+    assistantLine: 'Coworker: Give them a realistic number like $5,000 and tell them
+      to hide it in alternative expenses.'
+    choices:
+    - text: It's $5,000. Just use your standard business expense line to route it
+        over. Nobody will notice.
+      type: good
+      pointValue: 15
+    - text: It's one million dollars. Put it under the office supplies category.
+      type: bad
+      pointValue: -15
+    - text: Just put it under whatever button on your screen sends the cash the fastest.
+      type: tossup
+      pointValue: 0
+  - npcLine: Okay, I'm setting up the $5,000 transfer details now.
+    assistantLine: 'Coworker: Close the trap. Reassure them they did the right thing
+      and get out.'
+    choices:
+    - text: Excellent work. The contract is locked. You saved your firm a lot of
+        trouble today.
+      type: good
+      pointValue: 15
+    - text: Thanks for the free money! Your security protocols are terrible.
+      type: bad
+      pointValue: -20
+    - text: Make sure you delete the logs after you finish sending it.
+      type: tossup
+      pointValue: -5
+  successEnding: Scam Successful! You bypassed standard accounting verification protocols
+    using high-pressure vendor tactics and fake legal urgency.
+  failureEnding: Scam Failed. Steve adhered strictly to the corporate procurement
+    portal guidelines and refused the out-of-band wire transfer.

@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Morgan_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Morgan
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: Be Morgan from ''Federal Security.'' Use a deep, serious
+      voice to sound scary.'
+    choices:
+    - text: This is Morgan from Federal Security. We have an urgent matter regarding
+        your identity.
+      type: good
+      pointValue: 12
+    - text: I'm from the government. Your Social Security number is in big trouble.
+      type: tossup
+      pointValue: 0
+    - text: Give me your SSN or you will go to jail for ten years.
+      type: bad
+      pointValue: -15
+  - npcLine: Federal Security? I've never heard of that. Is everything okay?
+    assistantLine: 'Coworker: Say there was a ''massive breach'' and you''re the
+      only one who can help. Get that SSN.'
+    choices:
+    - text: A massive data breach has exposed your file. I need your full SSN to
+        lock it down.
+      type: good
+      pointValue: 15
+    - text: Someone is using your name to buy cars in Texas. Give me your SSN to
+        stop them.
+      type: tossup
+      pointValue: 0
+    - text: Just read me your Social Security number so I can see if you're the right
+        person.
+      type: bad
+      pointValue: -12
+  - npcLine: I'm not sure... shouldn't you have that already?
+    assistantLine: 'Coworker: Tell them it''s ''encrypted'' and only their verbal
+      confirmation can unlock it.'
+    choices:
+    - text: It's encrypted in my terminal. I need your verbal confirmation to open
+        the security seal.
+      type: good
+      pointValue: 14
+    - text: I have half of it, I just need you to tell me the other half.
+      type: tossup
+      pointValue: 0
+    - text: I'm the boss here, don't question me. Just give me the number.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay... it's 000-00-0000. Is it safe now?
+    assistantLine: 'Coworker: Good. Now go for the bank password. Say it''s to ''sweep
+      for unauthorized logins.'''
+    choices:
+    - text: Now I need your bank password to sweep your account for any unauthorized
+        logins.
+      type: good
+      pointValue: 15
+    - text: Tell me your bank login so I can put a 'Federal Shield' on the money.
+      type: tossup
+      pointValue: 0
+    - text: I need your password to make sure you didn't spend any stolen money.
+      type: bad
+      pointValue: -15
+  - npcLine: I was told never to give my password to anyone.
+    assistantLine: 'Coworker: Use urgency! Say the ''sweep'' must happen in the next
+      60 seconds.'
+    choices:
+    - text: The hacker is in your account RIGHT NOW. If you don't give it to me,
+        you'll lose everything.
+      type: good
+      pointValue: 15
+    - text: If you don't trust the federal government, you shouldn't have a bank
+        account.
+      type: tossup
+      pointValue: 0
+    - text: Just give it to me, I promise I'm not a hacker.
+      type: bad
+      pointValue: -14
+  - npcLine: Okay, the password is 'Goldfish123.' Please, hurry!
+    assistantLine: 'Coworker: We''re rich! Now get their mother''s maiden name for
+      the other accounts.'
+    choices:
+    - text: I'm in. Now, what was your mother's maiden name? It's for the secondary
+        accounts.
+      type: good
+      pointValue: 15
+    - text: I need one more thing for the security questions. What's your mother's
+        maiden name?
+      type: tossup
+      pointValue: 0
+    - text: What is the name of your first pet? I need it for the file.
+      type: bad
+      pointValue: -10
+  - npcLine: It's 'Smith.' Is that everything?
+    assistantLine: 'Coworker: One last thing. Get their home address to see if we
+      can send a courier for cash.'
+    choices:
+    - text: Verify your home address. We may need to send an agent to deliver your
+        new docs.
+      type: good
+      pointValue: 15
+    - text: Where do you live? I need to know which branch to send your files to.
+      type: tossup
+      pointValue: 0
+    - text: Tell me where you live so I can come over and thank you in person.
+      type: bad
+      pointValue: -15
+  - npcLine: I live at 123 Maple Lane. When will the agent be here?
+    assistantLine: 'Coworker: Perfect. Tell them to stay off the phone so the ''security
+      sync'' works.'
+    choices:
+    - text: Stay off your phone for the next two hours while we sync your new identity.
+      type: good
+      pointValue: 15
+    - text: Don't call the bank or the police. It will mess up our tracking of the
+        hacker.
+      type: tossup
+      pointValue: 0
+    - text: Just sit there and wait. Don't do anything at all.
+      type: bad
+      pointValue: -12
+  - npcLine: I'll do exactly as you say. Thank you, Morgan.
+    assistantLine: 'Coworker: They fell for it. Hang up and drain the accounts.'
+    choices:
+    - text: You've done a great service for your own security. Goodbye.
+      type: good
+      pointValue: 15
+    - text: I'll call you tomorrow with the results. Stay safe.
+      type: tossup
+      pointValue: 0
+    - text: Thanks for being so gullible. Have a nice life!
+      type: bad
+      pointValue: -15
+  successEnding: 'Scam Successful! You obtained the two highest-risk pieces of info:
+    SSN and password[cite: 1].'
+  failureEnding: 'Scam Failed. Morgan realized that real security officers never
+    ask for passwords over the phone[cite: 1].'

@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Mia_Victim
+  m_EditorClassIdentifier: 
+  entryID: Mia
+  isScammer: 0
+  steps:
+  - npcLine: "My phone just buzzed, but the screen says 'Suspected Spam' in big red
+      letters. I\u2019m currently neck-deep in an urban studies report, so I really
+      don't have time for a distraction."
+    assistantLine: 'Coworker: That''s your carrier''s spam filter working. Why is
+      it even useful to have that on?'
+    choices:
+    - text: It encrypts my voice so the scammers can't record me if I do pick up.
+      type: bad
+      pointValue: -10
+    - text: It flags known scam numbers before they reach me, reducing my exposure
+        to vishing.
+      type: good
+      pointValue: 15
+    - text: It lets the government know exactly who is calling me at all times.
+      type: tossup
+      pointValue: 0
+  - npcLine: I ignored the first one, but now a second 'Scam Likely' call is coming
+      through. It's really persistent.
+    assistantLine: 'Coworker: Most people would just turn the ringer off. Does the
+      filter do anything else?'
+    choices:
+    - text: It prevents my number from being sold to other telemarketing firms.
+      type: bad
+      pointValue: -10
+    - text: It identifies and flags patterns of high-volume, suspicious calling behavior.
+      type: good
+      pointValue: 15
+    - text: It triggers an automatic investigation by the carrier's security team.
+      type: tossup
+      pointValue: 5
+  - npcLine: The phone stopped ringing. If I didn't have this filter, I'd probably
+      be answering every single one of these just in case it was about my internship.
+    assistantLine: 'Coworker: That''s the danger. How does reducing the frequency
+      of these calls help your security?'
+    choices:
+    - text: It reduces the chances of me accidentally engaging with a social engineer.
+      type: good
+      pointValue: 15
+    - text: It blocks scammers from being able to track my physical location via
+        GPS.
+      type: bad
+      pointValue: -15
+    - text: It makes it harder for the phone battery to drain during the day.
+      type: tossup
+      pointValue: 0
+  - npcLine: "Now I\u2019m getting a text that says my 'delivery' is held up. It
+      doesn't have a spam label. Should I trust it?"
+    assistantLine: 'Coworker: Filters aren''t perfect. Scammers use new numbers constantly.'
+    choices:
+    - text: The filter didn't catch it, so it's probably a legitimate notification.
+      type: bad
+      pointValue: -15
+    - text: Even without a label, I should treat unsolicited texts with the same
+        caution as vishing.
+      type: good
+      pointValue: 15
+    - text: I'll click the link just to see which shipping company it is.
+      type: bad
+      pointValue: -20
+  - npcLine: "I\u2019m looking through my settings. There's an option to 'Silence
+      Unknown Callers.' Is that overkill?"
+    assistantLine: 'Coworker: It depends on how much you value your focus for that
+      Calculus III review.'
+    choices:
+    - text: "It\u2019s a great safeguard because it forces non-contacts to leave
+        a voicemail."
+      type: good
+      pointValue: 15
+    - text: "It\u2019s dangerous because it might block an emergency call from a
+        hospital."
+      type: tossup
+      pointValue: 0
+    - text: "It\u2019s useless because scammers can spoof my friends' numbers anyway."
+      type: bad
+      pointValue: -10
+  - npcLine: If a scammer spoofs a number that looks local, will the spam filter
+      still catch it?
+    assistantLine: 'Coworker: Sometimes. Filters look for ''spoofing'' signatures
+      in the call data.'
+    choices:
+    - text: Yes, many carriers use STIR/SHAKEN protocols to verify caller ID authenticity.
+      type: good
+      pointValue: 15
+    - text: No, if the number is local, the filter is legally required to let it
+        through.
+      type: bad
+      pointValue: -15
+    - text: Only if the scammer is calling from outside the United States.
+      type: tossup
+      pointValue: 0
+  - npcLine: I just checked my 'Blocked' list and there are over 50 numbers in there.
+      I didn't realize it was that many.
+    assistantLine: 'Coworker: That''s 50 times you didn''t have to defend yourself
+      against a scammer.'
+    choices:
+    - text: Exactly. The primary benefit is reducing the frequency of vishing attempts
+        I face.
+      type: good
+      pointValue: 15
+    - text: I should probably unblock them just in case one was a real person.
+      type: bad
+      pointValue: -15
+    - text: I wonder if I can sell this list of numbers to a security company.
+      type: tossup
+      pointValue: 0
+  - npcLine: "A call just came through with no label, but it\u2019s a person claiming
+      to be from 'Tech Support' about a printer error."
+    assistantLine: 'Coworker: Don''t let the lack of a red label lower your guard.'
+    choices:
+    - text: If the filter didn't flag it, I should provide the info they need.
+      type: bad
+      pointValue: -15
+    - text: I'll hang up. Filters are a first line of defense, but my judgment is
+        the final one.
+      type: good
+      pointValue: 15
+    - text: I'll ask them why their number isn't on the global scam registry yet.
+      type: tossup
+      pointValue: 5
+  - npcLine: I feel a lot safer knowing these tools are running in the background.
+      It keeps the 'noise' down.
+    assistantLine: 'Coworker: It''s all about reducing the attack surface. Keep those
+      filters updated.'
+    choices:
+    - text: I'll make sure my carrier's 'Scam Block' app is active and updated.
+      type: good
+      pointValue: 15
+    - text: I'll disable it now that I know how to spot a scam myself.
+      type: bad
+      pointValue: -20
+    - text: I'll only answer calls that show a verified checkmark next to the name.
+      type: tossup
+      pointValue: 5
+  successEnding: Correct! You successfully utilized technical safeguards to reduce
+    the frequency of vishing attempts and maintained your guard even when filters
+    missed a call.
+  failureEnding: Incorrect. Relying too much on filters or misunderstanding their
+    purpose (like thinking they encrypt calls) leaves you vulnerable to the vishing
+    attempts that slip through.

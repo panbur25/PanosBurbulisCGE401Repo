@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Robin_Victim
+  m_EditorClassIdentifier: 
+  entryID: Robin
+  isScammer: 0
+  steps:
+  - npcLine: This is Robin from Microsoft Support. Your PC is sending us critical
+      error reports.
+    assistantLine: 'Wife: I didn''t know Microsoft called people. Is this normal?'
+    choices:
+    - text: Can you email me a written report of these errors first?
+      type: bad
+      pointValue: -10
+    - text: Microsoft doesn't make unsolicited calls. I'm hanging up.
+      type: good
+      pointValue: 15
+    - text: What kind of errors are you seeing on your end?
+      type: tossup
+      pointValue: 0
+  - npcLine: Malicious software is trying to steal your files. Go to 'fixmypc.com'
+      immediately.
+    assistantLine: 'Wife: Visiting a random website sounds like a recipe for a virus.'
+    choices:
+    - text: Okay, I'm at the site. What do I click?
+      type: bad
+      pointValue: -15
+    - text: I'll use my own trusted antivirus software instead of your link.
+      type: good
+      pointValue: 15
+    - text: Is this a Microsoft-owned website?
+      type: tossup
+      pointValue: 0
+  - npcLine: Now, click the 'Support Tool' button to download our diagnostic software.
+    assistantLine: 'Wife: Ethan, don''t download that. We don''t know what''s in
+      that file.'
+    choices:
+    - text: I'll download it if my grandson can watch me do it.
+      type: bad
+      pointValue: -12
+    - text: I am not downloading anything from an unsolicited caller.
+      type: good
+      pointValue: 15
+    - text: How long will the diagnostic scan take?
+      type: tossup
+      pointValue: 0
+  - npcLine: Open the file and give me the 9-digit code so I can access your screen.
+    assistantLine: 'Wife: Remote access? He''ll be able to see everything on the
+      computer!'
+    choices:
+    - text: The code is 881-203-442. Please fix it quickly.
+      type: bad
+      pointValue: -15
+    - text: I never give remote access to anyone I don't know personally.
+      type: good
+      pointValue: 15
+    - text: Wait, will you be able to see my personal photos?
+      type: tossup
+      pointValue: 0
+  - npcLine: I'm looking at your system logs now. Look at all these red 'Critical'
+      errors!
+    assistantLine: 'Wife: He''s showing us the Event Viewer. Every computer has some
+      errors there.'
+    choices:
+    - text: Oh no, there are so many! Please delete them for me.
+      type: bad
+      pointValue: -15
+    - text: The Event Viewer always shows minor logs. This is a scare tactic.
+      type: good
+      pointValue: 15
+    - text: Are those errors the reason my computer is slow?
+      type: tossup
+      pointValue: 0
+  - npcLine: Your security license has expired. You need to pay $299 for a lifetime
+      fix.
+    assistantLine: 'Wife: Microsoft doesn''t charge for ''lifetime'' phone fixes
+      like this.'
+    choices:
+    - text: That's a lot of money, but I need my PC. How do I pay?
+      type: bad
+      pointValue: -15
+    - text: My Windows license is already valid. This is clearly a scam.
+      type: good
+      pointValue: 15
+    - text: Can I pay with a check through the mail instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: We only accept payment via encrypted Google Play or Apple gift cards.
+    assistantLine: 'Wife: Gift cards for computer repair? That makes no sense at
+      all.'
+    choices:
+    - text: I'll head to the store now. Which cards do I need?
+      type: bad
+      pointValue: -15
+    - text: Real companies don't take gift cards as payment. I'm done.
+      type: good
+      pointValue: 15
+    - text: Why can't you just take my credit card?
+      type: tossup
+      pointValue: 0
+  - npcLine: Wait! If you hang up now, I'll have to lock your Windows account for
+      security.
+    assistantLine: 'Wife: He''s threatening us because we''re refusing to pay. It''s
+      a bluff.'
+    choices:
+    - text: Please don't lock it! I'm getting the cards now!
+      type: bad
+      pointValue: -15
+    - text: You can't lock my account. You don't have that authority. Goodbye.
+      type: good
+      pointValue: 15
+    - text: How do I unlock it if it gets blocked?
+      type: tossup
+      pointValue: 0
+  - npcLine: This is your last chance. Give me the codes or lose your data forever.
+    assistantLine: 'Wife: He''s desperate. Hang up the phone, Ethan.'
+    choices:
+    - text: Fine! Here is the first card code...
+      type: bad
+      pointValue: -15
+    - text: I'm turning off the computer and calling a local repair shop.
+      type: good
+      pointValue: 15
+    - text: I need more time to think about this.
+      type: tossup
+      pointValue: 0
+  successEnding: 'You avoided the trap! Microsoft never makes unsolicited support
+    calls or asks for gift cards[cite: 1].'
+  failureEnding: 'You fell for the Tech Support scam. Scammers use fear and remote
+    access tools to steal money[cite: 1].'

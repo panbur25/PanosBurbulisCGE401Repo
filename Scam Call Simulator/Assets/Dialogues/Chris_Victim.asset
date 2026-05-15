@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Chris_Victim
+  m_EditorClassIdentifier: 
+  entryID: Chris
+  isScammer: 0
+  steps:
+  - npcLine: 'Attention: Your banking profile will be permanently deactivated in
+      exactly one hour unless you verify your identity right now.'
+    assistantLine: 'Internal Voice: One hour? That''s incredibly fast. This creates
+      instant panic.'
+    choices:
+    - text: Oh no! Please help me verify my account before the hour runs out!
+      type: bad
+      pointValue: -10
+    - text: An arbitrary one-hour deadline is a classic sign of artificial urgency.
+      type: good
+      pointValue: 15
+    - text: Why is my account being closed so suddenly?
+      type: tossup
+      pointValue: 0
+  - npcLine: Do not hang up or call another number. Doing so will trigger an automatic
+      system purge and wipe your data.
+    assistantLine: 'Internal Voice: He''s explicitly trying to stop me from calling
+      the number on my card.'
+    choices:
+    - text: I'll stay on the line. Don't let the system wipe my data!
+      type: bad
+      pointValue: -15
+    - text: Telling me not to hang up is an attempt to block independent verification.
+      type: good
+      pointValue: 15
+    - text: Can you just transfer me to the main branch office instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: I am the only corporate representative authorized to reverse this specific
+      block. Nobody else can assist you.
+    assistantLine: 'Internal Voice: Claiming exclusive authority is another red flag.
+      He wants me to think he''s the only solution.'
+    choices:
+    - text: Thank goodness I reached you directly. Let's fix this together.
+      type: bad
+      pointValue: -15
+    - text: Claiming exclusive authority is a psychological isolation tactic used
+        by scammers.
+      type: good
+      pointValue: 15
+    - text: What is your unique employee identification number?
+      type: tossup
+      pointValue: 0
+  - npcLine: To confirm your profile status, read me the full debit card number on
+      your plastic card.
+    assistantLine: 'Internal Voice: Now that he has isolated me, he''s asking for
+      credentials.'
+    choices:
+    - text: The card number is 4128-0091-...
+      type: bad
+      pointValue: -15
+    - text: Real bank security agents never ask for full card details over the phone.
+      type: good
+      pointValue: 15
+    - text: Can you see my card number already on your terminal screen?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you don't cooperate right now, the clock will tick down to zero and
+      your funds will be lost forever.
+    assistantLine: 'Internal Voice: He is amping up the urgency loop to break my
+      logic.'
+    choices:
+    - text: Wait, don't do that! Let me grab my checkbook instead.
+      type: bad
+      pointValue: -12
+    - text: This pattern combines artificial urgency, blocked verification, and isolation
+        perfectly.
+      type: good
+      pointValue: 15
+    - text: How many minutes are left before the automatic system purge happens?
+      type: tossup
+      pointValue: 0
+  - npcLine: There are exactly 45 minutes left. Give me the CVV code on the back
+      of the card right now to stop the countdown.
+    assistantLine: 'Internal Voice: The CVV is strictly for making online payments,
+      not unlocking profiles.'
+    choices:
+    - text: The CVV code on the back is 501.
+      type: bad
+      pointValue: -15
+    - text: Demanding a CVV code to unlock an account is a clear phishing indicator.
+      type: good
+      pointValue: 15
+    - text: Will entering the CVV code reset the account timer to normal?
+      type: tossup
+      pointValue: 0
+  - npcLine: I'm sending a digital token to your device. Read the authorization numbers
+      to me instantly.
+    assistantLine: 'Internal Voice: A token? That''s likely a password reset key
+      he triggered.'
+    choices:
+    - text: The numbers in the text message are 7-7-3-1-0-2.
+      type: bad
+      pointValue: -15
+    - text: You are generating a malicious authorization bypass. I'm not sharing
+        it.
+      type: good
+      pointValue: 15
+    - text: Is this text code from the bank or from your specific terminal?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you hang up now, I will execute the automatic closure myself right
+      this second!
+    assistantLine: 'Internal Voice: He''s breaking character and getting aggressive
+      because his script is failing.'
+    choices:
+    - text: Please stop! I'll do whatever you want, just don't click close!
+      type: bad
+      pointValue: -15
+    - text: Your threats prove you lack any real administrative authority. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Can you hold while I verify my balance on my mobile app?
+      type: tossup
+      pointValue: 5
+  - npcLine: This is your last chance. Cooperate or lose your entire financial life.
+    assistantLine: 'Internal Voice: Time to terminate this social engineering trap.'
+    choices:
+    - text: Fine, let me read you the password details...
+      type: bad
+      pointValue: -15
+    - text: I am hanging up and dialing the official number on the back of my card.
+      type: good
+      pointValue: 15
+    - text: Why are you using such aggressive social engineering tactics on me?
+      type: tossup
+      pointValue: 0
+  successEnding: 'Correct! You spotted the textbook triad of social engineering red
+    flags: artificial urgency, blocking independent verification, and claiming exclusive
+    authority.'
+  failureEnding: Incorrect. Succumbing to threats of closure and fast deadlines allows
+    social engineers to bypass your analytical defenses.

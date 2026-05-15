@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Morgan_Victim
+  m_EditorClassIdentifier: 
+  entryID: Morgan
+  isScammer: 0
+  steps:
+  - npcLine: This is Morgan from Federal Security. We've detected a breach in your
+      identity profile.
+    assistantLine: 'Wife: ''Federal Security''? That sounds very official, Ethan.'
+    choices:
+    - text: A breach?! What information was stolen?
+      type: bad
+      pointValue: -10
+    - text: I've never heard of 'Federal Security.' Can you verify your agency?
+      type: good
+      pointValue: 12
+    - text: How did you get my phone number?
+      type: tossup
+      pointValue: 0
+  - npcLine: To confirm your file, I need you to state your full Social Security
+      Number.
+    assistantLine: 'Wife: Ethan, that is the most sensitive thing we own. Don''t
+      say it!'
+    choices:
+    - text: My Social Security Number is 000-00-0000.
+      type: bad
+      pointValue: -20
+    - text: I will never share my full SSN over an unsolicited phone call.
+      type: good
+      pointValue: 15
+    - text: Can I give you my date of birth instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: I also need your online banking password to ensure it hasn't been changed
+      by the hacker.
+    assistantLine: 'Wife: No real security officer will EVER ask for your password.'
+    choices:
+    - text: My password is 'Goldfish123'. Please check it now.
+      type: bad
+      pointValue: -20
+    - text: Sharing a password is the highest risk for fraud. I'm hanging up.
+      type: good
+      pointValue: 15
+    - text: Why do you need my password to check for a breach?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you don't cooperate, we will have to freeze your assets for 'Investigation.'
+    assistantLine: 'Wife: He''s threatening our money to make us skip the safety
+      rules.'
+    choices:
+    - text: Please don't freeze my accounts! I'll tell you anything!
+      type: bad
+      pointValue: -15
+    - text: Freezing assets requires a court order, not a phone call. I'm calling
+        my lawyer.
+      type: good
+      pointValue: 15
+    - text: How long would the 'investigation' take?
+      type: tossup
+      pointValue: 0
+  - npcLine: I'll also need your mother's maiden name to verify your security questions.
+    assistantLine: 'Wife: He''s gathering all the keys to our accounts one by one.'
+    choices:
+    - text: Her maiden name was 'Smith.' What else do you need?
+      type: bad
+      pointValue: -15
+    - text: Security question answers are for me to use, not for you to take.
+      type: good
+      pointValue: 15
+    - text: Why isn't my address enough to verify who I am?
+      type: tossup
+      pointValue: 0
+  - npcLine: Confirm your current home address and your place of employment for the
+      record.
+    assistantLine: 'Wife: He''s building a complete profile for identity theft.'
+    choices:
+    - text: I live at 123 Maple Lane and I am retired.
+      type: bad
+      pointValue: -12
+    - text: You should already have that if you're a federal agent. I'm done.
+      type: good
+      pointValue: 13
+    - text: Why do you need to know where I used to work?
+      type: tossup
+      pointValue: 0
+  - npcLine: We are sending a courier to your house to pick up your old bank cards
+      for 'evidence.'
+    assistantLine: 'Wife: A courier? That''s definitely not a real federal procedure.'
+    choices:
+    - text: Okay, I'll have them ready. What time will they arrive?
+      type: bad
+      pointValue: -15
+    - text: I'm calling the actual police to meet your 'courier' at my door.
+      type: good
+      pointValue: 15
+    - text: Should I cut the cards in half first?
+      type: tossup
+      pointValue: 0
+  - npcLine: Do not tell anyone about this. It's a matter of national security.
+    assistantLine: 'Wife: Secrecy is how they isolate people so they don''t get help.'
+    choices:
+    - text: I won't tell a soul. I want to be a good citizen.
+      type: bad
+      pointValue: -15
+    - text: I'm telling my family and the bank immediately. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Is there a secret code I should use if you call back?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you speak to anyone, you will be prosecuted for interfering with
+      an investigation.
+    assistantLine: 'Wife: More lies. Hang up, Ethan. He has no power over you.'
+    choices:
+    - text: I'm sorry! I'll stay quiet! Just don't arrest me!
+      type: bad
+      pointValue: -15
+    - text: This is a textbook impersonation scam. I'm hanging up now.
+      type: good
+      pointValue: 15
+    - text: Can I have your badge number before I go?
+      type: tossup
+      pointValue: 0
+  successEnding: 'Success! You correctly identified that SSNs and passwords carry
+    the highest risk and should never be shared[cite: 1].'
+  failureEnding: 'Failure. You shared your most sensitive info. Scammers can now
+    access your bank and steal your identity[cite: 1].'

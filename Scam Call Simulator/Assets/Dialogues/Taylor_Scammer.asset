@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Taylor_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Taylor
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: Tell them you''re from the bank. Use those Chicago
+      and Miami charges we bought.'
+    choices:
+    - text: I'm Taylor from the bank. We see suspicious charges in Chicago and Miami.
+      type: good
+      pointValue: 15
+    - text: Someone is stealing your money right now! Give me your info to stop it.
+      type: tossup
+      pointValue: 0
+    - text: I'm the bank police. You are in trouble for fraud.
+      type: bad
+      pointValue: -15
+  - npcLine: Oh no! How did you find those charges?
+    assistantLine: 'Coworker: Say you''re with the ''Advanced Protection'' team.
+      Ask for the card number.'
+    choices:
+    - text: Our AI flagged it. I need your card number to confirm it's actually you.
+      type: good
+      pointValue: 15
+    - text: I see your screen. Tell me your card number so I can unblock it.
+      type: tossup
+      pointValue: 0
+    - text: Just give me the numbers and I'll make the hackers go away.
+      type: bad
+      pointValue: -12
+  - npcLine: Wait, don't you already have my card number?
+    assistantLine: 'Coworker: Say it''s ''masked'' for their privacy and you need
+      them to unmask it.'
+    choices:
+    - text: It's masked on my screen for your safety. I need you to read it to verify.
+      type: good
+      pointValue: 15
+    - text: I have it, but I need to make sure the physical card is in your hand.
+      type: tossup
+      pointValue: 0
+    - text: Stop asking questions or I'll let the hackers have the money.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay, the number is 4412-8803-...
+    assistantLine: 'Coworker: Great! Now get the CVV and the expiration date.'
+    choices:
+    - text: Perfect. Now, I need the three digits on the back and the expiration
+        date.
+      type: good
+      pointValue: 15
+    - text: Read the small numbers on the back so I can authorize the block.
+      type: tossup
+      pointValue: 0
+    - text: Tell me the secret numbers so I can finish the job.
+      type: bad
+      pointValue: -10
+  - npcLine: The code is 123 and it expires in 2028.
+    assistantLine: 'Coworker: You have the card! Now try to trigger a 2FA code to
+      get into the portal.'
+    choices:
+    - text: I'm sending a security code to your phone. Read it to me to finish the
+        lock.
+      type: good
+      pointValue: 15
+    - text: Check your texts for a bank code. I need it to finalize the process.
+      type: tossup
+      pointValue: 0
+    - text: Read me the text message you just got from the bank.
+      type: bad
+      pointValue: -15
+  - npcLine: The text says 'Do not share this code.' Are you sure I should tell you?
+    assistantLine: 'Coworker: Tell them that warning is only for ''external'' people,
+      not bank staff.'
+    choices:
+    - text: That's for strangers. I'm the bank employee who generated the code.
+      type: good
+      pointValue: 15
+    - text: The automated system sends that to everyone. Just ignore it and read
+        it.
+      type: tossup
+      pointValue: 0
+    - text: Do you want to save your money or not? Read the code!
+      type: bad
+      pointValue: -15
+  - npcLine: Okay... it's 992-001.
+    assistantLine: 'Coworker: We''re in! Now tell them the money is being moved to
+      a ''Safe Vault.'''
+    choices:
+    - text: The hackers are still trying. I'm moving your money to a secure federal
+        vault.
+      type: good
+      pointValue: 15
+    - text: I'm putting your money in a special account while we fix the fraud.
+      type: tossup
+      pointValue: 0
+    - text: Your account is empty now. I've 'secured' it all for myself.
+      type: bad
+      pointValue: -15
+  - npcLine: How do I get my money back from the vault?
+    assistantLine: 'Coworker: Tell them they''ll get a new card in the mail in 3-5
+      days.'
+    choices:
+    - text: You'll receive a new 'Vault Card' in the mail within 3 business days.
+      type: good
+      pointValue: 15
+    - text: You can just walk into any bank and ask for it on Monday.
+      type: tossup
+      pointValue: 0
+    - text: I'll bring it to your house myself tonight.
+      type: bad
+      pointValue: -12
+  - npcLine: Thank you, Taylor. I was so worried.
+    assistantLine: 'Coworker: You''re done. Hang up and clean the account.'
+    choices:
+    - text: Glad to help. Your account is now fully protected. Goodbye!
+      type: good
+      pointValue: 15
+    - text: Keep your phone off for an hour while the 'sync' completes.
+      type: tossup
+      pointValue: 0
+    - text: I'm going on vacation with your savings. Bye!
+      type: bad
+      pointValue: -15
+  successEnding: 'Scam Successful! You used real data and psychological pressure
+    to bypass security[cite: 1].'
+  failureEnding: 'Scam Failed. Taylor realized that the bank doesn''t ask for codes
+    or card details over the phone[cite: 1].'

@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Trevor_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Trevor
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: Initiate Scenario 2. Tell them their account is flagged
+      for massive out-of-state fraud right now.'
+    choices:
+    - text: 'Alert: Your bank account has been flagged for massive fraudulent activity
+        in another state. Confirm your info now.'
+      type: good
+      pointValue: 15
+    - text: Hi, I am calling from the bank to see if you bought some items at a store
+        recently.
+      type: tossup
+      pointValue: 0
+    - text: Your card is stolen and I am the one who found it on the street today.
+      type: bad
+      pointValue: -15
+  - npcLine: Oh no! How do I stop the charges?
+    assistantLine: 'Coworker: Demand their full card number immediately under the
+      guise of ''unlocking'' the profile.'
+    choices:
+    - text: I am a live fraud specialist. To unlock your account profile, read me
+        the full card number on your card.
+      type: good
+      pointValue: 15
+    - text: Just log into your app and transfer all your money to my digital wallet
+        system.
+      type: bad
+      pointValue: -15
+    - text: Tell me what your account username is so I can search for your log files.
+      type: tossup
+      pointValue: 0
+  - npcLine: Wait, I got a text saying I should just call the number on the back
+      of my card.
+    assistantLine: 'Coworker: They are thinking of Scenario 1! Tell them automated
+      short codes are delayed and to ignore them.'
+    choices:
+    - text: Ignore any automated short code texts! Those are delayed. I am live and
+        need your 3-digit security CVV code instantly.
+      type: good
+      pointValue: 15
+    - text: The number on the back of your card goes to an old department that cannot
+        help you today.
+      type: tossup
+      pointValue: 5
+    - text: If you hang up to look at your card, I will report you to the security
+        office.
+      type: bad
+      pointValue: -12
+  - npcLine: Why do you need my CVV code to unlock an account hold?
+    assistantLine: 'Coworker: Threaten them with a 60-day asset freeze if they don''t
+      cooperate immediately.'
+    choices:
+    - text: A zip code isn't secure enough. If you don't give me the CVV code, your
+        entire balance will be frozen for 60 days.
+      type: good
+      pointValue: 15
+    - text: Because the CVV code stands for Central Verification Validation, which
+        clears the error block.
+      type: tossup
+      pointValue: -5
+    - text: Stop asking so many security questions or I will lock your banking file
+        myself.
+      type: bad
+      pointValue: -15
+  - npcLine: Let me just disconnect and check my desktop portal balance.
+    assistantLine: 'Coworker: Prevent them from disconnecting! Say a hang up makes
+      the security freeze permanent.'
+    choices:
+    - text: No, an ATM won't help! If you disconnect this live call line, the security
+        freeze becomes permanent automatically.
+      type: good
+      pointValue: 15
+    - text: If you hang up, your mobile app will crash and delete itself from your
+        smartphone screen.
+      type: bad
+      pointValue: -15
+    - text: Your desktop portal is currently blocked by our technical team for data
+        testing.
+      type: tossup
+      pointValue: 0
+  - npcLine: The card number is 4000-1192-8831-0042 and the CVV code is 992.
+    assistantLine: 'Coworker: Awesome! Now try to harvest their online portal password
+      for full access.'
+    choices:
+    - text: Your app won't update because the security profile is suspended. I need
+        your internet account password to override.
+      type: good
+      pointValue: 15
+    - text: Read me the password to your email inbox so I can send a clean link profile.
+      type: tossup
+      pointValue: 0
+    - text: Now give me your signature details so I can match the documents perfectly.
+      type: bad
+      pointValue: -15
+  - npcLine: My bank explicitly warned me never to share my online portal password.
+    assistantLine: 'Coworker: Tell them it''s necessary to clear ''encrypted hacker
+      keys'' from their log dashboard.'
+    choices:
+    - text: I need it to clear the encrypted hacker keys from your dashboard log.
+        Read it or lose everything.
+      type: good
+      pointValue: 15
+    - text: This is a special high-security exception that only applies during active
+        out-of-state fraud.
+      type: tossup
+      pointValue: 5
+    - text: If you don't trust our corporate team, we cannot save your funds from
+        the thief.
+      type: bad
+      pointValue: -10
+  - npcLine: Okay... the online password is 'Secure99!'. Are the hackers gone?
+    assistantLine: 'Coworker: You have the card, CVV, and password! Warn them that
+      hanging up now lets hackers back in.'
+    choices:
+    - text: Wait! If you hang up now, the hackers will instantly drain every single
+        penny you own within seconds. Stay on hold.
+      type: good
+      pointValue: 15
+    - text: Yes, they are gone. You can safely go to sleep now while I process everything.
+      type: tossup
+      pointValue: -5
+    - text: I have logged out the hackers and logged myself into your profile balance
+        instead.
+      type: bad
+      pointValue: -20
+  - npcLine: I'll stay on hold as long as it takes. Thank you for protecting my money.
+    assistantLine: 'Coworker: The trap is complete. Keep them waiting while you empty
+      the accounts.'
+    choices:
+    - text: I am the fraud branch! Your parameters are secure. Please wait while
+        the terminal sync finishes.
+      type: good
+      pointValue: 15
+    - text: Great, just sit there quietly for thirty minutes while I finish up.
+      type: tossup
+      pointValue: -5
+    - text: Thanks for all your passwords, you made this theft incredibly easy today!
+      type: bad
+      pointValue: -20
+  successEnding: Scam Successful! You blocked the victim from checking official channels
+    (Scenario 1) and harvested card data and online passwords using a live imposter
+    script (Scenario 2).
+  failureEnding: Scam Failed. Trevor recognized that real financial entities never
+    request CVV codes or master passwords over inbound support lines.

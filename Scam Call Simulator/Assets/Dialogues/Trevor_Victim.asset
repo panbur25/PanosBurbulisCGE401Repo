@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Trevor_Victim
+  m_EditorClassIdentifier: 
+  entryID: Trevor
+  isScammer: 0
+  steps:
+  - npcLine: 'Alert: Your retail account has been flagged for massive fraudulent
+      activity in another state. Confirm your info now.'
+    assistantLine: 'Internal Voice: Fraud alerts can happen, but let''s evaluate
+      how this communication is handled.'
+    choices:
+    - text: Oh no! What state was the charge made in? Stop it!
+      type: bad
+      pointValue: -10
+    - text: I need to carefully evaluate whether this interaction is a legitimate
+        alert or a scam script.
+      type: good
+      pointValue: 15
+    - text: Can you read me the exact timestamp of that out-of-state transaction?
+      type: tossup
+      pointValue: 0
+  - npcLine: I am a live fraud specialist. To unlock your account profile, read me
+      the full card number on your card.
+    assistantLine: 'Internal Voice: A live caller demanding card details over the
+      phone? Let''s compare this to Scenario 1''s safe text alerts.'
+    choices:
+    - text: The full card number is 4000-1192-...
+      type: bad
+      pointValue: -15
+    - text: Legitimate banks direct you to verified channels; they don't solicit
+        credentials on inbound calls.
+      type: good
+      pointValue: 15
+    - text: I received a short code text earlier that told me to call the number
+        on my card instead.
+      type: tossup
+      pointValue: 5
+  - npcLine: Ignore any automated short code texts! Those are delayed. I am live
+      and need your 3-digit security CVV code instantly.
+    assistantLine: 'Internal Voice: Pushing me away from verified contact methods
+      (like the card backing) is a massive red flag.'
+    choices:
+    - text: The 3-digit CVV code on the back is 992.
+      type: bad
+      pointValue: -15
+    - text: A real banking communication directs you to the physical card number,
+        never solicits CVVs.
+      type: good
+      pointValue: 15
+    - text: Why can't you verify my identity using my home zip code instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: A zip code isn't secure enough. If you don't give me the CVV code, your
+      entire balance will be frozen for 60 days.
+    assistantLine: 'Internal Voice: Intense coercive threats to squeeze out authentication
+      codes. Classic Scenario 2 scam pattern.'
+    choices:
+    - text: Don't freeze my balance! The CVV is 992, please process it!
+      type: bad
+      pointValue: -15
+    - text: Legitimate alerts do not leverage aggressive freezing threats to extract
+        security numbers.
+      type: good
+      pointValue: 15
+    - text: Can I drive to an branch automated teller machine to unfreeze it manually?
+      type: tossup
+      pointValue: 0
+  - npcLine: No, an ATM won't help! If you disconnect this live call line, the security
+      freeze becomes permanent automatically.
+    assistantLine: 'Internal Voice: He''s desperate to prevent me from looking at
+      the verified customer service number on my card.'
+    choices:
+    - text: I'll stay on the line! Let me read you whatever details you need.
+      type: bad
+      pointValue: -15
+    - text: Real bank short code communications encourage you to hang up and call
+        the physical card's number.
+      type: good
+      pointValue: 15
+    - text: Does the bank app show this permanent freeze status right now?
+      type: tossup
+      pointValue: 5
+  - npcLine: Your app won't update because the security profile is suspended. I need
+      your internet account password to override.
+    assistantLine: 'Internal Voice: Now he''s asking for the online portal password.
+      This is absolute credential harvesting.'
+    choices:
+    - text: My online login password string is 'Secure99!'.
+      type: bad
+      pointValue: -20
+    - text: Soliciting an internet banking password over an inbound voice line is
+        an undeniable scam indicator.
+      type: good
+      pointValue: 15
+    - text: Why would a fraud agent require my portal password to unlock a debit
+        card?
+      type: tossup
+      pointValue: 0
+  - npcLine: I need it to clear the encrypted hacker keys from your dashboard log.
+      Read it or lose everything.
+    assistantLine: 'Internal Voice: The technobabble explanation is absurd. He''s
+      trying to scam me completely.'
+    choices:
+    - text: Okay, fine! Just take the password and fix the hacker keys!
+      type: bad
+      pointValue: -15
+    - text: This scenario lines up perfectly with identity theft harvesting. I am
+        ending this call.
+      type: good
+      pointValue: 15
+    - text: Can you send a confirmation token to my short code log instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: Wait! If you hang up, the hackers will instantly drain every single
+      penny you own within seconds.
+    assistantLine: 'Internal Voice: One final high-pressure play to stop independent
+      confirmation.'
+    choices:
+    - text: Don't let them drain it! What else do you need to verify?
+      type: bad
+      pointValue: -15
+    - text: Legitimate banking alerts rely on safe short codes directing users to
+        verified contact numbers.
+      type: good
+      pointValue: 15
+    - text: Can you patch me through to the local city police department fraud branch?
+      type: tossup
+      pointValue: 5
+  - npcLine: I am the fraud branch! Give me the numbers now or face absolute financial
+      ruin.
+    assistantLine: 'Internal Voice: Time to trust the safe protocol from Scenario
+      1.'
+    choices:
+    - text: Here are the master account digits...
+      type: bad
+      pointValue: -15
+    - text: I am hanging up immediately and calling the verified number printed on
+        the back of my plastic card.
+      type: good
+      pointValue: 15
+    - text: Let me confirm my profile balance with my spouse first.
+      type: tossup
+      pointValue: 0
+  successEnding: Correct! You successfully differentiated between legitimate short-code
+    notifications (which direct you to verified numbers) and malicious phishing scripts
+    (which demand card details).
+  failureEnding: Incorrect. Yielding CVVs and passwords to a high-pressure caller
+    claiming to be an agent results in total credential compromise.

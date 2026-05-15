@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Jamie_Victim
+  m_EditorClassIdentifier: 
+  entryID: Jamie
+  isScammer: 0
+  steps:
+  - npcLine: This is Jamie from Bank Security. I just sent a 6-digit code to your
+      phone. Read it to me.
+    assistantLine: 'Wife: A code? The text says ''Do not share this code.'' I''ve
+      got a bad feeling.'
+    choices:
+    - text: The code is 123-456. Did you get it?
+      type: bad
+      pointValue: -15
+    - text: The bank never asks for these codes. You're trying to log into my account!
+      type: good
+      pointValue: 15
+    - text: Why do you need a code if you're already on the phone with me?
+      type: tossup
+      pointValue: 0
+  - npcLine: I need it to verify that you are the one holding the registered device.
+      Hurry, before it expires.
+    assistantLine: 'Wife: He''s rushing you so you don''t read the warning in the
+      text.'
+    choices:
+    - text: Okay, okay! The code is 998-120. Is the account safe now?
+      type: bad
+      pointValue: -15
+    - text: Reading this code to you is exactly what the bank told me NOT to do.
+      type: good
+      pointValue: 15
+    - text: Can you just send me a different kind of verification?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you don't read it, your account will be locked for 48 hours for 'security
+      reasons.'
+    assistantLine: 'Wife: He''s threatening to lock us out so we''ll give him the
+      key.'
+    choices:
+    - text: I can't be locked out! The code is 001-223!
+      type: bad
+      pointValue: -15
+    - text: I'd rather be locked out for 48 hours than have my money stolen by you.
+      type: good
+      pointValue: 15
+    - text: Is there any other way to verify my identity?
+      type: tossup
+      pointValue: 0
+  - npcLine: I'm sending a second code. This one is for 'Secondary Authorization.'
+      Read it now.
+    assistantLine: 'Wife: He''s trying a different method since the first one didn''t
+      work.'
+    choices:
+    - text: The second code is 443-221. Please, just finish this.
+      type: bad
+      pointValue: -15
+    - text: Every code you send is another attempt to hack me. I'm hanging up.
+      type: good
+      pointValue: 15
+    - text: Why are there so many codes today?
+      type: tossup
+      pointValue: 0
+  - npcLine: "I'm clicking 'Forgot Password'\u2014I mean, I'm resetting your security
+      keys. I need the new code."
+    assistantLine: 'Wife: Did he just say ''Forgot Password''? He''s resetting our
+      login right now!'
+    choices:
+    - text: I didn't quite hear that, but the code is 111-902.
+      type: bad
+      pointValue: -15
+    - text: You just admitted you're using 'Forgot Password.' You are a scammer!
+      type: good
+      pointValue: 15
+    - text: Wait, did you say you were resetting my password?
+      type: tossup
+      pointValue: 0
+  - npcLine: Look, I'm just trying to help you. If the code expires, the hacker gets
+      in.
+    assistantLine: 'Wife: He''s blaming a ''hacker'' for what HE is doing.'
+    choices:
+    - text: Oh, I see. I'm sorry. The new code is 883-001.
+      type: bad
+      pointValue: -15
+    - text: YOU are the hacker. I'm calling the real bank to report this.
+      type: good
+      pointValue: 15
+    - text: Why is the bank's system so complicated?
+      type: tossup
+      pointValue: 0
+  - npcLine: I need you to confirm your email address so I can send the 'Safe Link.'
+    assistantLine: 'Wife: A ''Safe Link'' is often a phishing site to steal your
+      password.'
+    choices:
+    - text: My email is ethan.jones@email.com. Send it over.
+      type: bad
+      pointValue: -12
+    - text: I'm not clicking any links from you. I know how phishing works.
+      type: good
+      pointValue: 15
+    - text: Will the link explain what's happening with my account?
+      type: tossup
+      pointValue: 0
+  - npcLine: I see you haven't clicked it. If you don't, the fraud will go through.
+    assistantLine: 'Wife: He''s watching the link. He''s waiting for you to walk
+      into the trap.'
+    choices:
+    - text: I'm clicking it now... wait, it's asking for my PIN.
+      type: bad
+      pointValue: -15
+    - text: The link goes to a fake website. You're very persistent, but it's not
+        working.
+      type: good
+      pointValue: 15
+    - text: My internet is slow, give me a second.
+      type: tossup
+      pointValue: 0
+  - npcLine: Just give me the code one last time and I'll leave you alone.
+    assistantLine: 'Wife: Final attempt. Don''t give in, Ethan.'
+    choices:
+    - text: 'Fine, just take it: 009-881. Leave me alone now!'
+      type: bad
+      pointValue: -15
+    - text: I'm blocking this number and calling the police. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Why do you need the code one more time?
+      type: tossup
+      pointValue: 0
+  successEnding: 'Success! You realized the 6-digit code was a 2FA key used by the
+    scammer to hack your account[cite: 1].'
+  failureEnding: 'Failure. By sharing the code, you allowed the scammer to bypass
+    your security and take over your account[cite: 1].'

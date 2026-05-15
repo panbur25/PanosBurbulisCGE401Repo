@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Leon_Victim
+  m_EditorClassIdentifier: 
+  entryID: Leon
+  isScammer: 0
+  steps:
+  - npcLine: I just woke up and realized I gave my debit card number and PIN to that
+      'bank agent' yesterday. I was so distracted by my Unity game project that I
+      didn't even think about it.
+    assistantLine: 'Internal Voice: Don''t panic. Panic leads to more mistakes. What
+      are the most time-critical things to do *right now*?'
+    choices:
+    - text: I'll change my email password and check my social media for weird posts.
+      type: tossup
+      pointValue: 0
+    - text: I need to contact my bank to freeze the card and change my PIN immediately.
+      type: good
+      pointValue: 15
+    - text: I should call the local police and wait for them to come take a report.
+      type: bad
+      pointValue: -10
+  - npcLine: "I'm on the phone with the bank now. The card is frozen. What\u2019s
+      the next immediate step for my account security?"
+    assistantLine: 'Internal Voice: Freezing the card stops new charges, but the
+      account itself might still be targeted.'
+    choices:
+    - text: Request that the bank places fraud alerts on my account for all future
+        activity.
+      type: good
+      pointValue: 15
+    - text: Ask them to close my entire account and move my money to a new bank.
+      type: bad
+      pointValue: -15
+    - text: Tell them to send me a new card with the same PIN so I don't forget it.
+      type: bad
+      pointValue: -20
+  - npcLine: The bank agent asked if I want to file a report with the FTC. Should
+      I do that now or later?
+    assistantLine: 'Internal Voice: The FTC is important for identity theft, but
+      is it the *most* time-critical action compared to the bank?'
+    choices:
+    - text: I'll do it later today. Dealing with the bank's security controls is
+        the priority right now.
+      type: good
+      pointValue: 10
+    - text: I'll hang up with the bank and do the FTC report right this second.
+      type: bad
+      pointValue: -15
+    - text: I'll ask my boyfriend to do the FTC report for me.
+      type: tossup
+      pointValue: 0
+  - npcLine: Okay, card frozen, PIN changed, alerts placed. I feel a bit better.
+      Should I wait 48 hours to see if any charges show up?
+    assistantLine: 'Internal Voice: Monitoring is good, but waiting 48 hours before
+      acting on suspicious signs is a bad idea.'
+    choices:
+    - text: No, I should check my transaction history immediately and report anything
+        odd now.
+      type: good
+      pointValue: 15
+    - text: Yes, it takes time for transactions to clear, so I'll check back in two
+        days.
+      type: bad
+      pointValue: -15
+    - text: I'll just assume the bank's freeze caught everything.
+      type: tossup
+      pointValue: 0
+  - npcLine: I see a charge for $200 at a store I've never been to. It happened an
+      hour ago!
+    assistantLine: 'Internal Voice: This is why speed matters. What should I do about
+      this specific charge?'
+    choices:
+    - text: Tell the bank immediately so they can dispute the unauthorized transaction.
+      type: good
+      pointValue: 15
+    - text: Call the store directly and ask them to give me my money back.
+      type: bad
+      pointValue: -10
+    - text: Wait and see if the scammer buys anything else before reporting it.
+      type: bad
+      pointValue: -20
+  - npcLine: Should I change my online banking password too, even though I only gave
+      them my card info?
+    assistantLine: 'Internal Voice: If they have enough info to scam you, they might
+      have enough to try a credential stuffing attack.'
+    choices:
+    - text: Yes, changing passwords across related accounts is a vital protective
+        measure.
+      type: good
+      pointValue: 15
+    - text: No, that's unnecessary and will just make it harder for me to log in.
+      type: bad
+      pointValue: -10
+    - text: I'll only change it if I see someone try to log into my email.
+      type: tossup
+      pointValue: 0
+  - npcLine: "Now I\u2019m thinking about my credit score. Can a debit card scam
+      affect my credit report?"
+    assistantLine: "Internal Voice: Not directly, but identity theft can. What\u2019s
+      a good preventative step here?"
+    choices:
+    - text: Place a fraud alert with the three major credit bureaus.
+      type: good
+      pointValue: 15
+    - text: Call my cell phone provider and ask them to lock my SIM card.
+      type: tossup
+      pointValue: 5
+    - text: Cancel all my credit cards just in case they have those too.
+      type: bad
+      pointValue: -15
+  - npcLine: "I\u2019m getting a call from a 'Police Officer' about my bank report.
+      He wants my social security number to 'verify the case.'"
+    assistantLine: 'Internal Voice: Wait... this sounds like a follow-up scam. Scammers
+      often target people they''ve already hit.'
+    choices:
+    - text: I'll give it to him. I need the police to catch the guy who stole my
+        $200.
+      type: bad
+      pointValue: -20
+    - text: I'll hang up and call the police station's official non-emergency number
+        to verify.
+      type: good
+      pointValue: 15
+    - text: I'll tell him to talk to my bank agent instead.
+      type: tossup
+      pointValue: 5
+  - npcLine: "Whew. I think I\u2019ve done the most critical things. Freeze card,
+      change PIN, alert the bank."
+    assistantLine: 'Internal Voice: You acted fast. That''s the key to minimizing
+      damage.'
+    choices:
+    - text: I'm going to document all these steps in a log for my records.
+      type: good
+      pointValue: 10
+    - text: I'm going back to work on my Unity dialogue scripts to take my mind off
+        this.
+      type: tossup
+      pointValue: 5
+    - text: I'll post about this on social media to warn my friends immediately.
+      type: tossup
+      pointValue: 0
+  successEnding: 'Correct! You identified the three most time-critical actions: contacting
+    the bank to freeze the card, changing your PIN, and placing fraud alerts on the
+    account.'
+  failureEnding: Incorrect. Delaying bank contact or focusing on non-critical tasks
+    (like filing a police report before freezing the card) allows the scammer more
+    time to drain your funds.

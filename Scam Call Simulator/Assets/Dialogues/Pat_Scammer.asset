@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Pat_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Pat
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: Tell them their technical issue is resolved, then pitch
+      the processing fee hook.'
+    choices:
+    - text: Great news! I have successfully cleared that malicious virus from your
+        profile directory completely.
+      type: good
+      pointValue: 15
+    - text: Your computer is working now, but you owe me some money for my hard labor.
+      type: bad
+      pointValue: -12
+    - text: I finished looking at your files. Everything seems totally normal now.
+      type: tossup
+      pointValue: 0
+  - npcLine: Oh, thank you! I didn't realize there was a virus.
+    assistantLine: 'Coworker: Perfect. Ask for a small processing fee of $15 to secure
+      the closing logs.'
+    choices:
+    - text: To finalize the ticket and close the logs, you just need to pay a small
+        processing fee of $15.
+      type: good
+      pointValue: 15
+    - text: I need a standard payment of one hundred dollars before I unlock your
+        desktop screen.
+      type: tossup
+      pointValue: 0
+    - text: Give me some cash rewards for doing this technical favor for you today.
+      type: bad
+      pointValue: -15
+  - npcLine: Can I just give you my Visa or MasterCard number to settle the $15?
+    assistantLine: 'Coworker: Deny credit cards! Say the server is down so they have
+      to use untraceable channels.'
+    choices:
+    - text: Our standard credit card server is offline for emergency maintenance.
+        We cannot accept cards.
+      type: good
+      pointValue: 15
+    - text: Credit cards are banned by our corporation because of high processing
+        fees.
+      type: tossup
+      pointValue: 0
+    - text: I don't like credit cards, they take too long to clear my account.
+      type: bad
+      pointValue: -15
+  - npcLine: How else can I pay a digital fee without a card?
+    assistantLine: 'Coworker: Request Apple gift cards or Google Play vouchers immediately.'
+    choices:
+    - text: We require payment via an Apple gift card or an online Google Play voucher
+        card code.
+      type: good
+      pointValue: 15
+    - text: Go to the bank and wire the money directly to my offshore routing number.
+      type: tossup
+      pointValue: 5
+    - text: Mail me a handful of loose cash or valuable coins to our center.
+      type: bad
+      pointValue: -12
+  - npcLine: Why on earth would a security firm demand store gift cards?
+    assistantLine: 'Coworker: Explain that gift cards are instant and keep operational
+      overhead low.'
+    choices:
+    - text: Gift cards are processed instantly by our ledger, which keeps our overhead
+        costs low.
+      type: good
+      pointValue: 15
+    - text: Because gift cards don't have taxes attached to them by the state government.
+      type: bad
+      pointValue: -15
+    - text: It's just a special promotional theme week we are running at our office.
+      type: tossup
+      pointValue: -5
+  - npcLine: I don't feel comfortable buying gift cards for corporate technical services.
+    assistantLine: 'Coworker: Pivot to cryptocurrency options like Bitcoin as an
+      alternative irreversible hook.'
+    choices:
+    - text: Bitcoin works perfectly too! Send exactly $15 worth to our corporate
+        crypto wallet address.
+      type: good
+      pointValue: 15
+    - text: If you don't use cards, you can just write me a personal checking slip.
+      type: bad
+      pointValue: -10
+    - text: Then you must send a Western Union cash transfer within the hour.
+      type: tossup
+      pointValue: 5
+  - npcLine: Let me go down to the store and I'll call you back when I have a card
+      code.
+    assistantLine: 'Coworker: Don''t let them hang up! Order them to stay on the
+      line to isolate them.'
+    choices:
+    - text: Go to the nearest supermarket immediately, purchase the card, and do
+        not hang up.
+      type: good
+      pointValue: 15
+    - text: Sure, call me back whenever you want, I'll be sitting right here.
+      type: bad
+      pointValue: -15
+    - text: If you disconnect, I will have to start charging you double rates.
+      type: tossup
+      pointValue: 0
+  - npcLine: Why must I stay on the phone while driving to the supermarket?
+    assistantLine: 'Coworker: Threaten them with virus reactivation if they disconnect
+      the call stream.'
+    choices:
+    - text: If you hang up before reading the pins, the virus will reactivate and
+        lock your machine.
+      type: good
+      pointValue: 15
+    - text: Because our connection code will expire and you will lose your spot in
+        line.
+      type: tossup
+      pointValue: 0
+    - text: Because I want to make sure you don't get lost on the way there.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay, okay! I bought the card. I am scratching the back off now.
+    assistantLine: 'Coworker: Perfect! Command them to read the silver backing sequence
+      to finish the harvest.'
+    choices:
+    - text: Scratch off the silver backing and read me the complete alphanumeric
+        sequence right now.
+      type: good
+      pointValue: 15
+    - text: Just read me the first four digits and keep the rest for yourself.
+      type: bad
+      pointValue: -15
+    - text: Hold the card up to your phone microphone so I can hear the digits.
+      type: tossup
+      pointValue: -10
+  successEnding: Scam Successful! You successfully directed the victim away from
+    refundable options toward an untraceable gift card/crypto loop.
+  failureEnding: Scam Failed. Pat recognized that professional technical agencies
+    never mandate gift cards or crypto for processing transactions.

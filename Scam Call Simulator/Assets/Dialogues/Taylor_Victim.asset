@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Taylor_Victim
+  m_EditorClassIdentifier: 
+  entryID: Taylor
+  isScammer: 0
+  steps:
+  - npcLine: Hi, I'm Taylor from your bank's fraud team. Did you spend $45 in Chicago
+      today?
+    assistantLine: 'Wife: Chicago? We haven''t been there in years. This sounds serious.'
+    choices:
+    - text: No, I didn't! Please stop the charge immediately!
+      type: bad
+      pointValue: -10
+    - text: How do I know you're actually from my bank?
+      type: good
+      pointValue: 12
+    - text: Which store in Chicago was it?
+      type: tossup
+      pointValue: 0
+  - npcLine: I also see a $12 charge in Miami and a $200 charge in Seattle from an
+      hour ago.
+    assistantLine: 'Wife: He has our specific transaction history! It must be the
+      real bank.'
+    choices:
+    - text: Since you have all my details, you must be the bank. Help me!
+      type: bad
+      pointValue: -15
+    - text: Transaction details can be bought by scammers. I'm still skeptical.
+      type: good
+      pointValue: 15
+    - text: Wait, did those charges actually go through?
+      type: tossup
+      pointValue: 0
+  - npcLine: To secure your account, I need to verify your identity. What is your
+      full card number?
+    assistantLine: 'Wife: Ethan, if he''s from the bank, shouldn''t he already see
+      the number?'
+    choices:
+    - text: The number is 4412-8803-...
+      type: bad
+      pointValue: -15
+    - text: The real bank would never ask me to read my full card number.
+      type: good
+      pointValue: 15
+    - text: Can I just give you the last four digits instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: Now I need the three-digit security code on the back to lock the card.
+    assistantLine: 'Wife: That code is for making purchases, not for ''locking''
+      things.'
+    choices:
+    - text: The CVV code is 123.
+      type: bad
+      pointValue: -15
+    - text: I'm hanging up and calling the number printed on my actual card.
+      type: good
+      pointValue: 15
+    - text: Will this stop the scammers from spending more?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you hang up, the hackers will drain your entire savings while you
+      wait on hold.
+    assistantLine: 'Wife: He''s using fear to keep you from checking the facts.'
+    choices:
+    - text: Okay, don't let them do that! What's the next step?
+      type: bad
+      pointValue: -15
+    - text: My bank has zero-liability protection. I'm not afraid to hang up.
+      type: good
+      pointValue: 15
+    - text: Is there a local branch I can go to instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: I'm sending a text to 'verify' you. Read the 6-digit code back to me.
+    assistantLine: 'Wife: The text says ''Do not share this code.'' This is a huge
+      red flag!'
+    choices:
+    - text: The code is 992-001.
+      type: bad
+      pointValue: -15
+    - text: This code is for a password reset. You're trying to hack me!
+      type: good
+      pointValue: 15
+    - text: Is this code to confirm my identity or the charges?
+      type: tossup
+      pointValue: 0
+  - npcLine: I need that code now or the hackers will win. Don't be stubborn, Ethan.
+    assistantLine: 'Wife: He''s getting aggressive. That''s not how customer service
+      works.'
+    choices:
+    - text: I'm sorry, I'm just nervous. The code is...
+      type: bad
+      pointValue: -15
+    - text: Your aggression proves you're a scammer. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Can you wait while I talk to my wife?
+      type: tossup
+      pointValue: 0
+  - npcLine: Wait! I can also move your money to a 'Safe Bank Vault' right now.
+    assistantLine: 'Wife: A ''Safe Vault''? Banks don''t ask you to move money like
+      that.'
+    choices:
+    - text: Yes, please move my savings where the hackers can't find it!
+      type: bad
+      pointValue: -15
+    - text: The idea of a 'Safe Vault' is a classic scam tactic. I'm done.
+      type: good
+      pointValue: 15
+    - text: How do I get my money back out of the vault later?
+      type: tossup
+      pointValue: 0
+  - npcLine: This is your last chance. Do you want to lose everything?
+    assistantLine: 'Wife: Hang up, Ethan. Let''s call the number on the back of our
+      card.'
+    choices:
+    - text: Please, just save my money! I'll do anything!
+      type: bad
+      pointValue: -15
+    - text: I'm calling the police to report this spoofed number. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Why are you being so mean about this?
+      type: tossup
+      pointValue: 0
+  successEnding: 'Correct! You realized that transaction details don''t prove identity
+    and hung up[cite: 1].'
+  failureEnding: 'Failure. Scammers often use data from breaches to sound legitimate
+    and steal account access[cite: 1].'

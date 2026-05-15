@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Rosemary_Victim
+  m_EditorClassIdentifier: 
+  entryID: Rosemary
+  isScammer: 0
+  steps:
+  - npcLine: A caller just identified me by my full name, mentioned I live in Elmhurst,
+      and even knew I was working on a 2D top-down game in Unity. They sound so legitimate
+      because they know everything about me!
+    assistantLine: 'Internal Voice: Knowledge of personal details can be a trick.
+      How could a stranger know all this?'
+    choices:
+    - text: They must be a government agent with access to my private computer files.
+      type: bad
+      pointValue: -10
+    - text: This information is likely gathered from public sources like social media
+        or data breaches.
+      type: good
+      pointValue: 15
+    - text: They must be a close friend who is playing a very elaborate prank on
+        me.
+      type: tossup
+      pointValue: 0
+  - npcLine: "He says he\u2019s from 'Unity Developer Support' and noticed a bug
+      in my ScriptableObject code for my dialogue system. He even mentioned the date
+      I last worked on it!"
+    assistantLine: 'Internal Voice: Specific details about my work history are often
+      available on professional networking sites or GitHub.'
+    choices:
+    - text: If he knows my specific code structure, he must be from the official
+        support team.
+      type: bad
+      pointValue: -15
+    - text: Even detailed technical knowledge can be harvested from my public developer
+        profiles.
+      type: good
+      pointValue: 15
+    - text: I'll ask him to name the specific variable I used for the 'trust bar'
+        mechanic.
+      type: tossup
+      pointValue: 10
+  - npcLine: He correctly named the 'trust bar' variable! Now he wants me to download
+      a 'diagnostic patch' to fix the bug.
+    assistantLine: "Internal Voice: Wait. If he\u2019s really from Unity, would he
+      be calling me personally to have me download a file?"
+    choices:
+    - text: I'll download it. He clearly knows my project better than anyone else.
+      type: bad
+      pointValue: -20
+    - text: Official tech support doesn't call unsolicited to offer patches. This
+        is a targeted attack.
+      type: good
+      pointValue: 15
+    - text: I'll ask him to send me a link to the official Unity forums instead.
+      type: tossup
+      pointValue: 5
+  - npcLine: "He\u2019s now mentioning my great-grandfather\u2019s name and says
+      he's a 'friend of the family' who wants to help me succeed with my independent
+      study."
+    assistantLine: 'Internal Voice: Using family names is a classic way to build
+      instant emotional trust. But family trees are public record.'
+    choices:
+    - text: "Since he knows my great-grandfather, he\u2019s definitely trustworthy."
+      type: bad
+      pointValue: -15
+    - text: Family details are easily obtained from social media or data broker sites.
+      type: good
+      pointValue: 15
+    - text: "I'll ask him what my great-grandfather\u2019s middle name is to be sure."
+      type: tossup
+      pointValue: 5
+  - npcLine: He correctly stated the middle name! My head is spinning. How could
+      he know all this without being legitimate?
+    assistantLine: 'Internal Voice: Data broker websites aggregate billions of data
+      points. My entire life story is for sale for $10.'
+    choices:
+    - text: The amount of detail is impressive, but it doesn't prove he has official
+        authority.
+      type: good
+      pointValue: 15
+    - text: I'll assume he's a private investigator hired by my university.
+      type: bad
+      pointValue: -10
+    - text: I'll give him my remote desktop password so he can just fix the code
+        for me.
+      type: bad
+      pointValue: -25
+  - npcLine: "I\u2019m looking at my social media while we talk. I realized I posted
+      a picture of my great-grandfather last year with a caption that included his
+      full name. And my Unity progress is all over my dev log."
+    assistantLine: 'Internal Voice: There it is. The ''secret'' information was actually
+      just public information.'
+    choices:
+    - text: I'll call him out on where he found the info and then hang up.
+      type: good
+      pointValue: 10
+    - text: I'll apologize for doubting him now that I know how he found the info.
+      type: bad
+      pointValue: -15
+    - text: I'll ask him if he also saw my Aikido videos from last month.
+      type: tossup
+      pointValue: 0
+  - npcLine: "He\u2019s getting aggressive now that I\u2019m stalling. He says if
+      I don't install the 'patch', he'll report my game for 'licensing violations.'"
+    assistantLine: 'Internal Voice: The shift from ''friendly family friend'' to
+      ''threatening authority'' is a huge red flag.'
+    choices:
+    - text: I'll ignore the threat. A real friend or official agent wouldn't act
+        this way.
+      type: good
+      pointValue: 15
+    - text: I'll install it just to avoid the licensing trouble.
+      type: bad
+      pointValue: -15
+    - text: I'll tell him I'm going to report him to the better business bureau.
+      type: tossup
+      pointValue: 0
+  - npcLine: I hung up. I just searched 'Rosemary Elmhurst Unity' on a public search
+      engine and found almost everything he mentioned in the first three results.
+    assistantLine: 'Internal Voice: Seeing it for yourself is the best way to break
+      the illusion of his legitimacy.'
+    choices:
+    - text: I'm going to lock down my social media profiles and remove my employer
+        info.
+      type: good
+      pointValue: 10
+    - text: I'll delete my entire Unity project just to be safe from hackers.
+      type: bad
+      pointValue: -15
+    - text: I'll create a fake profile with wrong info to confuse them next time.
+      type: tossup
+      pointValue: 5
+  - npcLine: I feel smarter now. I won't let a few personal facts trick me into trusting
+      a stranger again.
+    assistantLine: 'Internal Voice: Legitimacy is proven by verified channels, not
+      by how much someone knows about you.'
+    choices:
+    - text: 'I''ll remember: Specificity does not equal authority.'
+      type: good
+      pointValue: 15
+    - text: I'll only trust people who can tell me something about myself that *isn't*
+        online.
+      type: tossup
+      pointValue: 5
+    - text: I'm going to go eat dinner with my boyfriend and tell him all about this.
+      type: tossup
+      pointValue: 0
+  successEnding: Correct! You realized that personal details (like your city, project
+    names, and family) are easily gathered from social media and public sources,
+    and do not prove a caller is legitimate.
+  failureEnding: Incorrect. You were tricked into trusting the caller because they
+    knew specific personal details that you assumed were private, leading to a potential
+    malware infection.

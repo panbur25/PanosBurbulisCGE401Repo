@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Carlos_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Carlos
+  isScammer: 1
+  steps:
+  - npcLine: Target is Carlos. He just checked into 'The Daily Dojo' for an Aikido
+      session. Let's see what else he's posted today.
+    assistantLine: 'Coworker: Look for a photo of his meal or his car. Anything that
+      gives us a ''hook'' for a call.'
+    choices:
+    - text: Scanning his Instagram for a photo of his lunch from an hour ago.
+      type: good
+      pointValue: 15
+    - text: Searching for his high school graduation photos from ten years ago.
+      type: bad
+      pointValue: -10
+    - text: I'll just wait outside the Dojo and see what he's wearing.
+      type: tossup
+      pointValue: 0
+  - npcLine: "He posted a picture of a 'Salmon Poke Bowl' from 'SeaGreens Bistro.'
+      I\u2019ll call him pretending to be the manager."
+    assistantLine: 'Coworker: Perfect. Tell him there was a problem with his payment
+      and he needs to ''re-run'' his card over the phone.'
+    choices:
+    - text: Hi Carlos, this is the manager at SeaGreens. Your payment for that Salmon
+        Poke Bowl didn't clear.
+      type: good
+      pointValue: 15
+    - text: Hello, I am from the restaurant. Give me money now please.
+      type: bad
+      pointValue: -20
+    - text: I saw you eating at SeaGreens. Did you like the fish?
+      type: tossup
+      pointValue: 5
+  - npcLine: He sounds confused. He says he has the receipt right in front of him.
+    assistantLine: 'Coworker: Tell him the receipt printed, but the ''batch'' failed
+      to upload to the bank, so the restaurant hasn''t actually been paid.'
+    choices:
+    - text: The transaction shows as 'Pending-Error' on our side. If we don't fix
+        it, we have to call the police.
+      type: good
+      pointValue: 15
+    - text: Your receipt is a lie. I am the manager and I know the truth.
+      type: bad
+      pointValue: -15
+    - text: I'll just take your card number again and give you a 10% discount for
+        the trouble.
+      type: tossup
+      pointValue: 10
+  - npcLine: "He\u2019s still hesitant. He mentioned he\u2019s at his 'Aikido class'
+      and can't talk long."
+    assistantLine: 'Coworker: Use that! Tell him you''ll ''wait'' until his class
+      is over, but the ''late fee'' will double by then.'
+    choices:
+    - text: I don't want to interrupt your Aikido training, but the bank closes in
+        15 minutes. We need the fix now.
+      type: good
+      pointValue: 15
+    - text: I like Aikido. I am a black belt. Let's talk about martial arts instead.
+      type: bad
+      pointValue: -10
+    - text: If you don't pay now, I will come to the Dojo and stop the class.
+      type: tossup
+      pointValue: 5
+  - npcLine: "He's starting to read the numbers. 4-4-1-2... but he stopped. He\u2019s
+      asking why I called his cell instead of his home phone."
+    assistantLine: 'Coworker: Tell him his cell was on the ''loyalty program'' account
+      he signed up for last year.'
+    choices:
+    - text: Our loyalty system pulls the primary contact number. You must have used
+        this one when you joined.
+      type: good
+      pointValue: 15
+    - text: I found it on the internet, Carlos. Everyone's number is on the internet.
+      type: bad
+      pointValue: -25
+    - text: The home phone was busy, so I tried this one next.
+      type: tossup
+      pointValue: 0
+  - npcLine: "He\u2019s giving me the rest of the numbers. I\u2019ve got the card!
+      Now I need the CVV on the back."
+    assistantLine: 'Coworker: Tell him it''s the ''verification token'' to prove
+      he has the physical card in his hand.'
+    choices:
+    - text: I just need the 3-digit verification token on the back to authenticate
+        the transaction.
+      type: good
+      pointValue: 15
+    - text: Give me the secret numbers on the back so I can go shopping.
+      type: bad
+      pointValue: -20
+    - text: If you don't give me the CVV, the card will be locked by the bank.
+      type: tossup
+      pointValue: 5
+  - npcLine: He gave it to me. Now, to make sure he doesn't call his bank immediately,
+      tell him it will take 24 hours to 'sync.'
+    assistantLine: "Coworker: Yes, tell him he\u2019ll see a 'duplicate' charge briefly,
+      but it will disappear by tomorrow."
+    choices:
+    - text: You'll see two charges for a moment while the batch resets. It will clear
+        up by tomorrow morning.
+      type: good
+      pointValue: 15
+    - text: Don't call your bank, they are busy today and won't answer.
+      type: bad
+      pointValue: -15
+    - text: I'm going to delete your account now so you don't get any more errors.
+      type: tossup
+      pointValue: 0
+  - npcLine: The card worked. I just bought $300 worth of gift cards. But I think
+      I can get him to give me his 'bank login' too.
+    assistantLine: 'Coworker: Too risky. He''s already in his Aikido mindset. If
+      you push too hard, he''ll snap out of it.'
+    choices:
+    - text: I'll stop here. $300 is a good win. Disconnecting now.
+      type: good
+      pointValue: 10
+    - text: I'll call him back and tell him the card was declined again and I need
+        his login.
+      type: bad
+      pointValue: -20
+    - text: I'll send him a text with a link to 'verify' his refund.
+      type: tossup
+      pointValue: 5
+  - npcLine: "Success. He even thanked me for being so 'professional' about the restaurant\u2019s
+      error."
+    assistantLine: 'Coworker: That''s the beauty of social engineering. They think
+      you''re helping them while you''re robbing them.'
+    choices:
+    - text: Logging his data in our 'Easy Targets' folder for next month.
+      type: good
+      pointValue: 15
+    - text: I'm going to use the money to buy a 2D game on Steam.
+      type: tossup
+      pointValue: 5
+    - text: I'll call his Dojo and tell them he's a great student.
+      type: bad
+      pointValue: -15
+  successEnding: Scam Successful! You used Carlos's real-time social media posts
+    to create a highly believable 'restaurant error' script and stole his credit
+    card info.
+  failureEnding: Scam Failed. Carlos realized that a restaurant wouldn't call his
+    cell phone about a payment error and hung up to check his bank app instead.

@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Claire_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Claire
+  isScammer: 1
+  steps:
+  - npcLine: Target is Claire. I need to find her home address to make my 'local
+      utility' scam sound real.
+    assistantLine: 'Coworker: Don''t guess. Use a data broker site to find her exact
+      residency history.'
+    choices:
+    - text: Searching 'Claire [Lastname]' on a public people-search engine.
+      type: good
+      pointValue: 15
+    - text: Calling the city planning office and asking for her employee file.
+      type: bad
+      pointValue: -15
+    - text: Guessing her address based on her area code.
+      type: tossup
+      pointValue: 0
+  - npcLine: I found her! She lives on Elm Street. The broker site also lists her
+      'possible relatives.' This is a goldmine.
+    assistantLine: 'Coworker: Use a relative''s name to build trust. Say they ''referred''
+      you to her.'
+    choices:
+    - text: Hi Claire, I was speaking with your mother, Sarah, and she mentioned
+        you needed a utility audit.
+      type: good
+      pointValue: 15
+    - text: I know where you live, Claire. Pay me or I'll come to Elm Street.
+      type: bad
+      pointValue: -20
+    - text: Is this Claire? I have a package for a Sarah at your address.
+      type: tossup
+      pointValue: 5
+  - npcLine: "She\u2019s asking how I know her mother. I need a plausible professional
+      excuse."
+    assistantLine: "Coworker: Tell her that their accounts are 'linked' in the city\u2019s
+      residency database."
+    choices:
+    - text: Our system shows a residential link between your accounts for the city
+        planning district.
+      type: good
+      pointValue: 15
+    - text: I saw it on a data broker website for $0.99.
+      type: bad
+      pointValue: -25
+    - text: Your mother told me everything when I called her ten minutes ago.
+      type: tossup
+      pointValue: 0
+  - npcLine: She's staying on the line. I need more data to sound like a 'Utility
+      Inspector.' What else can I find?
+    assistantLine: 'Coworker: Look for property tax records or recent commercial
+      activity listed on the broker profile.'
+    choices:
+    - text: Checking for any recent 'new homeowner' or 'renter' tags on her profile.
+      type: good
+      pointValue: 15
+    - text: I'll just make up a fake meter number and see if she corrects me.
+      type: tossup
+      pointValue: 5
+    - text: I'll ask her to go outside and read the numbers off her meter.
+      type: bad
+      pointValue: -10
+  - npcLine: She said she just moved in six months ago. The data broker site was
+      right! It had her 'Move-in date' listed.
+    assistantLine: 'Coworker: Perfect. Use that to explain why she ''missed'' a mandatory
+      inspection fee.'
+    choices:
+    - text: Since you moved in last November, the initial inspection fee hasn't been
+        processed.
+      type: good
+      pointValue: 15
+    - text: You moved in six months ago and that is why you are a criminal now.
+      type: bad
+      pointValue: -15
+    - text: I knew you moved in then because I was watching your house.
+      type: bad
+      pointValue: -20
+  - npcLine: "She\u2019s reaching for her credit card. But wait, she\u2019s pausing
+      to look up my company name."
+    assistantLine: 'Coworker: Keep her talking! Don''t let her search for ''Utility
+      Inspector Scams.'''
+    choices:
+    - text: I'll keep her busy by explaining the complex 'urban zoning' codes she's
+        violating.
+      type: good
+      pointValue: 15
+    - text: I'll stay silent and wait for her to finish her search.
+      type: bad
+      pointValue: -20
+    - text: I'll tell her my company is so new that it's not on Google yet.
+      type: tossup
+      pointValue: 0
+  - npcLine: "She found a site that says her info was recently removed from a data
+      broker. She\u2019s getting suspicious of how I found her."
+    assistantLine: 'Coworker: Pivot! Tell her that the ''National Residency Registry''
+      is separate from those private sites.'
+    choices:
+    - text: We don't use those sites. We use the official government-mandated residency
+        registry.
+      type: good
+      pointValue: 15
+    - text: I must have found an old version of the site before you deleted it.
+      type: bad
+      pointValue: -15
+    - text: I am a data broker myself! That's how I know.
+      type: bad
+      pointValue: -25
+  - npcLine: "She's hanging up. She says she\u2019s going to call the city planning
+      office directly to verify my name."
+    assistantLine: 'Coworker: This target is too smart. She knows how her data footprint
+      works.'
+    choices:
+    - text: I'll try one more time to threaten her with a 'late penalty' fine.
+      type: tossup
+      pointValue: 5
+    - text: Hanging up and moving to a target who hasn't cleared their broker listings.
+      type: good
+      pointValue: 10
+    - text: I'll call her back as the 'City Planning' supervisor.
+      type: tossup
+      pointValue: 0
+  - npcLine: Mission failed. Those opt-out requests actually made her more aware
+      of her own security.
+    assistantLine: 'Coworker: Yeah, people who manage their data broker presence
+      are the hardest to scam.'
+    choices:
+    - text: I'll look for a target with a 'High' public data score next time.
+      type: good
+      pointValue: 15
+    - text: I'll just buy a list of names from a more expensive broker.
+      type: tossup
+      pointValue: 5
+    - text: I'm going to go study urban planning so I can sound more real.
+      type: tossup
+      pointValue: 0
+  successEnding: Scam Successful! You leveraged data broker information (address,
+    relatives, and move-in dates) to build a highly personalized and believable script.
+  failureEnding: Scam Failed. Claire's awareness of data brokers and her proactive
+    removal efforts allowed her to spot the source of your 'insider' knowledge and
+    hang up.

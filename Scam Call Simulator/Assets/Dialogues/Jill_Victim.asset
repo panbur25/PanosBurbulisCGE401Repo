@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Jill_Victim
+  m_EditorClassIdentifier: 
+  entryID: Jill
+  isScammer: 0
+  steps:
+  - npcLine: "I just got an email with the subject line 'YOUR PRIVACY IS AT RISK.'
+      It contains a password I haven't used since I was in high school\u2014'UnityDev123.'
+      How could they possibly know that?"
+    assistantLine: 'Internal Voice: Seeing an old password can be terrifying. But
+      it doesn''t mean they''ve hacked your current computer.'
+    choices:
+    - text: The password was likely exposed in a past data breach and sold on the
+        dark web.
+      type: good
+      pointValue: 15
+    - text: The sender must have installed a keylogger on your keyboard yesterday.
+      type: bad
+      pointValue: -10
+    - text: Your internet provider must have leaked your old search history.
+      type: tossup
+      pointValue: 0
+  - npcLine: "The email says they\u2019ve been 'monitoring' my webcam and will send
+      a video of me to all my contacts unless I pay $2,000 in Bitcoin. I\u2019m so
+      embarrassed, even though I haven't done anything wrong!"
+    assistantLine: 'Internal Voice: This is a ''sextortion'' or ''blackmail'' scam.
+      They use shame and the old password to create a false sense of authority.'
+    choices:
+    - text: This is a mass-mailed script sent to thousands of people from a leaked
+        database.
+      type: good
+      pointValue: 15
+    - text: If they have the password, they definitely have the video too.
+      type: bad
+      pointValue: -15
+    - text: You should cover your webcam with a sticker right now just in case.
+      type: tossup
+      pointValue: 10
+  - npcLine: I remember using that password for an old gaming forum that got hacked
+      back in 2019. Could that be where they got it?
+    assistantLine: 'Internal Voice: Yes. Large-scale breaches often result in millions
+      of usernames and passwords being leaked.'
+    choices:
+    - text: Yes, scammers buy these lists to send out thousands of automated extortion
+        emails.
+      type: good
+      pointValue: 15
+    - text: No, if the hack was in 2019, the password would have expired by now.
+      type: bad
+      pointValue: -15
+    - text: Only if the gaming forum was secretly run by scammers.
+      type: tossup
+      pointValue: 0
+  - npcLine: "Should I reply and tell them I know it's an old password and that I\u2019m
+      not paying?"
+    assistantLine: 'Internal Voice: Replying to a scammer is almost always a bad
+      idea.'
+    choices:
+    - text: No, replying confirms that your email address is active and makes you
+        a bigger target.
+      type: good
+      pointValue: 15
+    - text: Yes, it will show them you aren't afraid and they'll leave you alone.
+      type: bad
+      pointValue: -15
+    - text: Send them a fake Bitcoin transaction ID to confuse them.
+      type: tossup
+      pointValue: 5
+  - npcLine: "What if I\u2019m still using that same password for my current university
+      portal or my great-grandfather\u2019s printer settings?"
+    assistantLine: 'Internal Voice: This is the real danger of data breaches: password
+      reuse.'
+    choices:
+    - text: Change it everywhere immediately. Use a unique, strong password for every
+        account.
+      type: good
+      pointValue: 15
+    - text: Just add a '!' at the end of the old password to make it secure again.
+      type: bad
+      pointValue: -20
+    - text: I'll just change the main one and leave the others alone for now.
+      type: tossup
+      pointValue: 0
+  - npcLine: Is there a way to check if my other passwords or emails have been in
+      a breach?
+    assistantLine: 'Internal Voice: There are legitimate tools that aggregate breach
+      data so users can check their exposure.'
+    choices:
+    - text: Use a trusted site like 'Have I Been Pwned' to check your exposure status.
+      type: good
+      pointValue: 15
+    - text: Search your password on Google to see if it shows up in any results.
+      type: bad
+      pointValue: -15
+    - text: Call your bank and ask them if they've seen your password online.
+      type: tossup
+      pointValue: 0
+  - npcLine: Wait, the email says the Bitcoin 'clock' is ticking down and I only
+      have 12 hours left. I'm starting to panic again.
+    assistantLine: 'Internal Voice: The ''ticking clock'' is a psychological trigger
+      designed to stop you from researching the scam.'
+    choices:
+    - text: Artificial urgency is a hallmark of scams. Take a breath and ignore it.
+      type: good
+      pointValue: 15
+    - text: Maybe you should pay just a small amount to get them to extend the time.
+      type: bad
+      pointValue: -25
+    - text: Call the local FBI field office and ask them to trace the email.
+      type: tossup
+      pointValue: 5
+  - npcLine: I looked up the exact wording of the email online, and I found a thread
+      where hundreds of people got the *exact same* message today.
+    assistantLine: 'Internal Voice: Seeing the ''copy-paste'' nature of the scam
+      is the best way to break the fear.'
+    choices:
+    - text: "This confirms it\u2019s an automated mass attack, not a personal one."
+      type: good
+      pointValue: 15
+    - text: That means the hacker is really busy today with all those people.
+      type: bad
+      pointValue: -10
+    - text: Maybe we should all get together and pay them a group rate.
+      type: bad
+      pointValue: -25
+  - npcLine: "I\u2019ve changed all my passwords to unique ones and enabled 2FA.
+      I feel much more secure now."
+    assistantLine: 'Internal Voice: Turning a scary event into a security upgrade
+      is the best possible outcome.'
+    choices:
+    - text: I'll start using a password manager to handle all these unique passwords.
+      type: good
+      pointValue: 15
+    - text: I'll go back to my Unity project. I need to finish that dialogue system.
+      type: tossup
+      pointValue: 5
+    - text: I'll delete my old gaming forum account if it even still exists.
+      type: tossup
+      pointValue: 10
+  successEnding: Correct! You identified that the scammer obtained your old password
+    from a past data breach and used it to create a fraudulent extortion threat.
+  failureEnding: Incorrect. You were nearly tricked into paying the ransom because
+    the inclusion of a real (but old) password made the scammer's claims of monitoring
+    your webcam seem plausible.

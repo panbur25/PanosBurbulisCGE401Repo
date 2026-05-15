@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Eveline_Victim
+  m_EditorClassIdentifier: 
+  entryID: Eveline
+  isScammer: 0
+  steps:
+  - npcLine: "I\u2019m on the phone with a guy who says he's an 'IRS Senior Special
+      Agent.' He says I owe $4,000 in back taxes from 2024 and there's a warrant
+      for my arrest being issued 'within the hour.'"
+    assistantLine: 'Internal Voice: That''s a lot of money and a very scary threat.
+      But wait... does the IRS usually call people about warrants?'
+    choices:
+    - text: I'll ask him for his badge number and the specific tax form I messed
+        up.
+      type: tossup
+      pointValue: 5
+    - text: I should hang up immediately and call the official IRS number from their
+        website.
+      type: good
+      pointValue: 15
+    - text: I'll beg him not to arrest me and offer to pay half right now.
+      type: bad
+      pointValue: -15
+  - npcLine: "He says if I hang up, the local police will be at my door in ten minutes.
+      He sounds really angry that I\u2019m questioning him."
+    assistantLine: 'Internal Voice: The anger is a tactic. He wants to stop me from
+      thinking clearly or verifying his identity.'
+    choices:
+    - text: I'll stay on the line and try to calm him down so we can work this out.
+      type: bad
+      pointValue: -10
+    - text: Hanging up is the single most important action. Real IRS agents don't
+        threaten immediate arrest over the phone.
+      type: good
+      pointValue: 15
+    - text: I'll ask to speak to his supervisor to see if they are nicer.
+      type: tossup
+      pointValue: 0
+  - npcLine: I hung up. My heart is pounding. What if he was real and the police
+      are actually coming?
+    assistantLine: 'Internal Voice: Take a breath. Now, how do I actually verify
+      this without calling him back?'
+    choices:
+    - text: I'll go to IRS.gov and find the official customer service number to call
+        them directly.
+      type: good
+      pointValue: 15
+    - text: I'll wait by the front door for the police to arrive so I can explain.
+      type: bad
+      pointValue: -10
+    - text: I'll call my boyfriend and ask if he knows anything about my taxes.
+      type: tossup
+      pointValue: 5
+  - npcLine: "I\u2019m on the official IRS website. It says they 'generally first
+      mail a bill' to any taxpayer who owes money. I haven't received any mail."
+    assistantLine: 'Internal Voice: That''s a huge clue. The phone call skipped the
+      entire official process.'
+    choices:
+    - text: I'll call the official IRS number listed on the site to double-check
+        my account status.
+      type: good
+      pointValue: 15
+    - text: I'll assume the mail got lost and wait for a second phone call.
+      type: bad
+      pointValue: -15
+    - text: I'll check my spam folder for an email from the IRS instead.
+      type: tossup
+      pointValue: 0
+  - npcLine: The real IRS agent on the phone says I don't owe any money and there
+      is no warrant. She says the call I got was a common scam.
+    assistantLine: 'Internal Voice: Crisis averted. But the scammer still has my
+      phone number. Should I report this?'
+    choices:
+    - text: Yes, I should report the incident to the Treasury Inspector General for
+        Tax Administration (TIGTA).
+      type: good
+      pointValue: 15
+    - text: No, since I didn't lose any money, there's no reason to report it.
+      type: bad
+      pointValue: -10
+    - text: I'll just block the number and forget it ever happened.
+      type: tossup
+      pointValue: 5
+  - npcLine: "Now I\u2019m wondering... how did he know my name and that I'm a university
+      student?"
+    assistantLine: 'Internal Voice: He might have found that information from public
+      records or social media. It doesn''t mean he''s ''official''.'
+    choices:
+    - text: I'll check my social media privacy settings to see what's public.
+      type: good
+      pointValue: 10
+    - text: I'll assume he must have hacked into my university's registrar office.
+      type: bad
+      pointValue: -10
+    - text: I'll ask the real IRS agent if they share my data with third parties.
+      type: tossup
+      pointValue: 0
+  - npcLine: "The scammer is calling back from a different number! He\u2019s leaving
+      a voicemail saying he\u2019s 'generously' giving me one last chance."
+    assistantLine: 'Internal Voice: He''s desperate now. He knows his window is closing.'
+    choices:
+    - text: I'll ignore the voicemail. I've already verified with the real IRS.
+      type: good
+      pointValue: 15
+    - text: I'll call him back and tell him off for being a liar.
+      type: bad
+      pointValue: -15
+    - text: I'll send him a link to a fake payment portal to waste his time.
+      type: tossup
+      pointValue: 0
+  - npcLine: "He\u2019s texting me now with a 'photo' of my arrest warrant. It looks...
+      kind of fake. The fonts are all different."
+    assistantLine: 'Internal Voice: Scammers often use low-quality templates. A real
+      warrant wouldn''t be sent via text message.'
+    choices:
+    - text: I'll ignore it. Real warrants are served in person by law enforcement.
+      type: good
+      pointValue: 15
+    - text: I'll show it to my great-grandfather to see if he thinks it's real.
+      type: tossup
+      pointValue: 5
+    - text: I'll reply and point out the typos to help them make a better one.
+      type: bad
+      pointValue: -20
+  - npcLine: I feel so much better now that I took the right action. Hanging up saved
+      me $4,000.
+    assistantLine: 'Internal Voice: Always verify through official channels. That''s
+      the gold standard for security.'
+    choices:
+    - text: I'll share this story with my classmates so they don't get tricked too.
+      type: good
+      pointValue: 10
+    - text: I'm going to celebrate by practicing some Aikido to work off the stress.
+      type: tossup
+      pointValue: 5
+    - text: I'll buy a new LaserJet printer with the money I saved.
+      type: tossup
+      pointValue: 0
+  successEnding: Correct! You realized that hanging up and contacting the IRS directly
+    via an official number (IRS.gov) is the single most important action to take
+    when faced with a suspicious tax-related threat.
+  failureEnding: Incorrect. Engaging with the caller or staying on the line due to
+    fear of the arrest threat allowed the scammer to maintain psychological control.

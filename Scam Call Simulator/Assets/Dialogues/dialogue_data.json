@@ -1,0 +1,716 @@
+{
+  "allDialogues": [
+    {
+      "entryID": "Claire",
+      "isScammer": false,
+      "steps": [
+        {
+          "npcLine": "I was researching zoning laws for my urban studies report and decided to search my own name. I found my home address, cell number, and even my parents' names on a site called 'DataFoundry.' Is this even legal?",
+          "assistantLine": "Internal Voice: Seeing your private life for sale is jarring. How do these data brokers actually operate?",
+          "choices": [
+            { "text": "They aggregate info from public records, social media, and commercial sources.", "type": "good", "pointValue": 15 },
+            { "text": "They only get info from government public records, which can never be changed.", "type": "bad", "pointValue": -10 },
+            { "text": "They are only allowed to sell to big marketing firms, not individuals.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "The site has a 'Remove Me' link at the bottom. If I click it, will my information be gone for good?",
+          "assistantLine": "Internal Voice: It's a common misconception that one request fixes everything forever.",
+          "choices": [
+            { "text": "Most offer opt-outs, but you have to monitor them because removal isn't always permanent.", "type": "good", "pointValue": 15 },
+            { "text": "Yes, federal law requires them to delete it permanently within 30 days.", "type": "bad", "pointValue": -15 },
+            { "text": "Only if you pay their 'premium protection' fee first.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "Wait, I found three more sites with the same info. It’s like a game of whack-a-mole.",
+          "assistantLine": "Internal Voice: Data is a commodity that is traded and sold between these companies constantly.",
+          "choices": [
+            { "text": "They likely buy and sell data from each other, creating a cycle of listings.", "type": "good", "pointValue": 10 },
+            { "text": "Someone must be manually re-entering your info every time you delete it.", "type": "bad", "pointValue": -10 },
+            { "text": "It’s probably because you used the same password on all of them.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "There’s a section for 'Employment History.' It lists my current internship at the city planning office. I didn't think that was public.",
+          "assistantLine": "Internal Voice: Many professional details are pulled from business registries or professional social networks.",
+          "choices": [
+            { "text": "Publicly accessible commercial sources often feed into these broker databases.", "type": "good", "pointValue": 15 },
+            { "text": "Your employer is legally required to post your name on these websites.", "type": "bad", "pointValue": -15 },
+            { "text": "They must have hacked into your university's student records.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "If I can see my info, that means a vishing scammer can just buy it too, right?",
+          "assistantLine": "Internal Voice: That is exactly how they build those convincing personalized scripts.",
+          "choices": [
+            { "text": "Yes, scammers use these sites to find 'leads' and verify details about their targets.", "type": "good", "pointValue": 15 },
+            { "text": "No, brokers are required to vet every buyer to ensure they aren't scammers.", "type": "bad", "pointValue": -15 },
+            { "text": "Only if the scammer is a registered business owner.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I’m going to start the opt-out process. Should I give them my current email to 'verify' the removal?",
+          "assistantLine": "Internal Voice: Be careful not to give them *more* data while trying to remove the old data.",
+          "choices": [
+            { "text": "Use a masked or 'throwaway' email address for the opt-out request.", "type": "good", "pointValue": 15 },
+            { "text": "Yes, they need your primary email to link all your accounts for deletion.", "type": "bad", "pointValue": -15 },
+            { "text": "Just call them and give them your social security number to prove who you are.", "type": "bad", "pointValue": -25 }
+          ]
+        },
+        {
+          "npcLine": "One site is asking for a photo of my ID to process the removal. This feels wrong.",
+          "assistantLine": "Internal Voice: Some legitimate brokers do this for verification, but it’s a high-risk trade-off.",
+          "choices": [
+            { "text": "Avoid sites that require sensitive documents; it's often better to leave the data than risk an ID leak.", "type": "good", "pointValue": 15 },
+            { "text": "You have to do it, otherwise the law says they can keep your data forever.", "type": "bad", "pointValue": -15 },
+            { "text": "Cover up your photo and ID number before sending the scan.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "I feel like I’ve barely scratched the surface. There are hundreds of these companies.",
+          "assistantLine": "Internal Voice: It's an industry worth billions. Individual effort is hard to scale.",
+          "choices": [
+            { "text": "Regularly checking the major ones is a good habit to reduce your footprint.", "type": "good", "pointValue": 15 },
+            { "text": "Just delete your internet presence entirely; that's the only way to be safe.", "type": "bad", "pointValue": -15 },
+            { "text": "I'll just ignore it. If I'm not a public figure, it doesn't matter.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "Okay, I've cleared the top five sites. My urban studies report can wait—this felt more urgent.",
+          "assistantLine": "Internal Voice: Protecting your data is a marathon, not a sprint.",
+          "choices": [
+            { "text": "I'll set a calendar reminder to check again in six months.", "type": "good", "pointValue": 15 },
+            { "text": "I'm sure they'll never list me again now that I've opted out.", "type": "bad", "pointValue": -10 },
+            { "text": "I'll hire a service to do this for me every month.", "type": "tossup", "pointValue": 10 }
+          ]
+        }
+      ],
+      "successEnding": "Correct! You correctly identified that data brokers aggregate information from public and commercial sources and that while opt-outs exist, they are not always a permanent fix.",
+      "failureEnding": "Incorrect. You mistakenly believed that data brokers are strictly regulated or that removal is a one-time permanent event, leaving you exposed when your data inevitably reappears."
+    },
+    {
+      "entryID": "Claire",
+      "isScammer": true,
+      "steps": [
+        {
+          "npcLine": "Target is Claire. I need to find her home address to make my 'local utility' scam sound real.",
+          "assistantLine": "Coworker: Don't guess. Use a data broker site to find her exact residency history.",
+          "choices": [
+            { "text": "Searching 'Claire [Lastname]' on a public people-search engine.", "type": "good", "pointValue": 15 },
+            { "text": "Calling the city planning office and asking for her employee file.", "type": "bad", "pointValue": -15 },
+            { "text": "Guessing her address based on her area code.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "I found her! She lives on Elm Street. The broker site also lists her 'possible relatives.' This is a goldmine.",
+          "assistantLine": "Coworker: Use a relative's name to build trust. Say they 'referred' you to her.",
+          "choices": [
+            { "text": "Hi Claire, I was speaking with your mother, Sarah, and she mentioned you needed a utility audit.", "type": "good", "pointValue": 15 },
+            { "text": "I know where you live, Claire. Pay me or I'll come to Elm Street.", "type": "bad", "pointValue": -20 },
+            { "text": "Is this Claire? I have a package for a Sarah at your address.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "She’s asking how I know her mother. I need a plausible professional excuse.",
+          "assistantLine": "Coworker: Tell her that their accounts are 'linked' in the city’s residency database.",
+          "choices": [
+            { "text": "Our system shows a residential link between your accounts for the city planning district.", "type": "good", "pointValue": 15 },
+            { "text": "I saw it on a data broker website for $0.99.", "type": "bad", "pointValue": -25 },
+            { "text": "Your mother told me everything when I called her ten minutes ago.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "She's staying on the line. I need more data to sound like a 'Utility Inspector.' What else can I find?",
+          "assistantLine": "Coworker: Look for property tax records or recent commercial activity listed on the broker profile.",
+          "choices": [
+            { "text": "Checking for any recent 'new homeowner' or 'renter' tags on her profile.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just make up a fake meter number and see if she corrects me.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'll ask her to go outside and read the numbers off her meter.", "type": "bad", "pointValue": -10 }
+          ]
+        },
+        {
+          "npcLine": "She said she just moved in six months ago. The data broker site was right! It had her 'Move-in date' listed.",
+          "assistantLine": "Coworker: Perfect. Use that to explain why she 'missed' a mandatory inspection fee.",
+          "choices": [
+            { "text": "Since you moved in last November, the initial inspection fee hasn't been processed.", "type": "good", "pointValue": 15 },
+            { "text": "You moved in six months ago and that is why you are a criminal now.", "type": "bad", "pointValue": -15 },
+            { "text": "I knew you moved in then because I was watching your house.", "type": "bad", "pointValue": -20 }
+          ]
+        },
+        {
+          "npcLine": "She’s reaching for her credit card. But wait, she’s pausing to look up my company name.",
+          "assistantLine": "Coworker: Keep her talking! Don't let her search for 'Utility Inspector Scams.'",
+          "choices": [
+            { "text": "I'll keep her busy by explaining the complex 'urban zoning' codes she's violating.", "type": "good", "pointValue": 15 },
+            { "text": "I'll stay silent and wait for her to finish her search.", "type": "bad", "pointValue": -20 },
+            { "text": "I'll tell her my company is so new that it's not on Google yet.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "She found a site that says her info was recently removed from a data broker. She’s getting suspicious of how I found her.",
+          "assistantLine": "Coworker: Pivot! Tell her that the 'National Residency Registry' is separate from those private sites.",
+          "choices": [
+            { "text": "We don't use those sites. We use the official government-mandated residency registry.", "type": "good", "pointValue": 15 },
+            { "text": "I must have found an old version of the site before you deleted it.", "type": "bad", "pointValue": -15 },
+            { "text": "I am a data broker myself! That's how I know.", "type": "bad", "pointValue": -25 }
+          ]
+        },
+        {
+          "npcLine": "She's hanging up. She says she’s going to call the city planning office directly to verify my name.",
+          "assistantLine": "Coworker: This target is too smart. She knows how her data footprint works.",
+          "choices": [
+            { "text": "I'll try one more time to threaten her with a 'late penalty' fine.", "type": "tossup", "pointValue": 5 },
+            { "text": "Hanging up and moving to a target who hasn't cleared their broker listings.", "type": "good", "pointValue": 10 },
+            { "text": "I'll call her back as the 'City Planning' supervisor.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "Mission failed. Those opt-out requests actually made her more aware of her own security.",
+          "assistantLine": "Coworker: Yeah, people who manage their data broker presence are the hardest to scam.",
+          "choices": [
+            { "text": "I'll look for a target with a 'High' public data score next time.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just buy a list of names from a more expensive broker.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'm going to go study urban planning so I can sound more real.", "type": "tossup", "pointValue": 0 }
+          ]
+        }
+      ],
+      "successEnding": "Scam Successful! You leveraged data broker information (address, relatives, and move-in dates) to build a highly personalized and believable script.",
+      "failureEnding": "Scam Failed. Claire's awareness of data brokers and her proactive removal efforts allowed her to spot the source of your 'insider' knowledge and hang up."
+    },
+    {
+      "entryID": "Carlos",
+      "isScammer": false,
+      "steps": [
+        {
+          "npcLine": "I just got back from that Aikido seminar and posted a bunch of photos of our training and the restaurant we went to afterward. Then, an hour later, I got a call from 'Security' at that exact restaurant!",
+          "assistantLine": "Internal Voice: That timing is too perfect to be a coincidence. How did they know where he was?",
+          "choices": [
+            { "text": "They likely saw your public 'check-in' or photos on social media.", "type": "good", "pointValue": 15 },
+            { "text": "They must have been following you physically the entire day.", "type": "bad", "pointValue": -15 },
+            { "text": "The restaurant must have a policy of calling every customer after they leave.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "The caller said I left my wallet there and they need to 'verify my identity' by having me confirm my home address and birthday before they mail it back.",
+          "assistantLine": "Internal Voice: This is a classic social engineering setup. They use a helpful scenario to extract data.",
+          "choices": [
+            { "text": "This is likely a scam script designed to harvest your personal details for identity theft.", "type": "good", "pointValue": 15 },
+            { "text": "It sounds like a very nice gesture from the restaurant staff.", "type": "bad", "pointValue": -10 },
+            { "text": "I'll tell them to just keep the wallet as a tip.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "But wait, how did they get my phone number? I didn't post that on social media.",
+          "assistantLine": "Internal Voice: Once they have your name and location from your post, finding your number is the easy part.",
+          "choices": [
+            { "text": "Scammers combine social media details with data broker sites to find your contact info.", "type": "good", "pointValue": 15 },
+            { "text": "They probably got it from your gym's membership list.", "type": "tossup", "pointValue": 5 },
+            { "text": "Your phone must be broadcasting your number to everyone nearby via Bluetooth.", "type": "bad", "pointValue": -15 }
+          ]
+        },
+        {
+          "npcLine": "He even mentioned my 'Unity 2D game project' because he saw the laptop stickers in the restaurant. He sounded like a fellow developer!",
+          "assistantLine": "Internal Voice: Building rapport by finding common interests is a key social engineering tactic.",
+          "choices": [
+            { "text": "He's using 'affinity' to lower your guard. Don't let shared hobbies cloud your judgment.", "type": "good", "pointValue": 15 },
+            { "text": "If he’s a developer, he’s probably one of the good guys.", "type": "bad", "pointValue": -15 },
+            { "text": "Ask him what version of Unity he uses to see if he's lying.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "He’s asking for my social security number to 'match it with the ID in the wallet.' Is that standard procedure?",
+          "assistantLine": "Internal Voice: Absolutely not. No restaurant or even the police would ask for that over the phone.",
+          "choices": [
+            { "text": "Never provide your SSN over the phone to an unsolicited caller, regardless of the story.", "type": "good", "pointValue": 15 },
+            { "text": "Give it to him. You really need that wallet back for your trip tomorrow.", "type": "bad", "pointValue": -20 },
+            { "text": "Ask him to read the SSN on the ID to you first.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I told him I’d just drive back to the restaurant and pick it up in person. He suddenly got very nervous and said they already 'sent it to the central processing center.'",
+          "assistantLine": "Internal Voice: When the scammer loses control of the situation, they often invent new hurdles or urgency.",
+          "choices": [
+            { "text": "The change in his tone and the 'processing center' excuse are massive red flags.", "type": "good", "pointValue": 15 },
+            { "text": "He's probably just worried about the paperwork for a lost item.", "type": "bad", "pointValue": -10 },
+            { "text": "Tell him you'll meet him at the 'central processing center' instead.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I just checked my pocket... my wallet is right here! He was lying the whole time!",
+          "assistantLine": "Internal Voice: The 'lost item' lure is powerful because it triggers immediate anxiety and a desire to cooperate.",
+          "choices": [
+            { "text": "This proves that scammers use your real-time social media activity to create 'personalized' lies.", "type": "good", "pointValue": 15 },
+            { "text": "Maybe you have two wallets and you lost the other one?", "type": "bad", "pointValue": -20 },
+            { "text": "He must have been a magician who put the wallet back in your pocket.", "type": "bad", "pointValue": -25 }
+          ]
+        },
+        {
+          "npcLine": "I'm looking at my social media settings. My profile is set to 'Public.' Should I change that?",
+          "assistantLine": "Internal Voice: Limiting who can see your activity is the best way to prevent this kind of targeting.",
+          "choices": [
+            { "text": "Yes, set your profile to 'Private' and be selective about who you add as a friend.", "type": "good", "pointValue": 15 },
+            { "text": "No, just keep posting but never mention where you are until you leave.", "type": "tossup", "pointValue": 5 },
+            { "text": "Just delete all your photos. Text-only posts are much safer.", "type": "bad", "pointValue": -10 }
+          ]
+        },
+        {
+          "npcLine": "I’ve learned my lesson. No more 'real-time' check-ins or public photos of my daily routine.",
+          "assistantLine": "Internal Voice: Privacy habits are your best defense against personalized social engineering.",
+          "choices": [
+            { "text": "I'll wait until I'm home to post photos from my Aikido seminars from now on.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just use a fake name on my social media from now on.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'm going to post a fake photo of me at the airport to trick the scammers.", "type": "tossup", "pointValue": 0 }
+          ]
+        }
+      ],
+      "successEnding": "Correct! You recognized that oversharing on social media allows scammers to craft highly convincing, personalized scripts, making their vishing attempts much harder to detect.",
+      "failureEnding": "Incorrect. You fell for the 'lost wallet' lure because the scammer’s use of real-time details made them seem legitimate, leading you to almost give up your SSN."
+    },
+    {
+      "entryID": "Carlos",
+      "isScammer": true,
+      "steps": [
+        {
+          "npcLine": "Target is Carlos. He just checked into 'The Daily Dojo' for an Aikido session. Let's see what else he's posted today.",
+          "assistantLine": "Coworker: Look for a photo of his meal or his car. Anything that gives us a 'hook' for a call.",
+          "choices": [
+            { "text": "Scanning his Instagram for a photo of his lunch from an hour ago.", "type": "good", "pointValue": 15 },
+            { "text": "Searching for his high school graduation photos from ten years ago.", "type": "bad", "pointValue": -10 },
+            { "text": "I'll just wait outside the Dojo and see what he's wearing.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "He posted a picture of a 'Salmon Poke Bowl' from 'SeaGreens Bistro.' I’ll call him pretending to be the manager.",
+          "assistantLine": "Coworker: Perfect. Tell him there was a problem with his payment and he needs to 're-run' his card over the phone.",
+          "choices": [
+            { "text": "Hi Carlos, this is the manager at SeaGreens. Your payment for that Salmon Poke Bowl didn't clear.", "type": "good", "pointValue": 15 },
+            { "text": "Hello, I am from the restaurant. Give me money now please.", "type": "bad", "pointValue": -20 },
+            { "text": "I saw you eating at SeaGreens. Did you like the fish?", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "He sounds confused. He says he has the receipt right in front of him.",
+          "assistantLine": "Coworker: Tell him the receipt printed, but the 'batch' failed to upload to the bank, so the restaurant hasn't actually been paid.",
+          "choices": [
+            { "text": "The transaction shows as 'Pending-Error' on our side. If we don't fix it, we have to call the police.", "type": "good", "pointValue": 15 },
+            { "text": "Your receipt is a lie. I am the manager and I know the truth.", "type": "bad", "pointValue": -15 },
+            { "text": "I'll just take your card number again and give you a 10% discount for the trouble.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "He’s still hesitant. He mentioned he’s at his 'Aikido class' and can't talk long.",
+          "assistantLine": "Coworker: Use that! Tell him you'll 'wait' until his class is over, but the 'late fee' will double by then.",
+          "choices": [
+            { "text": "I don't want to interrupt your Aikido training, but the bank closes in 15 minutes. We need the fix now.", "type": "good", "pointValue": 15 },
+            { "text": "I like Aikido. I am a black belt. Let's talk about martial arts instead.", "type": "bad", "pointValue": -10 },
+            { "text": "If you don't pay now, I will come to the Dojo and stop the class.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "He's starting to read the numbers. 4-4-1-2... but he stopped. He’s asking why I called his cell instead of his home phone.",
+          "assistantLine": "Coworker: Tell him his cell was on the 'loyalty program' account he signed up for last year.",
+          "choices": [
+            { "text": "Our loyalty system pulls the primary contact number. You must have used this one when you joined.", "type": "good", "pointValue": 15 },
+            { "text": "I found it on the internet, Carlos. Everyone's number is on the internet.", "type": "bad", "pointValue": -25 },
+            { "text": "The home phone was busy, so I tried this one next.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "He’s giving me the rest of the numbers. I’ve got the card! Now I need the CVV on the back.",
+          "assistantLine": "Coworker: Tell him it's the 'verification token' to prove he has the physical card in his hand.",
+          "choices": [
+            { "text": "I just need the 3-digit verification token on the back to authenticate the transaction.", "type": "good", "pointValue": 15 },
+            { "text": "Give me the secret numbers on the back so I can go shopping.", "type": "bad", "pointValue": -20 },
+            { "text": "If you don't give me the CVV, the card will be locked by the bank.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "He gave it to me. Now, to make sure he doesn't call his bank immediately, tell him it will take 24 hours to 'sync.'",
+          "assistantLine": "Coworker: Yes, tell him he’ll see a 'duplicate' charge briefly, but it will disappear by tomorrow.",
+          "choices": [
+            { "text": "You'll see two charges for a moment while the batch resets. It will clear up by tomorrow morning.", "type": "good", "pointValue": 15 },
+            { "text": "Don't call your bank, they are busy today and won't answer.", "type": "bad", "pointValue": -15 },
+            { "text": "I'm going to delete your account now so you don't get any more errors.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "The card worked. I just bought $300 worth of gift cards. But I think I can get him to give me his 'bank login' too.",
+          "assistantLine": "Coworker: Too risky. He's already in his Aikido mindset. If you push too hard, he'll snap out of it.",
+          "choices": [
+            { "text": "I'll stop here. $300 is a good win. Disconnecting now.", "type": "good", "pointValue": 10 },
+            { "text": "I'll call him back and tell him the card was declined again and I need his login.", "type": "bad", "pointValue": -20 },
+            { "text": "I'll send him a text with a link to 'verify' his refund.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "Success. He even thanked me for being so 'professional' about the restaurant’s error.",
+          "assistantLine": "Coworker: That's the beauty of social engineering. They think you're helping them while you're robbing them.",
+          "choices": [
+            { "text": "Logging his data in our 'Easy Targets' folder for next month.", "type": "good", "pointValue": 15 },
+            { "text": "I'm going to use the money to buy a 2D game on Steam.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'll call his Dojo and tell them he's a great student.", "type": "bad", "pointValue": -15 }
+          ]
+        }
+      ],
+      "successEnding": "Scam Successful! You used Carlos's real-time social media posts to create a highly believable 'restaurant error' script and stole his credit card info.",
+      "failureEnding": "Scam Failed. Carlos realized that a restaurant wouldn't call his cell phone about a payment error and hung up to check his bank app instead."
+    },
+    {
+      "entryID": "Jill",
+      "isScammer": false,
+      "steps": [
+        {
+          "npcLine": "I just got an email with the subject line 'YOUR PRIVACY IS AT RISK.' It contains a password I haven't used since I was in high school—'UnityDev123.' How could they possibly know that?",
+          "assistantLine": "Internal Voice: Seeing an old password can be terrifying. But it doesn't mean they've hacked your current computer.",
+          "choices": [
+            { "text": "The password was likely exposed in a past data breach and sold on the dark web.", "type": "good", "pointValue": 15 },
+            { "text": "The sender must have installed a keylogger on your keyboard yesterday.", "type": "bad", "pointValue": -10 },
+            { "text": "Your internet provider must have leaked your old search history.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "The email says they’ve been 'monitoring' my webcam and will send a video of me to all my contacts unless I pay $2,000 in Bitcoin. I’m so embarrassed, even though I haven't done anything wrong!",
+          "assistantLine": "Internal Voice: This is a 'sextortion' or 'blackmail' scam. They use shame and the old password to create a false sense of authority.",
+          "choices": [
+            { "text": "This is a mass-mailed script sent to thousands of people from a leaked database.", "type": "good", "pointValue": 15 },
+            { "text": "If they have the password, they definitely have the video too.", "type": "bad", "pointValue": -15 },
+            { "text": "You should cover your webcam with a sticker right now just in case.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "I remember using that password for an old gaming forum that got hacked back in 2019. Could that be where they got it?",
+          "assistantLine": "Internal Voice: Yes. Large-scale breaches often result in millions of usernames and passwords being leaked.",
+          "choices": [
+            { "text": "Yes, scammers buy these lists to send out thousands of automated extortion emails.", "type": "good", "pointValue": 15 },
+            { "text": "No, if the hack was in 2019, the password would have expired by now.", "type": "bad", "pointValue": -15 },
+            { "text": "Only if the gaming forum was secretly run by scammers.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "Should I reply and tell them I know it's an old password and that I’m not paying?",
+          "assistantLine": "Internal Voice: Replying to a scammer is almost always a bad idea.",
+          "choices": [
+            { "text": "No, replying confirms that your email address is active and makes you a bigger target.", "type": "good", "pointValue": 15 },
+            { "text": "Yes, it will show them you aren't afraid and they'll leave you alone.", "type": "bad", "pointValue": -15 },
+            { "text": "Send them a fake Bitcoin transaction ID to confuse them.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "What if I’m still using that same password for my current university portal or my great-grandfather’s printer settings?",
+          "assistantLine": "Internal Voice: This is the real danger of data breaches: password reuse.",
+          "choices": [
+            { "text": "Change it everywhere immediately. Use a unique, strong password for every account.", "type": "good", "pointValue": 15 },
+            { "text": "Just add a '!' at the end of the old password to make it secure again.", "type": "bad", "pointValue": -20 },
+            { "text": "I'll just change the main one and leave the others alone for now.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "Is there a way to check if my other passwords or emails have been in a breach?",
+          "assistantLine": "Internal Voice: There are legitimate tools that aggregate breach data so users can check their exposure.",
+          "choices": [
+            { "text": "Use a trusted site like 'Have I Been Pwned' to check your exposure status.", "type": "good", "pointValue": 15 },
+            { "text": "Search your password on Google to see if it shows up in any results.", "type": "bad", "pointValue": -15 },
+            { "text": "Call your bank and ask them if they've seen your password online.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "Wait, the email says the Bitcoin 'clock' is ticking down and I only have 12 hours left. I'm starting to panic again.",
+          "assistantLine": "Internal Voice: The 'ticking clock' is a psychological trigger designed to stop you from researching the scam.",
+          "choices": [
+            { "text": "Artificial urgency is a hallmark of scams. Take a breath and ignore it.", "type": "good", "pointValue": 15 },
+            { "text": "Maybe you should pay just a small amount to get them to extend the time.", "type": "bad", "pointValue": -25 },
+            { "text": "Call the local FBI field office and ask them to trace the email.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I looked up the exact wording of the email online, and I found a thread where hundreds of people got the *exact same* message today.",
+          "assistantLine": "Internal Voice: Seeing the 'copy-paste' nature of the scam is the best way to break the fear.",
+          "choices": [
+            { "text": "This confirms it’s an automated mass attack, not a personal one.", "type": "good", "pointValue": 15 },
+            { "text": "That means the hacker is really busy today with all those people.", "type": "bad", "pointValue": -10 },
+            { "text": "Maybe we should all get together and pay them a group rate.", "type": "bad", "pointValue": -25 }
+          ]
+        },
+        {
+          "npcLine": "I’ve changed all my passwords to unique ones and enabled 2FA. I feel much more secure now.",
+          "assistantLine": "Internal Voice: Turning a scary event into a security upgrade is the best possible outcome.",
+          "choices": [
+            { "text": "I'll start using a password manager to handle all these unique passwords.", "type": "good", "pointValue": 15 },
+            { "text": "I'll go back to my Unity project. I need to finish that dialogue system.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'll delete my old gaming forum account if it even still exists.", "type": "tossup", "pointValue": 10 }
+          ]
+        }
+      ],
+      "successEnding": "Correct! You identified that the scammer obtained your old password from a past data breach and used it to create a fraudulent extortion threat.",
+      "failureEnding": "Incorrect. You were nearly tricked into paying the ransom because the inclusion of a real (but old) password made the scammer's claims of monitoring your webcam seem plausible."
+    },
+    {
+      "entryID": "Jill",
+      "isScammer": true,
+      "steps": [
+        {
+          "npcLine": "I just bought a database of 10 million 'gaming forum' logins from a dark web forum. It was cheap—only $50. Let's find a target.",
+          "assistantLine": "Coworker: Filter for 'University' emails. Those students usually have some money and are easy to scare.",
+          "choices": [
+            { "text": "Selecting all '.edu' addresses from the leaked credentials list.", "type": "good", "pointValue": 15 },
+            { "text": "Choosing names that sound like they belong to wealthy business owners.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'll just email everyone on the list at once with the same message.", "type": "bad", "pointValue": -10 }
+          ]
+        },
+        {
+          "npcLine": "Target is Jill. Her password was 'UnityDev123.' I’ll send the standard 'webcam monitoring' extortion script.",
+          "assistantLine": "Coworker: Make sure to include the password in the very first sentence to grab her attention.",
+          "choices": [
+            { "text": "Subject: I know your password 'UnityDev123'. You are being watched.", "type": "good", "pointValue": 15 },
+            { "text": "Subject: Hello Jill, I would like to talk to you about your computer.", "type": "bad", "pointValue": -15 },
+            { "text": "Subject: Urgent security update for your university account.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I sent the email. Now I wait for her to panic. If she doesn't reply in 2 hours, I'll send a follow-up with 'evidence.'",
+          "assistantLine": "Coworker: You don't have any real evidence, so just use a fake 'system log' that looks technical.",
+          "choices": [
+            { "text": "Sending a screenshot of a fake command-line 'trace' with her IP address on it.", "type": "good", "pointValue": 15 },
+            { "text": "Sending her a photo of a random person's laptop screen.", "type": "bad", "pointValue": -20 },
+            { "text": "Sending her a link to a virus that will actually turn on her webcam.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "She replied! She’s asking if I can prove I have the video. She sounds terrified.",
+          "assistantLine": "Coworker: Don't prove it. Say the video is 'too sensitive' to send over email, but that her password is all the proof she needs.",
+          "choices": [
+            { "text": "The password 'UnityDev123' is all the proof you need. I saw you typing it on your keyboard.", "type": "good", "pointValue": 15 },
+            { "text": "I'll send you a five-second clip of a black screen and say your camera was covered.", "type": "tossup", "pointValue": 5 },
+            { "text": "I can't show you, just trust me that I have it.", "type": "bad", "pointValue": -20 }
+          ]
+        },
+        {
+          "npcLine": "She’s asking for my Bitcoin address. This is it! $2,000 incoming.",
+          "assistantLine": "Coworker: Use a 'Tumbler' or a unique address for every victim so the transactions can't be linked.",
+          "choices": [
+            { "text": "Here is your unique secure payment link: [Bitcoin Address]. You have 6 hours.", "type": "good", "pointValue": 15 },
+            { "text": "Just send it to my personal Coinbase account, it's easier that way.", "type": "bad", "pointValue": -25 },
+            { "text": "I'll take the payment in Amazon gift cards instead if you don't have Bitcoin.", "type": "tossup", "pointValue": -5 }
+          ]
+        },
+        {
+          "npcLine": "She’s stalling. She says she needs to talk to her 'great-grandfather' to borrow the money.",
+          "assistantLine": "Coworker: Tell her that if she tells *anyone*, the video goes live to her university's entire student body immediately.",
+          "choices": [
+            { "text": "If you share this with a third party, my automated script will leak the file to your campus network.", "type": "good", "pointValue": 15 },
+            { "text": "Your great-grandfather is a wise man, he would tell you to pay me.", "type": "bad", "pointValue": -20 },
+            { "text": "I'll wait until tomorrow morning for the money, I'm not in a rush.", "type": "bad", "pointValue": -25 }
+          ]
+        },
+        {
+          "npcLine": "She's not answering anymore. I think she might be onto us. Let's try to 'lock' her account to show her we’re serious.",
+          "assistantLine": "Coworker: We don't have her current password. Try to 'Reset' it and see if she gets the notification.",
+          "choices": [
+            { "text": "Requesting a password reset on her university email to trigger a security alert.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just keep guessing her password until the account locks her out.", "type": "bad", "pointValue": -15 },
+            { "text": "I'll call her phone and pretend to be the 'Reset Specialist'.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "She still hasn't paid. And now my 'leaked list' says her email has been 'flagged as secured' by a breach monitoring service.",
+          "assistantLine": "Coworker: She must have used 'Have I Been Pwned' and updated her security. She's a dead lead.",
+          "choices": [
+            { "text": "Deleting her from my active list and moving to the next '.edu' target.", "type": "good", "pointValue": 10 },
+            { "text": "I'll send her one last threatening email with a higher price.", "type": "tossup", "pointValue": 0 },
+            { "text": "I'll try to find her on social media and message her boyfriend.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "On to the next victim. I have 9.9 million more names on this list to try.",
+          "assistantLine": "Coworker: Exactly. It's a numbers game. Someone will be scared enough to pay.",
+          "choices": [
+            { "text": "Automating the next 1,000 emails using the same 'webcam' script.", "type": "good", "pointValue": 15 },
+            { "text": "I'll write a brand new script about 'unpaid student loans' instead.", "type": "tossup", "pointValue": 5 },
+            { "text": "I'm going to take a break and play some Unity games myself.", "type": "tossup", "pointValue": 0 }
+          ]
+        }
+      ],
+      "successEnding": "Scam Successful! You used a real password from a past data breach to convince Jill that you had hacked her device and successfully extorted her for $2,000.",
+      "failureEnding": "Scam Failed. Jill recognized that the password was from an old breach and realized you were using a mass-mailed script with no actual evidence of monitoring her."
+    },
+    {
+      "entryID": "Sherry",
+      "isScammer": false,
+      "steps": [
+        {
+          "npcLine": "I’m helping my great-grandfather secure his digital life, and it made me realize my own security is a mess. I use the same password for everything! What should I do first?",
+          "assistantLine": "Internal Voice: Security is about building layers. What's the foundation of a good defense?",
+          "choices": [
+            { "text": "Use a password manager to generate and store unique, strong passwords for every account.", "type": "good", "pointValue": 15 },
+            { "text": "Change all your passwords to your birthday so you never forget them.", "type": "bad", "pointValue": -20 },
+            { "text": "Just use your email password for every other site to keep it simple.", "type": "bad", "pointValue": -15 }
+          ]
+        },
+        {
+          "npcLine": "Okay, I’ve got a password manager. Now, how do I stop my phone from being flooded with these 'Scam Likely' calls?",
+          "assistantLine": "Internal Voice: Preventing the initial contact is key. How do scammers even get your number?",
+          "choices": [
+            { "text": "Search for yourself on data broker sites and follow their opt-out processes.", "type": "good", "pointValue": 15 },
+            { "text": "Register for the National Do Not Call Registry; that will stop all scam calls forever.", "type": "tossup", "pointValue": 5 },
+            { "text": "Answer every call and yell at the scammers until they take you off their list.", "type": "bad", "pointValue": -15 }
+          ]
+        },
+        {
+          "npcLine": "What about social media? I love sharing my Aikido progress and photos of my Unity game development. Is that a risk?",
+          "assistantLine": "Internal Voice: Visibility is a double-edged sword. You can share, but you should control *who* sees it.",
+          "choices": [
+            { "text": "Set your profiles to 'Private' and only allow people you know to follow you.", "type": "good", "pointValue": 15 },
+            { "text": "Delete your social media accounts entirely; there's no safe way to use them.", "type": "bad", "pointValue": -10 },
+            { "text": "Keep them public so you can build a bigger following for your game.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "I heard something about 'Two-Factor Authentication.' Is that really worth the extra effort of typing in a code every time?",
+          "assistantLine": "Internal Voice: It's the single most effective way to stop someone who already has your password.",
+          "choices": [
+            { "text": "Yes, enable 2FA on all important accounts, especially your email and banking.", "type": "good", "pointValue": 15 },
+            { "text": "No, it's just a way for companies to track your phone number.", "type": "bad", "pointValue": -15 },
+            { "text": "Only use it for your university portal; other sites don't really matter.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "If I get a call from my 'bank' and it looks like their real number, but I’m not sure, what’s my best move?",
+          "assistantLine": "Internal Voice: Your habits on the phone are just as important as your technical settings.",
+          "choices": [
+            { "text": "Hang up and call the bank back using the official number on the back of your card.", "type": "good", "pointValue": 15 },
+            { "text": "Stay on the line and ask them to verify their identity by giving you your SSN.", "type": "bad", "pointValue": -15 },
+            { "text": "Ask them to text you a link to a 'secure chat' instead.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I feel like I’m becoming paranoid. Is it enough to just have a good antivirus program?",
+          "assistantLine": "Internal Voice: Antivirus is great for malware, but it doesn't stop social engineering or data leaks.",
+          "choices": [
+            { "text": "Antivirus is just one layer; habits like 2FA and privacy settings are more effective against vishing.", "type": "good", "pointValue": 15 },
+            { "text": "Yes, a good antivirus will block all scam calls and identity theft attempts.", "type": "bad", "pointValue": -15 },
+            { "text": "Antivirus is actually a scam itself; you should never use it.", "type": "tossup", "pointValue": -5 }
+          ]
+        },
+        {
+          "npcLine": "I found myself on a data broker site listing my age, address, and my 'boyfriend's' name. How do I keep this from coming back?",
+          "assistantLine": "Internal Voice: Persistence is the name of the game with data brokers.",
+          "choices": [
+            { "text": "Check these sites every few months and re-request removal if you reappear.", "type": "good", "pointValue": 15 },
+            { "text": "Sue the data broker in small claims court so they stop listing you.", "type": "bad", "pointValue": -10 },
+            { "text": "Ignore it; once you've opted out once, the law says they can't come back.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "My great-grandfather is asking if he should use a VPN. Does that help with vishing?",
+          "assistantLine": "Internal Voice: VPNs are for network privacy, but they don't hide your phone number from scammers.",
+          "choices": [
+            { "text": "It helps with browsing privacy, but it won't stop scammers from calling or texting you.", "type": "good", "pointValue": 10 },
+            { "text": "Yes, a VPN will encrypt your phone calls and make you invisible to scammers.", "type": "bad", "pointValue": -15 },
+            { "text": "It's only useful if you're traveling out of the country.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I think I’ve got a solid combination of habits now. Password manager, 2FA, private social media, and data broker check-ups.",
+          "assistantLine": "Internal Voice: That is a 'defense-in-depth' strategy. You are now a much harder target.",
+          "choices": [
+            { "text": "This combination effectively reduces my likelihood of being successfully targeted.", "type": "good", "pointValue": 15 },
+            { "text": "I'm 100% immune to all scams now that I've done this.", "type": "bad", "pointValue": -15 },
+            { "text": "I'll go back to my Unity game. My dialogue script isn't going to write itself!", "type": "tossup", "pointValue": 5 }
+          ]
+        }
+      ],
+      "successEnding": "Correct! You identified that a combination of habits—setting profiles to private, using unique passwords, enabling 2FA, and opting out of data brokers—is the most effective way to reduce your risk.",
+      "failureEnding": "Incorrect. You relied too heavily on single solutions like antivirus or the Do Not Call registry, which do not protect against the diverse tactics used in vishing and social engineering."
+    },
+    {
+      "entryID": "Sherry",
+      "isScammer": true,
+      "steps": [
+        {
+          "npcLine": "Target is Sherry. Let's try to get into her university portal. I have her email address from a recent leak.",
+          "assistantLine": "Coworker: Try 'password123' first. Most students are lazy with their passwords.",
+          "choices": [
+            { "text": "Attempting a brute-force attack with common student passwords.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just ask her for the password over the phone.", "type": "tossup", "pointValue": 0 },
+            { "text": "I'll try to find her password on her social media page.", "type": "bad", "pointValue": -10 }
+          ]
+        },
+        {
+          "npcLine": "No luck. She must have a unique password. Let's look at her social media to see if we can find a security question answer.",
+          "assistantLine": "Coworker: Check for her first pet's name or her mother's maiden name.",
+          "choices": [
+            { "text": "Her profile is 'Private'. I can't see anything without being her friend.", "type": "bad", "pointValue": -15 },
+            { "text": "I'll send her a friend request from a fake 'Unity Developer' account.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just guess her pet's name is 'Fluffy'.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "She ignored the friend request. She's being very selective. Let's try a vishing call instead.",
+          "assistantLine": "Coworker: Call her and pretend to be the 'University Tech Support' helping her with 2FA.",
+          "choices": [
+            { "text": "Hi Sherry, we noticed an error with your 2FA token. I need you to read me the code you just received.", "type": "good", "pointValue": 15 },
+            { "text": "Sherry, your 2FA is broken. Give me your phone so I can fix it.", "type": "bad", "pointValue": -20 },
+            { "text": "I'm calling about your great-grandfather's printer. It's connected to your university account.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "She said she's going to hang up and call the IT desk directly from the number on the university website.",
+          "assistantLine": "Coworker: This target has 'verification' habits. We need to stop her from hanging up.",
+          "choices": [
+            { "text": "The IT desk is currently closed for maintenance. I am the only one on duty for emergency resets.", "type": "good", "pointValue": 15 },
+            { "text": "Fine, call them. They'll tell you the same thing I did.", "type": "bad", "pointValue": -15 },
+            { "text": "If you hang up, your final urban studies project will be deleted by the system.", "type": "tossup", "pointValue": 10 }
+          ]
+        },
+        {
+          "npcLine": "She hung up anyway. She’s too disciplined. Let's check a data broker site for her home address and try a 'utility' scam.",
+          "assistantLine": "Coworker: Search 'Sherry [Lastname]' on 'PeopleLookup.'",
+          "choices": [
+            { "text": "Her name isn't showing up. It says 'Information removed at request of user.'", "type": "bad", "pointValue": -20 },
+            { "text": "I'll look for her on a different, cheaper broker site.", "type": "good", "pointValue": 15 },
+            { "text": "I'll just drive around her neighborhood until I see her.", "type": "bad", "pointValue": -25 }
+          ]
+        },
+        {
+          "npcLine": "I can't find her anywhere. She’s effectively scrubbed her public data. This is taking too much time.",
+          "assistantLine": "Coworker: She's a 'Low-Value' target for us because she's too hard to hit. Move on?",
+          "choices": [
+            { "text": "Yes, we should move to someone with a public profile and no 2FA.", "type": "good", "pointValue": 15 },
+            { "text": "No, I'm determined to hack Sherry. I'll stay on her for a week.", "type": "bad", "pointValue": -20 },
+            { "text": "I'll try calling her as her boyfriend to see if she falls for it.", "type": "tossup", "pointValue": 5 }
+          ]
+        },
+        {
+          "npcLine": "I’ll try one last thing. A 'phishing' email that looks like a password reset for her Unity account.",
+          "assistantLine": "Coworker: Make sure the link goes to our fake 'Unity-Login-Secure.com' page.",
+          "choices": [
+            { "text": "Subject: Unusual Login Detected on your Unity Project. Reset your password now.", "type": "good", "pointValue": 15 },
+            { "text": "Subject: Free Aikido lesson! Click here for your voucher.", "type": "tossup", "pointValue": 5 },
+            { "text": "Subject: Give me your money or I will tell your boyfriend.", "type": "bad", "pointValue": -20 }
+          ]
+        },
+        {
+          "npcLine": "She didn't click. My tracking pixel shows she flagged the email as 'Spam' and deleted it without opening.",
+          "assistantLine": "Coworker: She's using all the right habits. We're just wasting resources here.",
+          "choices": [
+            { "text": "Deleting her records from our database. She's 'Untargetable'.", "type": "good", "pointValue": 15 },
+            { "text": "I'll try to find her at her local Aikido Dojo and record her.", "type": "bad", "pointValue": -20 },
+            { "text": "I'll send her a physical letter in the mail instead.", "type": "tossup", "pointValue": 0 }
+          ]
+        },
+        {
+          "npcLine": "Mission failed. Her 'defense-in-depth' was too strong.",
+          "assistantLine": "Coworker: That's why we target the people who don't have these habits. It's much easier.",
+          "choices": [
+            { "text": "Searching for a new target who has 'Public' social media and common passwords.", "type": "good", "pointValue": 15 },
+            { "text": "I'm going to retire and start a real Unity game company.", "type": "tossup", "pointValue": 10 },
+            { "text": "I'll go back to school and study urban planning so I can find better targets.", "type": "tossup", "pointValue": 0 }
+          ]
+        }
+      ],
+      "successEnding": "Scam Successful! You managed to bypass one layer of Sherry's security, but her other habits (like 2FA and privacy) eventually blocked your progress.",
+      "failureEnding": "Scam Failed. Sherry's combination of private profiles, unique passwords, 2FA, and data broker opt-outs made her a 'hard target' and you were forced to give up."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro; // Added for TextMeshPro support
 
 public class PhoneUI : MonoBehaviour
 {
@@ -9,10 +9,11 @@ public class PhoneUI : MonoBehaviour
     [SerializeField] private GameObject contactButtonPrefab;
 
     [Header("Header")]
-    [SerializeField] private Text headerText;
+    [SerializeField] private TextMeshProUGUI headerText; // Changed to TMP
 
     private List<ContactButton> spawnedButtons = new List<ContactButton>();
 
+    // This ensures it refreshes every time you open the phone
     private void OnEnable()
     {
         if (GameManager.Instance == null) return;
@@ -21,23 +22,25 @@ public class PhoneUI : MonoBehaviour
 
     public void RefreshContacts()
     {
+        // Clear existing buttons
         foreach (var btn in spawnedButtons)
             if (btn != null) Destroy(btn.gameObject);
+
         spawnedButtons.Clear();
 
         List<NPCEntry> roster = GameManager.Instance.NPCRoster;
         LevelData levelData = GameManager.Instance.CurrentLevelData;
 
-        // Count remaining calls in this level
+        // Header text logic
         int remaining = 0;
         foreach (int idx in levelData.npcRosterIndices)
             if (roster[idx].callStatus == CallStatus.Available)
                 remaining++;
 
         if (headerText != null)
-            headerText.text = $"LEVEL {GameManager.Instance.CurrentLevelIndex}  \n  {remaining} call(s) remaining";
+            headerText.text = $"LEVEL {GameManager.Instance.CurrentLevelIndex + 1}\n<size=80%>{remaining} call(s) remaining</size>";
 
-        // Only spawn buttons for NPCs in the current level
+        // Spawn buttons for the current level
         foreach (int idx in levelData.npcRosterIndices)
         {
             GameObject go = Instantiate(contactButtonPrefab, contactListParent);
@@ -48,6 +51,7 @@ public class PhoneUI : MonoBehaviour
                     GameManager.Instance.GetCallStatus(idx),
                     roster[idx].profilePic,
                     roster[idx].contactDescription);
+
                 spawnedButtons.Add(btn);
             }
         }

@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Carlos_Victim
+  m_EditorClassIdentifier: 
+  entryID: Carlos
+  isScammer: 0
+  steps:
+  - npcLine: I just got back from that Aikido seminar and posted a bunch of photos
+      of our training and the restaurant we went to afterward. Then, an hour later,
+      I got a call from 'Security' at that exact restaurant!
+    assistantLine: 'Internal Voice: That timing is too perfect to be a coincidence.
+      How did they know where he was?'
+    choices:
+    - text: They likely saw your public 'check-in' or photos on social media.
+      type: good
+      pointValue: 15
+    - text: They must have been following you physically the entire day.
+      type: bad
+      pointValue: -15
+    - text: The restaurant must have a policy of calling every customer after they
+        leave.
+      type: tossup
+      pointValue: 0
+  - npcLine: The caller said I left my wallet there and they need to 'verify my identity'
+      by having me confirm my home address and birthday before they mail it back.
+    assistantLine: 'Internal Voice: This is a classic social engineering setup. They
+      use a helpful scenario to extract data.'
+    choices:
+    - text: This is likely a scam script designed to harvest your personal details
+        for identity theft.
+      type: good
+      pointValue: 15
+    - text: It sounds like a very nice gesture from the restaurant staff.
+      type: bad
+      pointValue: -10
+    - text: I'll tell them to just keep the wallet as a tip.
+      type: tossup
+      pointValue: 0
+  - npcLine: But wait, how did they get my phone number? I didn't post that on social
+      media.
+    assistantLine: 'Internal Voice: Once they have your name and location from your
+      post, finding your number is the easy part.'
+    choices:
+    - text: Scammers combine social media details with data broker sites to find
+        your contact info.
+      type: good
+      pointValue: 15
+    - text: They probably got it from your gym's membership list.
+      type: tossup
+      pointValue: 5
+    - text: Your phone must be broadcasting your number to everyone nearby via Bluetooth.
+      type: bad
+      pointValue: -15
+  - npcLine: He even mentioned my 'Unity 2D game project' because he saw the laptop
+      stickers in the restaurant. He sounded like a fellow developer!
+    assistantLine: 'Internal Voice: Building rapport by finding common interests
+      is a key social engineering tactic.'
+    choices:
+    - text: He's using 'affinity' to lower your guard. Don't let shared hobbies cloud
+        your judgment.
+      type: good
+      pointValue: 15
+    - text: "If he\u2019s a developer, he\u2019s probably one of the good guys."
+      type: bad
+      pointValue: -15
+    - text: Ask him what version of Unity he uses to see if he's lying.
+      type: tossup
+      pointValue: 10
+  - npcLine: "He\u2019s asking for my social security number to 'match it with the
+      ID in the wallet.' Is that standard procedure?"
+    assistantLine: 'Internal Voice: Absolutely not. No restaurant or even the police
+      would ask for that over the phone.'
+    choices:
+    - text: Never provide your SSN over the phone to an unsolicited caller, regardless
+        of the story.
+      type: good
+      pointValue: 15
+    - text: Give it to him. You really need that wallet back for your trip tomorrow.
+      type: bad
+      pointValue: -20
+    - text: Ask him to read the SSN on the ID to you first.
+      type: tossup
+      pointValue: 5
+  - npcLine: "I told him I\u2019d just drive back to the restaurant and pick it up
+      in person. He suddenly got very nervous and said they already 'sent it to the
+      central processing center.'"
+    assistantLine: 'Internal Voice: When the scammer loses control of the situation,
+      they often invent new hurdles or urgency.'
+    choices:
+    - text: The change in his tone and the 'processing center' excuse are massive
+        red flags.
+      type: good
+      pointValue: 15
+    - text: He's probably just worried about the paperwork for a lost item.
+      type: bad
+      pointValue: -10
+    - text: Tell him you'll meet him at the 'central processing center' instead.
+      type: tossup
+      pointValue: 5
+  - npcLine: I just checked my pocket... my wallet is right here! He was lying the
+      whole time!
+    assistantLine: 'Internal Voice: The ''lost item'' lure is powerful because it
+      triggers immediate anxiety and a desire to cooperate.'
+    choices:
+    - text: This proves that scammers use your real-time social media activity to
+        create 'personalized' lies.
+      type: good
+      pointValue: 15
+    - text: Maybe you have two wallets and you lost the other one?
+      type: bad
+      pointValue: -20
+    - text: He must have been a magician who put the wallet back in your pocket.
+      type: bad
+      pointValue: -25
+  - npcLine: I'm looking at my social media settings. My profile is set to 'Public.'
+      Should I change that?
+    assistantLine: 'Internal Voice: Limiting who can see your activity is the best
+      way to prevent this kind of targeting.'
+    choices:
+    - text: Yes, set your profile to 'Private' and be selective about who you add
+        as a friend.
+      type: good
+      pointValue: 15
+    - text: No, just keep posting but never mention where you are until you leave.
+      type: tossup
+      pointValue: 5
+    - text: Just delete all your photos. Text-only posts are much safer.
+      type: bad
+      pointValue: -10
+  - npcLine: "I\u2019ve learned my lesson. No more 'real-time' check-ins or public
+      photos of my daily routine."
+    assistantLine: 'Internal Voice: Privacy habits are your best defense against
+      personalized social engineering.'
+    choices:
+    - text: I'll wait until I'm home to post photos from my Aikido seminars from
+        now on.
+      type: good
+      pointValue: 15
+    - text: I'll just use a fake name on my social media from now on.
+      type: tossup
+      pointValue: 5
+    - text: I'm going to post a fake photo of me at the airport to trick the scammers.
+      type: tossup
+      pointValue: 0
+  successEnding: Correct! You recognized that oversharing on social media allows
+    scammers to craft highly convincing, personalized scripts, making their vishing
+    attempts much harder to detect.
+  failureEnding: "Incorrect. You fell for the 'lost wallet' lure because the scammer\u2019s
+    use of real-time details made them seem legitimate, leading you to almost give
+    up your SSN."

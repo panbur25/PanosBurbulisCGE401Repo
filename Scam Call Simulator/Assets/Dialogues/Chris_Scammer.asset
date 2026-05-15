@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Chris_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Chris
+  isScammer: 1
+  steps:
+  - npcLine: Hello?
+    assistantLine: 'Coworker: Open with a severe threat about account deletion to
+      trigger immediate panic.'
+    choices:
+    - text: Your account will be closed in one hour unless you verify your profile
+        information right now.
+      type: good
+      pointValue: 15
+    - text: Hi, I think your bank account has a little glitch that we need to clean
+        up.
+      type: bad
+      pointValue: -10
+    - text: I'm checking on some paperwork and need you to verify who you are today.
+      type: tossup
+      pointValue: 0
+  - npcLine: Let me hang up and call the number on my bank card to check this.
+    assistantLine: 'Coworker: Stop them! Block independent verification by saying
+      it triggers an automatic deletion.'
+    choices:
+    - text: Do not hang up or call another number! Doing so triggers an automatic
+        closure script.
+      type: good
+      pointValue: 15
+    - text: Go ahead and call them, but they won't know how to fix this specific
+        issue.
+      type: bad
+      pointValue: -15
+    - text: You can call them later, but let's finish our conversation first.
+      type: tossup
+      pointValue: 0
+  - npcLine: Can't anyone else at the main branch help me reverse this block?
+    assistantLine: 'Coworker: Claim exclusive authority so they think you are their
+      only hope.'
+    choices:
+    - text: I am the only representative authorized to reverse this specific hold.
+        Nobody else can.
+      type: good
+      pointValue: 15
+    - text: Anyone at the bank can help you, but I am the fastest option available.
+      type: bad
+      pointValue: -12
+    - text: The main branch is closed for renovations right now anyway.
+      type: tossup
+      pointValue: 0
+  - npcLine: Okay, what do I need to do to stop the countdown?
+    assistantLine: 'Coworker: They are isolated. Demand their full debit card numbers
+      to harvest the data.'
+    choices:
+    - text: To confirm your profile status, read me the full card number on your
+        plastic debit card.
+      type: good
+      pointValue: 15
+    - text: Just tell me your full name and what your account balance currently is.
+      type: tossup
+      pointValue: 0
+    - text: Go to the website link I'm sending you to log into your master portal.
+      type: bad
+      pointValue: -5
+  - npcLine: Is it safe to give my card details over the phone?
+    assistantLine: 'Coworker: Use the deadline pressure loop again to smash their
+      skepticism.'
+    choices:
+    - text: If you don't cooperate right now, the clock will tick to zero and funds
+        are lost forever.
+      type: good
+      pointValue: 15
+    - text: Yes, it is perfectly safe because our lines are encrypted by federal
+        guards.
+      type: tossup
+      pointValue: 0
+    - text: Don't question my security, I am a trained professional agent.
+      type: bad
+      pointValue: -10
+  - npcLine: The card number is 4128-0091-3341-8802.
+    assistantLine: 'Coworker: Excellent! Now demand the CVV code on the back to complete
+      online shopping setups.'
+    choices:
+    - text: Got it. Now give me the 3-digit CVV code on the back to completely clear
+        the lock.
+      type: good
+      pointValue: 15
+    - text: What is the expiration date printed below those primary numbers?
+      type: tossup
+      pointValue: 5
+    - text: Write down my name so you can tell people who saved your profile today.
+      type: bad
+      pointValue: -15
+  - npcLine: The code is 501. Is the countdown stopped?
+    assistantLine: 'Coworker: Not yet. Trigger a 2FA code on their online bank dashboard
+      and demand they read it.'
+    choices:
+    - text: I'm sending a digital validation token to your device now. Read it to
+        me instantly.
+      type: good
+      pointValue: 15
+    - text: Check your texts for a confirmation link and click it as fast as you
+        can.
+      type: tossup
+      pointValue: 0
+    - text: Tell me your online banking password so I can log in and stop the timer
+        myself.
+      type: bad
+      pointValue: -12
+  - npcLine: Wait, the text says 'Do not share this authorization code with anyone.'
+    assistantLine: 'Coworker: They spotted a warning! Threaten an immediate manual
+      deletion if they hesitate.'
+    choices:
+    - text: If you hesitate now, I will execute the automatic profile deletion myself
+        right this second!
+      type: good
+      pointValue: 15
+    - text: That warning is old information. Our current system requires verbal entry.
+      type: tossup
+      pointValue: 0
+    - text: Please just ignore the warning message so I can finish fixing your problem.
+      type: bad
+      pointValue: -15
+  - npcLine: Okay! The code is 7-7-3-1-0-2. Please don't delete anything!
+    assistantLine: 'Coworker: We have total control of the profile. Hang up and clean
+      them out.'
+    choices:
+    - text: Thank you. Your identity is verified and the countdown is cleared. Have
+        a nice day.
+      type: good
+      pointValue: 15
+    - text: I'm hanging up now, don't touch your phone for at least three hours.
+      type: tossup
+      pointValue: -5
+    - text: Haha, you just gave me everything I needed to steal your money!
+      type: bad
+      pointValue: -20
+  successEnding: Scam Successful! You combined artificial urgency, verification blocking,
+    and fake exclusive authority to manipulate the victim into yielding credentials.
+  failureEnding: Scam Failed. Chris recognized the core triad of social engineering
+    red flags and disconnected safely.

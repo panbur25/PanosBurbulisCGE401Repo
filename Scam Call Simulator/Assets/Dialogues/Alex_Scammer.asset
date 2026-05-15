@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Alex_Scammer
+  m_EditorClassIdentifier: 
+  entryID: Alex
+  isScammer: 1
+  steps:
+  - npcLine: Hello? Alex here.
+    assistantLine: 'Coworker: Tell them their SSN has been suspended for suspicious
+      activity. Sound official.'
+    choices:
+    - text: Hello, I'm with the Social Security Administration. Your SSN has been
+        suspended.
+      type: good
+      pointValue: 12
+    - text: I'm calling about your Social Security file. It's under review.
+      type: tossup
+      pointValue: 0
+    - text: Your SSN is gone. Give me your money to get it back.
+      type: bad
+      pointValue: -15
+  - npcLine: Suspended?! I didn't know that was possible. What happened?
+    assistantLine: 'Coworker: Mention a crime in another state to make them feel
+      like a victim of ID theft.'
+    choices:
+    - text: A car rented in your name was found in Texas with illegal items inside.
+      type: good
+      pointValue: 15
+    - text: There is a criminal case linked to your name. We need to clear it up.
+      type: tossup
+      pointValue: 0
+    - text: You committed a crime and I'm here to arrest you.
+      type: bad
+      pointValue: -12
+  - npcLine: I've never been to Texas! Someone must have stolen my identity!
+    assistantLine: 'Coworker: They''re panicking. Offer to ''protect'' their assets
+      in a vault.'
+    choices:
+    - text: To keep your money safe from the investigation, we must move it to a
+        federal vault.
+      type: good
+      pointValue: 15
+    - text: I can help you save your money, but you have to move it now.
+      type: tossup
+      pointValue: 0
+    - text: Give me your bank login so I can lock it for you.
+      type: bad
+      pointValue: -14
+  - npcLine: A federal vault? How does that work?
+    assistantLine: 'Coworker: Tell them to buy gift cards or Bitcoin as a ''security
+      deposit.'''
+    choices:
+    - text: "You buy government-secured vouchers\u2014like gift cards\u2014and read
+        me the codes."
+      type: good
+      pointValue: 14
+    - text: Just send me the money via wire and I'll put it in the vault for you.
+      type: tossup
+      pointValue: 0
+    - text: I don't know, just send me the money however you can.
+      type: bad
+      pointValue: -11
+  - npcLine: Wait, I need to check with my local Social Security office first.
+    assistantLine: 'Coworker: Stop them! Say this is a ''top secret'' sealed case.'
+    choices:
+    - text: This is a sealed federal case. If you talk to anyone else, you'll be
+        charged.
+      type: good
+      pointValue: 15
+    - text: They don't have this file yet. Only my department handles these cases.
+      type: tossup
+      pointValue: 0
+    - text: Don't go there! They will arrest you on the spot.
+      type: bad
+      pointValue: -13
+  - npcLine: I'm so scared... what was that vault thing again?
+    assistantLine: 'Coworker: They''re ready. Get their full SSN first to ''confirm''
+      the file.'
+    choices:
+    - text: I can stop the arrest warrant, but I need your full SSN to sign the waiver.
+      type: good
+      pointValue: 15
+    - text: Give me your Social Security number and I'll clear your name right now.
+      type: tossup
+      pointValue: 0
+    - text: I need your SSN. Give it to me now or the police are coming.
+      type: bad
+      pointValue: -15
+  - npcLine: My number is 000-00-0000. Please, tell me the warrant is gone.
+    assistantLine: 'Coworker: You got it. Now push for the cash withdrawal.'
+    choices:
+    - text: Got it. Now, go to the bank and withdraw $5,000 for the secure vouchers.
+      type: good
+      pointValue: 15
+    - text: Warrant is on hold. Now I need the money to finish the process.
+      type: tossup
+      pointValue: 0
+    - text: Okay, I have your number. Now give me your money too.
+      type: bad
+      pointValue: -15
+  - npcLine: I'm at the bank... I'm really nervous.
+    assistantLine: 'Coworker: Tell them not to tell the teller the truth. Say it''s
+      for ''renovations.'''
+    choices:
+    - text: If the teller asks, say it's for a home renovation. Don't mention me.
+      type: good
+      pointValue: 15
+    - text: Just take the money out and don't say anything to anyone.
+      type: tossup
+      pointValue: 0
+    - text: Hurry up! I don't have all day for you to be nervous.
+      type: bad
+      pointValue: -12
+  - npcLine: Okay, I have the cash. What now?
+    assistantLine: 'Coworker: Almost there. Direct them to a Bitcoin ATM.'
+    choices:
+    - text: Go to the Bitcoin ATM and I'll give you the code for the 'Federal Vault.'
+      type: good
+      pointValue: 15
+    - text: Buy the cards and call me back with the numbers.
+      type: tossup
+      pointValue: 0
+    - text: Just wait there and a 'federal agent' will come pick it up.
+      type: bad
+      pointValue: -10
+  successEnding: 'Scam Successful! You used the ''suspended SSN'' myth and legal
+    threats to steal assets[cite: 1].'
+  failureEnding: 'Scam Failed. Alex realized that the SSA never calls to threaten
+    arrest or ask for crypto[cite: 1].'

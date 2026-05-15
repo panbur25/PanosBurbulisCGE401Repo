@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Pat_Victim
+  m_EditorClassIdentifier: 
+  entryID: Pat
+  isScammer: 0
+  steps:
+  - npcLine: Great news! I have successfully cleared that malicious virus from your
+      profile directory completely.
+    assistantLine: 'Internal Voice: Excellent, they fixed the problem. Let''s see
+      what happens next.'
+    choices:
+    - text: Thank you so much! I'm glad my computer profile is clean now.
+      type: tossup
+      pointValue: 0
+    - text: That's wonderful. Is there anything else we need to review today?
+      type: bad
+      pointValue: -5
+    - text: Now that it's fixed, what are the official next steps for confirmation?
+      type: good
+      pointValue: 10
+  - npcLine: To finalize the ticket and close the logs, you just need to pay a small
+      processing fee of $15.
+    assistantLine: 'Internal Voice: A processing fee after an unsolicited fix? That''s
+      highly suspect.'
+    choices:
+    - text: Sure, $15 is very cheap. Can I read you my credit card number?
+      type: bad
+      pointValue: -10
+    - text: An unsolicited phone support agent demanding any fee is a major red flag.
+      type: good
+      pointValue: 15
+    - text: Can you add this fee to my monthly utility bill instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: Our standard credit card server is offline for emergency maintenance.
+      We cannot accept cards or checks.
+    assistantLine: 'Internal Voice: Rejecting standard refundable credit card transactions
+      is an intentional bottleneck.'
+    choices:
+    - text: Oh, that's inconvenient. How am I supposed to pay the fee then?
+      type: bad
+      pointValue: -10
+    - text: Rejecting traceable methods like credit cards is a clear indicator of
+        fraud.
+      type: good
+      pointValue: 15
+    - text: Can I wait until your credit card terminal comes back online?
+      type: tossup
+      pointValue: 5
+  - npcLine: We require payment via an Apple gift card or an online Google Play voucher
+      card code.
+    assistantLine: 'Internal Voice: Gift cards?! No legitimate company takes gift
+      cards for processing fees.'
+    choices:
+    - text: I have an unused gift card in my desk drawer. Let me find it.
+      type: bad
+      pointValue: -15
+    - text: Demanding gift cards, wires, or crypto proves this is a non-reversible
+        scam.
+      type: good
+      pointValue: 15
+    - text: Why does a technology company accept retail store gift cards?
+      type: tossup
+      pointValue: 0
+  - npcLine: Gift cards are processed instantly by our ledger, which keeps our overhead
+      costs incredibly low.
+    assistantLine: 'Internal Voice: That explanation makes zero sense. They just
+      want untraceable cash.'
+    choices:
+    - text: Ah, that makes sense. Let me run to the retail store to buy a new one.
+      type: bad
+      pointValue: -15
+    - text: Vouchers and gift cards are impossible to reverse once shared. I refuse.
+      type: good
+      pointValue: 15
+    - text: Can I use a cryptocurrency transaction like Bitcoin instead?
+      type: tossup
+      pointValue: -5
+  - npcLine: Bitcoin works perfectly too! Send exactly $15 worth to our corporate
+      crypto wallet address right now.
+    assistantLine: 'Internal Voice: Crypto is also irreversible and anonymized. Another
+      huge red flag.'
+    choices:
+    - text: Let me open my crypto app and scan your wallet barcode.
+      type: bad
+      pointValue: -15
+    - text: Crypto, wire transfers, and gift cards are the top three indicators of
+        scam payments.
+      type: good
+      pointValue: 15
+    - text: Is there any processing fee discount if I pay with cryptocurrency?
+      type: tossup
+      pointValue: -5
+  - npcLine: No discounts! Go to the nearest supermarket immediately, purchase a
+      digital card, and do not hang up.
+    assistantLine: 'Internal Voice: They want to keep me isolated while I buy the
+      retail gift card.'
+    choices:
+    - text: I'm walking to my car now with the phone to my ear.
+      type: bad
+      pointValue: -15
+    - text: Demanding that I stay on the line while buying cards is an isolation
+        play.
+      type: good
+      pointValue: 15
+    - text: Can I hang up and call you back once I have the card codes?
+      type: tossup
+      pointValue: 0
+  - npcLine: If you hang up before reading the scratched-off pins, the virus will
+      reactivate and lock your machine.
+    assistantLine: 'Internal Voice: Now they are resorting to basic extortion threats
+      to force compliance.'
+    choices:
+    - text: Don't activate the virus! I'm buying the voucher code right this second!
+      type: bad
+      pointValue: -15
+    - text: Real firms cannot remotely trigger malware because of a missing processing
+        fee.
+      type: good
+      pointValue: 15
+    - text: How long do I have before the virus automatically triggers again?
+      type: tossup
+      pointValue: 0
+  - npcLine: Scratch off the silver backing and read me the complete alphanumeric
+      sequence right now.
+    assistantLine: 'Internal Voice: The definitive moment. Time to drop the hammer.'
+    choices:
+    - text: The sequence digits are 9-4-A-2-...
+      type: bad
+      pointValue: -15
+    - text: I am hanging up and deleting whatever software you had me install. Goodbye.
+      type: good
+      pointValue: 15
+    - text: What happens if a single digit is read incorrectly?
+      type: tossup
+      pointValue: 0
+  successEnding: Correct! You identified that demands for gift cards, crypto, or
+    wires are absolute indicators of a scam because they cannot be reversed or traced.
+  failureEnding: Incorrect. Handing over gift card numbers or crypto to an unsolicited
+    caller leads to unrecoverable financial extortion.

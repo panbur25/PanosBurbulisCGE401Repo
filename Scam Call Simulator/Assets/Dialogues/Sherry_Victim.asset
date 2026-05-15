@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Sherry_Victim
+  m_EditorClassIdentifier: 
+  entryID: Sherry
+  isScammer: 0
+  steps:
+  - npcLine: "I\u2019m helping my great-grandfather secure his digital life, and
+      it made me realize my own security is a mess. I use the same password for everything!
+      What should I do first?"
+    assistantLine: 'Internal Voice: Security is about building layers. What''s the
+      foundation of a good defense?'
+    choices:
+    - text: Use a password manager to generate and store unique, strong passwords
+        for every account.
+      type: good
+      pointValue: 15
+    - text: Change all your passwords to your birthday so you never forget them.
+      type: bad
+      pointValue: -20
+    - text: Just use your email password for every other site to keep it simple.
+      type: bad
+      pointValue: -15
+  - npcLine: "Okay, I\u2019ve got a password manager. Now, how do I stop my phone
+      from being flooded with these 'Scam Likely' calls?"
+    assistantLine: 'Internal Voice: Preventing the initial contact is key. How do
+      scammers even get your number?'
+    choices:
+    - text: Search for yourself on data broker sites and follow their opt-out processes.
+      type: good
+      pointValue: 15
+    - text: Register for the National Do Not Call Registry; that will stop all scam
+        calls forever.
+      type: tossup
+      pointValue: 5
+    - text: Answer every call and yell at the scammers until they take you off their
+        list.
+      type: bad
+      pointValue: -15
+  - npcLine: What about social media? I love sharing my Aikido progress and photos
+      of my Unity game development. Is that a risk?
+    assistantLine: 'Internal Voice: Visibility is a double-edged sword. You can share,
+      but you should control *who* sees it.'
+    choices:
+    - text: Set your profiles to 'Private' and only allow people you know to follow
+        you.
+      type: good
+      pointValue: 15
+    - text: Delete your social media accounts entirely; there's no safe way to use
+        them.
+      type: bad
+      pointValue: -10
+    - text: Keep them public so you can build a bigger following for your game.
+      type: tossup
+      pointValue: 0
+  - npcLine: I heard something about 'Two-Factor Authentication.' Is that really
+      worth the extra effort of typing in a code every time?
+    assistantLine: 'Internal Voice: It''s the single most effective way to stop someone
+      who already has your password.'
+    choices:
+    - text: Yes, enable 2FA on all important accounts, especially your email and
+        banking.
+      type: good
+      pointValue: 15
+    - text: No, it's just a way for companies to track your phone number.
+      type: bad
+      pointValue: -15
+    - text: Only use it for your university portal; other sites don't really matter.
+      type: tossup
+      pointValue: 0
+  - npcLine: "If I get a call from my 'bank' and it looks like their real number,
+      but I\u2019m not sure, what\u2019s my best move?"
+    assistantLine: 'Internal Voice: Your habits on the phone are just as important
+      as your technical settings.'
+    choices:
+    - text: Hang up and call the bank back using the official number on the back
+        of your card.
+      type: good
+      pointValue: 15
+    - text: Stay on the line and ask them to verify their identity by giving you
+        your SSN.
+      type: bad
+      pointValue: -15
+    - text: Ask them to text you a link to a 'secure chat' instead.
+      type: tossup
+      pointValue: 5
+  - npcLine: "I feel like I\u2019m becoming paranoid. Is it enough to just have a
+      good antivirus program?"
+    assistantLine: 'Internal Voice: Antivirus is great for malware, but it doesn''t
+      stop social engineering or data leaks.'
+    choices:
+    - text: Antivirus is just one layer; habits like 2FA and privacy settings are
+        more effective against vishing.
+      type: good
+      pointValue: 15
+    - text: Yes, a good antivirus will block all scam calls and identity theft attempts.
+      type: bad
+      pointValue: -15
+    - text: Antivirus is actually a scam itself; you should never use it.
+      type: tossup
+      pointValue: -5
+  - npcLine: I found myself on a data broker site listing my age, address, and my
+      'boyfriend's' name. How do I keep this from coming back?
+    assistantLine: 'Internal Voice: Persistence is the name of the game with data
+      brokers.'
+    choices:
+    - text: Check these sites every few months and re-request removal if you reappear.
+      type: good
+      pointValue: 15
+    - text: Sue the data broker in small claims court so they stop listing you.
+      type: bad
+      pointValue: -10
+    - text: Ignore it; once you've opted out once, the law says they can't come back.
+      type: tossup
+      pointValue: 0
+  - npcLine: My great-grandfather is asking if he should use a VPN. Does that help
+      with vishing?
+    assistantLine: 'Internal Voice: VPNs are for network privacy, but they don''t
+      hide your phone number from scammers.'
+    choices:
+    - text: It helps with browsing privacy, but it won't stop scammers from calling
+        or texting you.
+      type: good
+      pointValue: 10
+    - text: Yes, a VPN will encrypt your phone calls and make you invisible to scammers.
+      type: bad
+      pointValue: -15
+    - text: It's only useful if you're traveling out of the country.
+      type: tossup
+      pointValue: 5
+  - npcLine: "I think I\u2019ve got a solid combination of habits now. Password manager,
+      2FA, private social media, and data broker check-ups."
+    assistantLine: 'Internal Voice: That is a ''defense-in-depth'' strategy. You
+      are now a much harder target.'
+    choices:
+    - text: This combination effectively reduces my likelihood of being successfully
+        targeted.
+      type: good
+      pointValue: 15
+    - text: I'm 100% immune to all scams now that I've done this.
+      type: bad
+      pointValue: -15
+    - text: I'll go back to my Unity game. My dialogue script isn't going to write
+        itself!
+      type: tossup
+      pointValue: 5
+  successEnding: "Correct! You identified that a combination of habits\u2014setting
+    profiles to private, using unique passwords, enabling 2FA, and opting out of
+    data brokers\u2014is the most effective way to reduce your risk."
+  failureEnding: Incorrect. You relied too heavily on single solutions like antivirus
+    or the Do Not Call registry, which do not protect against the diverse tactics
+    used in vishing and social engineering.

@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835431524041ce44e889351e0ffe7924, type: 3}
+  m_Name: Casey_Victim
+  m_EditorClassIdentifier: 
+  entryID: Casey
+  isScammer: 0
+  steps:
+  - npcLine: Ethan? It's Casey. I'm a lawyer for your grandson. He's in jail after
+      an accident.
+    assistantLine: 'Wife: Ethan, wait. We don''t know a Casey. This sounds like a
+      ''Grandparent Scam.'''
+    choices:
+    - text: Oh my god! Is he okay? What do I need to do?
+      type: bad
+      pointValue: -10
+    - text: Which grandson are you talking about? Give me a name.
+      type: good
+      pointValue: 12
+    - text: Let me call his parents and see what's going on.
+      type: tossup
+      pointValue: 0
+  - npcLine: He's terrified and doesn't want his parents to know. He'll be furious
+      if you call them.
+    assistantLine: 'Wife: Secrecy is a huge red flag. They want to isolate you so
+      you don''t check the facts.'
+    choices:
+    - text: Okay, I won't tell them. How much is the bail?
+      type: bad
+      pointValue: -15
+    - text: If it's an emergency, his parents need to know. I'm calling them.
+      type: good
+      pointValue: 15
+    - text: Why can't he call me himself?
+      type: tossup
+      pointValue: 0
+  - npcLine: The judge set bail at $4,000. We need it in gift cards immediately to
+      process it today.
+    assistantLine: 'Wife: $4,000 in gift cards? No legitimate court or lawyer accepts
+      payment like that.'
+    choices:
+    - text: I'll head to the store now. Tell him I'm coming.
+      type: bad
+      pointValue: -15
+    - text: Lawyers take wire transfers or checks, not gift cards. This is a scam.
+      type: good
+      pointValue: 15
+    - text: Can I pay with a credit card over the phone instead?
+      type: tossup
+      pointValue: 0
+  - npcLine: Every minute you wait, he stays in a holding cell with dangerous criminals.
+    assistantLine: 'Wife: He''s using fear and urgency to stop you from thinking
+      clearly.'
+    choices:
+    - text: I'm so worried... okay, I'm at the store. What cards do I buy?
+      type: bad
+      pointValue: -14
+    - text: If he's really in jail, I'll visit the precinct in person.
+      type: good
+      pointValue: 13
+    - text: Can you send me a picture of him to prove he's there?
+      type: tossup
+      pointValue: 0
+  - npcLine: There's no time for visits! The courier is waiting for the codes now.
+    assistantLine: 'Wife: He''s pushing harder because you''re asking questions.
+      Stay firm.'
+    choices:
+    - text: Fine! The code is 4920-3841-...
+      type: bad
+      pointValue: -15
+    - text: Hanging up now. I'm calling the actual police station to verify.
+      type: good
+      pointValue: 15
+    - text: Wait, I need to make sure I have enough in my account.
+      type: tossup
+      pointValue: 0
+  - npcLine: If you hang up, the deal is off and he'll be transferred to state prison.
+    assistantLine: 'Wife: That''s not how the legal system works. He''s lying to
+      scare you.'
+    choices:
+    - text: Please don't let that happen! I'll give you the rest of the money.
+      type: bad
+      pointValue: -15
+    - text: State prison? For a car accident bail hearing? You're a fraud.
+      type: good
+      pointValue: 15
+    - text: Can I talk to my grandson for one second?
+      type: tossup
+      pointValue: 0
+  - npcLine: He's in processing. He can't talk. Just give me the codes and he's free.
+    assistantLine: 'Wife: Notice how he has an excuse for everything? Don''t fall
+      for it.'
+    choices:
+    - text: Okay, I'm reading the numbers now...
+      type: bad
+      pointValue: -15
+    - text: Real lawyers don't act like high-pressure salesmen. Goodbye.
+      type: good
+      pointValue: 14
+    - text: Which store should I go to for the best cards?
+      type: tossup
+      pointValue: 0
+  - npcLine: Go to the nearest pharmacy. Hurry, Ethan. His future is in your hands.
+    assistantLine: 'Wife: Using guilt is a low blow. You''re doing the right thing
+      by refusing.'
+    choices:
+    - text: I'm going. I can't let him stay in there.
+      type: bad
+      pointValue: -15
+    - text: My grandson's future is safe because I'm not giving you a cent.
+      type: good
+      pointValue: 15
+    - text: Can I pay half now and half later?
+      type: tossup
+      pointValue: 0
+  - npcLine: No! It has to be the full amount. Do you want to save him or not?
+    assistantLine: 'Wife: Last chance, Ethan. Hang up and call the family.'
+    choices:
+    - text: I'll do it. Just please help him.
+      type: bad
+      pointValue: -15
+    - text: I'm calling my grandson's cell phone right now. Goodbye.
+      type: good
+      pointValue: 15
+    - text: Why are you being so mean about this?
+      type: tossup
+      pointValue: 0
+  successEnding: You avoided the emotional trap! Urgency, secrecy, and requests for
+    gift cards are hallmark signs of vishing.
+  failureEnding: 'You fell for the emotional manipulation. Scammers use fear for
+    loved ones and secrecy to isolate their victims[cite: 1].'
